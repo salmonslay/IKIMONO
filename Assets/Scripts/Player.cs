@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
         inventory = new Inventory();
         inventory.AddItem(food1);
         inventory.AddItem(food2);
+        inventory.AddItem(food2);
+        inventory.AddItem(food2);
         uiInventory.SetInventory(inventory);
     }
 }
