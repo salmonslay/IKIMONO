@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Ikimono : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        print("hi");
-
-
-        print("MIN ÄNDRING ÄR BÄST");
-	print("hello");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("dis is cool lmao");
         
     }
 }
