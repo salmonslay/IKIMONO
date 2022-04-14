@@ -16,6 +16,8 @@ public class Inventory
 
     public void AddItem(Item item, int amount)
     {
+        //Om item kan stacka -> Hitta i listan och addera på amount
+        //Finns item inte i listan, lägg till
         if (item.IsStackable())
         {
             bool alreadyInInventory = false;
@@ -36,11 +38,14 @@ public class Inventory
         {
             itemList.Add(item);
         }
+        //Trigga förändring i UI
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void RemoveItem(Item item, int amount)
     {
+        //Om item kan stacka -> Hitta i listan och substrahera på amount
+        //Fanns item i listan och är nu under 1, ta bort ur listan
         if (item.IsStackable())
         {
             Item itemInInventory = null;

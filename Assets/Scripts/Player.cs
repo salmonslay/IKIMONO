@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    //Placeholder Playerscript för testning
     public static Player Instance { get; private set; }
 
     [SerializeField] private UI_Inventory uiInventory;
