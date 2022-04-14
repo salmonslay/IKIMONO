@@ -14,7 +14,7 @@ public class Inventory
         itemList = new List<Item>();
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, int amount)
     {
         if (item.IsStackable())
         {
@@ -23,7 +23,7 @@ public class Inventory
             {
                 if (inventoryItem.itemName == item.itemName)
                 {
-                    inventoryItem.amount += item.amount;
+                    inventoryItem.amount += amount;
                     alreadyInInventory = true;
                 }
             }
@@ -39,7 +39,7 @@ public class Inventory
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item item, int amount)
     {
         if (item.IsStackable())
         {
@@ -48,7 +48,7 @@ public class Inventory
             {
                 if (inventoryItem.itemName == item.itemName)
                 {
-                    inventoryItem.amount--;
+                    inventoryItem.amount -= amount;
                     itemInInventory = inventoryItem;
                 }
             }

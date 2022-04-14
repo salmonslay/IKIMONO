@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    public static Player Instance { get; private set; }
+
     [SerializeField] private UI_Inventory uiInventory;
     private Inventory inventory;
 
@@ -12,11 +15,18 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         inventory = new Inventory();
-        inventory.AddItem(food1);
-        inventory.AddItem(food2);
-        inventory.AddItem(food2);
-        inventory.AddItem(food2);
+        //inventory.AddItem(food1);
+        //inventory.AddItem(food2);
+        //inventory.AddItem(food2);
+        //inventory.AddItem(food2);
         uiInventory.SetInventory(inventory);
+    }
+
+    public Inventory GetInventory()
+    {
+        return inventory;
     }
 }

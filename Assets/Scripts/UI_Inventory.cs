@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
+
+
     private Inventory inventory;
     [SerializeField] private Transform itemSlotContainer;
     [SerializeField] private Transform itemSlot;
@@ -21,6 +23,7 @@ public class UI_Inventory : MonoBehaviour
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
+        Debug.Log("UI script reached");
         RefreshInventoryItems();
     }
 
@@ -41,7 +44,7 @@ public class UI_Inventory : MonoBehaviour
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlot, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotSize, y * itemSlotSize);
+            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotSize, y * -itemSlotSize);
 
             Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
             image.sprite = item.GetSprite();
@@ -59,7 +62,7 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.GetComponent<ItemSlot>().SetUp(item, inventory);
 
             x++;
-            if (x > 3) { x = 0; y++; }
+            if (x >= 3) { x = 0; y++; }
         }
     }
 

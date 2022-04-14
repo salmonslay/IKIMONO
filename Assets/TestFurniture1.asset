@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f42bbe2da99eb264faa5adadca6f7899, type: 3}
-  m_Name: TestFood1
+  m_Name: TestFurniture1
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: TestFood1
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  foodValue: 1
-  purchaseCost: 1
+  itemType: 1
+  itemName: TestFurniture1
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  foodValue: 0
+  purchaseCost: 5
   amount: 0

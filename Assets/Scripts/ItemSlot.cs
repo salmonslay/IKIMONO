@@ -20,6 +20,6 @@ public class ItemSlot : MonoBehaviour
 
     public void UseItem()
     {
-        inventory.RemoveItem(item);
+        inventory.RemoveItem(item, 1);
     }
 }
