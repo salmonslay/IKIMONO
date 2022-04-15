@@ -31,13 +31,13 @@ namespace IKIMONO.Pet
             Name = name;
         }
         
-        public void Update()
+        public void UpdateValues()
         {
-            Hunger.Update();
-            Social.Update();
-            Energy.Update();
-            Fun.Update();
-            Hygiene.Update();
+            Hunger.UpdateValue();
+            Social.UpdateValue();
+            Energy.UpdateValue();
+            Fun.UpdateValue();
+            Hygiene.UpdateValue();
         }
         
         /// <summary>

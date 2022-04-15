@@ -45,7 +45,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// Update this need to a new value from time.
         /// </summary>
-        public void Update()
+        public void UpdateValue()
         {
             float oldValue = Value;
             // calculate delta 
@@ -66,7 +66,7 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to increase this value with</param>
         public void Increase(float amount)
         {
-            Update();
+            UpdateValue();
             Value = Math.Min(MaxValue, Value + amount);
         }
         

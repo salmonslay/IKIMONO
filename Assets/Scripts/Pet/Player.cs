@@ -11,6 +11,7 @@ namespace IKIMONO.Pet
     public class Player
     {
         public static Player Instance { get; private set; }
+        
         #region Save file Variables
 
         /// <summary>
