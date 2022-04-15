@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,18 +11,27 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             // Hitta vilket item som dragit.
-            Item _itemToRemove = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
+            Item item = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
 
-            //Kontrollera att det ‰r ett fooditem.
-            if (!_itemToRemove.ItemScriptableObject.ItemType.Equals(Item.ItemType.Food))
+            //Kontrollera att det ÔøΩr ett fooditem.
+            if (!item.ItemScriptableObject.ItemType.Equals(Item.ItemType.Food))
             {
                 return;
             }
 
             // Ta bort foodItem ur inventory.
-            PlayerTestClass.Instance.GetInventory().RemoveItem(_itemToRemove, 1);
+            PlayerTestClass.Instance.GetInventory().RemoveItem(item, 1);
 
-            // TODO L‰gg till funktion som att mata osv h‰r.
+            PetNeed hunger = Player.Instance.Pet.Hunger;
+            if (hunger.Value > hunger.MaxValue - 1)
+            {
+                // TODO: g√∂r n√•t √•t det?
+                return;
+            }
+            else
+            {
+                hunger.Increase(item.ItemScriptableObject.FoodValue);
+            }
         }
     }
 
