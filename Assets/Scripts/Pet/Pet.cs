@@ -31,6 +31,15 @@ namespace IKIMONO.Pet
             Name = name;
         }
         
+        public void Update()
+        {
+            Hunger.Update();
+            Social.Update();
+            Energy.Update();
+            Fun.Update();
+            Hygiene.Update();
+        }
+        
         /// <summary>
         /// Convert the pet to a JSON-string.
         /// </summary>
