@@ -8,7 +8,7 @@ public class PlayerTestClass : MonoBehaviour
     public static PlayerTestClass Instance { get; private set; }
 
     [SerializeField] private UI_Inventory _uiInventory;
-    private Inventory _inventory;
+    [SerializeField] private Inventory _inventory;
 
     private void Awake()
     {

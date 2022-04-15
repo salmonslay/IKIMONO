@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652dd15712cd8e4f9ebfa20950f490e, type: 3}
   m_Name: Food1
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: food1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  ItemType: 0
+  ItemName: Food1
+  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  FoodValue: 0
+  PurchaseCost: 0
