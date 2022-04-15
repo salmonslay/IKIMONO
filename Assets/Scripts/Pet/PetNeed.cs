@@ -11,13 +11,13 @@ namespace IKIMONO.Pet
     public abstract class PetNeed
     {
         public abstract string Name { get; }
-        public abstract float MaxValue { get; }
-        public abstract float MinValue { get; }
-        
+        public virtual float MaxValue { get; } = 100;
+        public virtual float MinValue { get; } = 0;
+
         /// <summary>
         /// How much the need will decrease per hour.
         /// </summary>
-        public abstract int DecayRate { get; }
+        public virtual int DecayRate { get; } = 5;
 
         [JsonProperty("value")]
         private float _value;
