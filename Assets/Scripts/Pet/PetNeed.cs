@@ -56,7 +56,7 @@ namespace IKIMONO.Pet
             Value = Math.Max(MinValue, Math.Min(MaxValue, Value - delta));
             LastUpdated = now;
             
-            Debug.Log("Updated " + Name + " to " + Value);
+            Debug.Log($"Updated {Name} to {Value}");
         }
         
         /// <summary>
