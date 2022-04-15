@@ -15,7 +15,7 @@ namespace IKIMONO.Pet
         public virtual float MinValue { get; } = 0;
 
         /// <summary>
-        /// How much the need will decrease per hour
+        /// How much the need will decrease per hour. MaxValue/DecayRate = hours to reach MinValue.
         /// </summary>
         public virtual float DecayRate { get; } = 5;
 
