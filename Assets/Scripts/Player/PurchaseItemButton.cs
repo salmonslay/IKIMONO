@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private ItemScriptableObject itemScriptableObject;
-    private Inventory inventory;
+    [SerializeField] private ItemScriptableObject _itemScriptableObject;
+    private Inventory _inventory;
 
     private void Start()
     {
-        inventory = PlayerTestClass.Instance.GetInventory(); ;
+        _inventory = PlayerTestClass.Instance.GetInventory(); ;
 
-        Text text = transform.Find("Text").GetComponent<Text>();
-        text.text = "Buy: " + itemScriptableObject.ToString();
+        Text _text = transform.Find("Text").GetComponent<Text>();
+        _text.text = "Buy: " + _itemScriptableObject.ToString();
     }
 
     public void BuyItem()
     {
-        inventory.AddItem(new Item { ItemScriptableObject = itemScriptableObject }, 1);
+        _inventory.AddItem(new Item { ItemScriptableObject = _itemScriptableObject }, 1);
     }
 }

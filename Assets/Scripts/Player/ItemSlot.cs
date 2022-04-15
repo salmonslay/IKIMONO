@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    public Item item;
-    private Inventory inventory;
+    [SerializeField] private Item _item;
+    private Inventory _inventory;
 
     public void SetUp(Item item, Inventory inventory)
     {
-        this.item = item;
-        this.inventory = inventory;
+        _item = item;
+        _inventory = inventory;
     }
 
     public Item GetItem()
     {
-        return item;
+        return _item;
     }
 
     public void UseItem()
     {
-        inventory.RemoveItem(item, 1);
+        _inventory.RemoveItem(_item, 1);
     }
 }

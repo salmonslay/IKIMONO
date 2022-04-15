@@ -7,10 +7,10 @@ using UnityEngine;
 public class ItemScriptableObject : ScriptableObject
 {
 
-    public Item.ItemType itemType;
-    public string itemName;
-    public Sprite sprite;
-    public float foodValue;
-    public int purchaseCost;
+    public Item.ItemType ItemType;
+    public string ItemName;
+    public Sprite Sprite;
+    public float FoodValue;
+    public int PurchaseCost;
 
 }

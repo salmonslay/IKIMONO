@@ -11,16 +11,16 @@ public class Item
     }
 
     public ItemScriptableObject ItemScriptableObject;
-    private int amount;
+    private int _amount;
 
     public Sprite GetSprite()
     {
-        return ItemScriptableObject.sprite;
+        return ItemScriptableObject.Sprite;
     }
 
     public bool IsStackable()
     {
-        switch (ItemScriptableObject.itemType)
+        switch (ItemScriptableObject.ItemType)
         {
             default:
             case ItemType.Food:
@@ -33,21 +33,21 @@ public class Item
     override
     public string ToString()
     {
-        return ItemScriptableObject.itemName;
+        return ItemScriptableObject.ItemName;
     }
 
     public int GetAmount()
     {
-        return amount;
+        return _amount;
     }
 
     public void AddAmount(int addedValue)
     {
-        amount += addedValue;
+        _amount += addedValue;
     }
 
     public void RemoveAmount(int removedAmount)
     {
-        amount -= removedAmount;
+        _amount -= removedAmount;
     }
 }

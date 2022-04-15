@@ -7,11 +7,11 @@ public class Inventory
 {
     public event EventHandler OnItemListChanged;
 
-    private List<Item> itemList;
+    private List<Item> _itemList;
 
     public Inventory()
     {
-        itemList = new List<Item>();
+        _itemList = new List<Item>();
     }
 
     public void AddItem(Item item, int amount)
@@ -20,25 +20,25 @@ public class Inventory
         //Finns item inte i listan, lägg till
         if (item.IsStackable())
         {
-            bool alreadyInInventory = false;
-            foreach (Item inventoryItem in itemList)
+            bool _alreadyInInventory = false;
+            foreach (Item inventoryItem in _itemList)
             {
                 if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
                 {
                     inventoryItem.AddAmount(amount);
-                    alreadyInInventory = true;
+                    _alreadyInInventory = true;
                 }
             }
-            if (!alreadyInInventory)
+            if (!_alreadyInInventory)
             {
                 item.AddAmount(amount);
-                itemList.Add(item);
+                _itemList.Add(item);
             }
         }
         else
         {
             item.AddAmount(amount);
-            itemList.Add(item);
+            _itemList.Add(item);
         }
         //Trigga förändring i UI
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
@@ -50,29 +50,29 @@ public class Inventory
         //Fanns item i listan och är nu under 1, ta bort ur listan
         if (item.IsStackable())
         {
-            Item itemInInventory = null;
-            foreach (Item inventoryItem in itemList)
+            Item _itemInInventory = null;
+            foreach (Item inventoryItem in _itemList)
             {
                 if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
                 {
                     inventoryItem.RemoveAmount(amount);
-                    itemInInventory = inventoryItem;
+                    _itemInInventory = inventoryItem;
                 }
             }
-            if (itemInInventory != null && itemInInventory.GetAmount() <= 0)
+            if (_itemInInventory != null && _itemInInventory.GetAmount() <= 0)
             {
-                itemList.Remove(item);
+                _itemList.Remove(item);
             }
         }
         else
         {
-            itemList.Remove(item);
+            _itemList.Remove(item);
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public List<Item> GetItemList()
     {
-        return itemList;
+        return _itemList;
     }
 }

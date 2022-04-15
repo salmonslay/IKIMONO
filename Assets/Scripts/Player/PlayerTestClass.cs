@@ -7,26 +7,27 @@ public class PlayerTestClass : MonoBehaviour
     //Placeholder Playerscript för testning
     public static PlayerTestClass Instance { get; private set; }
 
-    [SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
-
-    public ItemScriptableObject food1;
-    public ItemScriptableObject food2;
+    [SerializeField] private UI_Inventory _uiInventory;
+    private Inventory _inventory;
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        inventory = new Inventory();
-        //inventory.AddItem(food1);
-        //inventory.AddItem(food2);
-        //inventory.AddItem(food2);
-        //inventory.AddItem(food2);
-        uiInventory.SetInventory(inventory);
+        _inventory = new Inventory();
+        _uiInventory.SetInventory(_inventory);
     }
 
     public Inventory GetInventory()
     {
-        return inventory;
+        return _inventory;
     }
 }
