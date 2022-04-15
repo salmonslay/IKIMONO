@@ -10,22 +10,27 @@ namespace IKIMONO.Pet
     [JsonObject(MemberSerialization.OptIn)]
     public class SaveFile
     {
-        #region Member Variables
+        #region Save file Variables
 
+        /// <summary>
+        /// The pet data.
+        /// </summary>
+        [JsonProperty("pet")] public Pet Pet;
+        
         /// <summary>
         /// The index for the chosen background. 
         /// </summary>
-        public int BackgroundIndex { get; } = -1;
+        [JsonProperty("background")] public int BackgroundIndex { get; } = -1;
         
         /// <summary>
         /// The amount of money the player has.
         /// </summary>
-        public int Coins { get; } = 0;
+        [JsonProperty("coins")] public int Coins { get; } = 0;
         
         /// <summary>
         /// The DateTime the save file was created.
         /// </summary>
-        public DateTime CreationDate { get; } = DateTime.Now;
+        [JsonProperty("createdAt")] public DateTime CreationDate { get; } = DateTime.Now;
         
         #endregion
         
@@ -35,8 +40,7 @@ namespace IKIMONO.Pet
         /// </summary>
         public void Save()
         {
-            string json = JsonConvert.SerializeObject(this);
-            PlayerPrefs.SetString("SaveFile", json);
+            PlayerPrefs.SetString("SaveFile", ToString());
             PlayerPrefs.Save();
             Debug.Log("Saved save file.");
         }
@@ -64,6 +68,12 @@ namespace IKIMONO.Pet
             Debug.Log("No save file found.");
             return new SaveFile();
         }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
         #endregion
     }
 }
