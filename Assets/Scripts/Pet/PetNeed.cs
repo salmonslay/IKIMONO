@@ -17,7 +17,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// How much the need will decrease per hour
         /// </summary>
-        public virtual int DecayRate { get; } = 5;
+        public virtual float DecayRate { get; } = 5;
 
         [JsonProperty("value")]
         private float _value;
