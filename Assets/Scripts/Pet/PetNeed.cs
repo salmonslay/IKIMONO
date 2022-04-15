@@ -19,8 +19,7 @@ namespace IKIMONO.Pet
         /// </summary>
         public virtual float DecayRate { get; } = 5;
 
-        [JsonProperty("value")]
-        private float _value;
+        [JsonProperty("value")] private float _value = 100;
 
         /// <summary>
         /// The current value of the need.
@@ -40,7 +39,7 @@ namespace IKIMONO.Pet
         /// The last time the need was updated.
         /// </summary>
         [JsonProperty("updatedAt")]
-        public DateTime LastUpdated { get; private set; }
+        public DateTime LastUpdated { get; private set; } = DateTime.Now;
 
         /// <summary>
         /// Update this need to a new value from time.
