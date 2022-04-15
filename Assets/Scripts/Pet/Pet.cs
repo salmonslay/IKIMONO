@@ -26,6 +26,11 @@ namespace IKIMONO.Pet
         
         [JsonProperty("hygiene")] public PetNeed Hygiene { get; } = new PetNeedHygiene();
         
+        public Pet (string name)
+        {
+            Name = name;
+        }
+        
         /// <summary>
         /// Convert the pet to a JSON-string.
         /// </summary>

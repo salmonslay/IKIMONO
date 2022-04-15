@@ -15,7 +15,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// The pet data.
         /// </summary>
-        [JsonProperty("pet")] public Pet Pet;
+        [JsonProperty("pet")] public Pet Pet { get; } = new Pet("Unnamed Pet");
         
         /// <summary>
         /// The index for the chosen background. 

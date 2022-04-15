@@ -6,12 +6,10 @@ namespace IKIMONO.Pet
 {
     public class Test : MonoBehaviour
     {
-        PetNeed petNeed = new PetNeedHunger();
-
         private void Start()
         {
-            petNeed.Update();
-            Debug.Log(JsonConvert.SerializeObject(petNeed));
+            SaveFile saveFile = new SaveFile();
+            print(saveFile.ToString());
         }
     }
 }
