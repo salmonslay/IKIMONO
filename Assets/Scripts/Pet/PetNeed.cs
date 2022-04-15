@@ -65,6 +65,7 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to increase this value with</param>
         public void Increase(float amount)
         {
+            Update();
             Value = Math.Min(MaxValue, Value + amount);
         }
         

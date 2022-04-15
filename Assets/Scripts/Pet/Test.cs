@@ -9,6 +9,8 @@ namespace IKIMONO.Pet
         private void Start()
         {
             Player.Instance.AddCoins(5);
+            Player.Instance.Pet.Hunger.Increase(5);
+            
             print(Player.Instance.ToString());
             Player.Instance.Save();
         }
