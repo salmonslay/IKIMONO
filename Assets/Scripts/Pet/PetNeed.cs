@@ -58,5 +58,23 @@ namespace IKIMONO.Pet
             
             Debug.Log("Updated " + Name + " to " + Value);
         }
+        
+        /// <summary>
+        /// Increase the value of this need by a certain amount.
+        /// </summary>
+        /// <param name="amount">The amount to increase this value with</param>
+        public void Increase(float amount)
+        {
+            Value = Math.Min(MaxValue, Value + amount);
+        }
+        
+        /// <summary>
+        /// Decrease the value of this need by a certain amount.
+        /// </summary>
+        /// <param name="amount">The amount to decrease this value with</param>
+        public void Decrease(float amount)
+        {
+            Value = Math.Max(MinValue, Value - amount);
+        }
     }
 }
