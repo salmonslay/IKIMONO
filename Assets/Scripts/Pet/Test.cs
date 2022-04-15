@@ -8,8 +8,9 @@ namespace IKIMONO.Pet
     {
         private void Start()
         {
-            SaveFile saveFile = new SaveFile();
-            print(saveFile.ToString());
+            Player.Instance.AddCoins(5);
+            print(Player.Instance.ToString());
+            Player.Instance.Save();
         }
     }
 }

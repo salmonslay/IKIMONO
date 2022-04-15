@@ -8,8 +8,9 @@ namespace IKIMONO.Pet
     /// Represents a complete save file.
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
-    public class SaveFile
+    public class Player
     {
+        public static Player Instance { get; private set; }
         #region Save file Variables
 
         /// <summary>
@@ -25,7 +26,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// The amount of money the player has.
         /// </summary>
-        [JsonProperty("coins")] public int Coins { get; } = 0;
+        [JsonProperty("coins")] public int Coins { get; private set;  } = 0;
         
         /// <summary>
         /// The DateTime the save file was created.
@@ -33,6 +34,12 @@ namespace IKIMONO.Pet
         [JsonProperty("createdAt")] public DateTime CreationDate { get; } = DateTime.Now;
         
         #endregion
+        
+        // Init the instance.
+        static Player()
+        {
+            Instance = Load();
+        }
         
         #region Methods
         /// <summary>
@@ -49,31 +56,36 @@ namespace IKIMONO.Pet
         /// Creates a SaveFile class from the PlayerPrefs. If no save file exists, a new one is created.
         /// </summary>
         /// <returns>The SaveFile class.</returns>
-        public static SaveFile Load()
+        public static Player Load()
         {
             if (PlayerPrefs.HasKey("SaveFile"))
             {
                 try
                 {
                     string json = PlayerPrefs.GetString("SaveFile");
-                    return JsonConvert.DeserializeObject<SaveFile>(json);
+                    return JsonConvert.DeserializeObject<Player>(json);
                 }
                 catch (Exception e)
                 {
                     Debug.LogError("Failed to load save file: " + e.Message); // TODO: Inform the user somehow? Maybe a popup, but this shouldn't happen.
-                    return new SaveFile();
+                    return new Player();
                 }
             }
 
             Debug.Log("No save file found.");
-            return new SaveFile();
+            return new Player();
         }
 
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
         }
-
+        
+        public void AddCoins(int amount)
+        {
+            Coins += amount;
+        }
+        
         #endregion
     }
 }
