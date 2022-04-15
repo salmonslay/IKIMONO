@@ -15,16 +15,16 @@ namespace IKIMONO.Pet
         /// The name of the pet.
         /// </summary>
         [JsonProperty("name")] public string Name { get; }
-        
-        [JsonProperty("hunger")] public PetNeed Hunger { get; }
 
-        [JsonProperty("social")] public PetNeed Social { get; }
+        [JsonProperty("hunger")] public PetNeed Hunger { get; } = new PetNeedHunger();
+
+        [JsonProperty("social")] public PetNeed Social { get; } = new PetNeedSocial();
         
-        [JsonProperty("energy")] public PetNeed Energy { get; }
+        [JsonProperty("energy")] public PetNeed Energy { get; } = new PetNeedEnergy();
         
-        [JsonProperty("fun")] public PetNeed Fun { get; }
+        [JsonProperty("fun")] public PetNeed Fun { get; } = new PetNeedFun();
         
-        [JsonProperty("hygiene")] public PetNeed Hygiene { get; }
+        [JsonProperty("hygiene")] public PetNeed Hygiene { get; } = new PetNeedHygiene();
         
         /// <summary>
         /// Convert the pet to a JSON-string.
