@@ -47,6 +47,7 @@ namespace IKIMONO.Pet
         /// </summary>
         public void Update()
         {
+            float oldValue = Value;
             // calculate delta 
             DateTime now = DateTime.Now;
             TimeSpan elapsed = now - LastUpdated;
@@ -56,7 +57,7 @@ namespace IKIMONO.Pet
             Value = Math.Max(MinValue, Math.Min(MaxValue, Value - delta));
             LastUpdated = now;
             
-            Debug.Log($"Updated {Name} to {Value}");
+            Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
         }
         
         /// <summary>
