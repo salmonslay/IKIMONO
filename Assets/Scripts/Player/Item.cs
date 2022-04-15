@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
+[JsonObject(MemberSerialization.OptIn)]
 public class Item
 {
     public enum ItemType
@@ -11,7 +13,9 @@ public class Item
     }
 
     public ItemScriptableObject ItemScriptableObject;
-    private int _amount;
+
+    [JsonProperty("item")] private string _itemName => ItemScriptableObject.ItemName;
+    [JsonProperty("amount")] private int _amount;
 
     public Sprite GetSprite()
     {
@@ -30,8 +34,8 @@ public class Item
         }
     }
 
-    override
-    public string ToString()
+    
+    public override string ToString()
     {
         return ItemScriptableObject.ItemName;
     }
