@@ -15,9 +15,9 @@ namespace IKIMONO.Pet
         public virtual float MinValue { get; } = 0;
 
         /// <summary>
-        /// How much the need will decrease per hour.
+        /// How much the need will decrease per hour. MaxValue/DecayRate = hours to reach MinValue.
         /// </summary>
-        public virtual int DecayRate { get; } = 5;
+        public virtual float DecayRate { get; } = 5;
 
         [JsonProperty("value")]
         private float _value;
@@ -56,7 +56,26 @@ namespace IKIMONO.Pet
             Value = Math.Max(MinValue, Math.Min(MaxValue, Value - delta));
             LastUpdated = now;
             
-            Debug.Log("Updated " + Name + " to " + Value);
+            Debug.Log($"Updated {Name} to {Value}");
+        }
+        
+        /// <summary>
+        /// Increase the value of this need by a certain amount.
+        /// </summary>
+        /// <param name="amount">The amount to increase this value with</param>
+        public void Increase(float amount)
+        {
+            Update();
+            Value = Math.Min(MaxValue, Value + amount);
+        }
+        
+        /// <summary>
+        /// Decrease the value of this need by a certain amount.
+        /// </summary>
+        /// <param name="amount">The amount to decrease this value with</param>
+        public void Decrease(float amount)
+        {
+            Value = Math.Max(MinValue, Value - amount);
         }
     }
 }
