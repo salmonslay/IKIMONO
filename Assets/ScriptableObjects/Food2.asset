@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42bbe2da99eb264faa5adadca6f7899, type: 3}
-  m_Name: TestFood2
+  m_Script: {fileID: 11500000, guid: 8652dd15712cd8e4f9ebfa20950f490e, type: 3}
+  m_Name: Food2
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: TestFood2
-  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  foodValue: 5
-  purchaseCost: 2
-  amount: 0
+  itemName: food2
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

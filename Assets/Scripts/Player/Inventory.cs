@@ -23,19 +23,21 @@ public class Inventory
             bool alreadyInInventory = false;
             foreach (Item inventoryItem in itemList)
             {
-                if (inventoryItem.itemName == item.itemName)
+                if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
                 {
-                    inventoryItem.amount += amount;
+                    inventoryItem.AddAmount(amount);
                     alreadyInInventory = true;
                 }
             }
             if (!alreadyInInventory)
             {
+                item.AddAmount(amount);
                 itemList.Add(item);
             }
         }
         else
         {
+            item.AddAmount(amount);
             itemList.Add(item);
         }
         //Trigga förändring i UI
@@ -51,13 +53,13 @@ public class Inventory
             Item itemInInventory = null;
             foreach (Item inventoryItem in itemList)
             {
-                if (inventoryItem.itemName == item.itemName)
+                if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
                 {
-                    inventoryItem.amount -= amount;
+                    inventoryItem.RemoveAmount(amount);
                     itemInInventory = inventoryItem;
                 }
             }
-            if (itemInInventory != null && itemInInventory.amount <= 0)
+            if (itemInInventory != null && itemInInventory.GetAmount() <= 0)
             {
                 itemList.Remove(item);
             }

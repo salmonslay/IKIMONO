@@ -52,14 +52,15 @@ public class UI_Inventory : MonoBehaviour
 
             //Sätt amountText till antalet items i inventory ifall de finns fler än 1
             Text amountText = itemSlotRectTransform.Find("AmountText").GetComponent<Text>();
-            if (item.amount > 1)
+            if (item.GetAmount() > 1)
             {
-                amountText.text = item.amount.ToString();
+                amountText.text = item.GetAmount().ToString();
             }
             else
             {
                 amountText.text = "";
             }
+            Debug.Log(item.GetAmount());
 
             //Lägg till referens till item i itemslot scriptet så att det går att använda från UI
             itemSlotRectTransform.GetComponent<ItemSlot>().SetUp(item, inventory);
