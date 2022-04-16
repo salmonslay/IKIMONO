@@ -1,4 +1,5 @@
 ﻿using System;
+using IKIMONO.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,10 @@ namespace IKIMONO.Pet
             Pet.UpdatedValues += SetBars;
         }
 
+        public void RenamePet()
+        {
+            SetNamePanel.Open();
+        }
         public void NukeData()
         {
             PlayerPrefs.DeleteAll();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using IKIMONO.UI;
 using UnityEngine;
 using Newtonsoft.Json;
 
@@ -34,7 +35,12 @@ namespace IKIMONO.Pet
         [JsonProperty("hygiene")] public PetNeed Hygiene { get; } = new PetNeedHygiene();
         
         public PetNeed[] Needs => new[] { Hunger, Social, Energy, Fun, Hygiene };
-        
+
+        public Pet()
+        {
+            SetNamePanel.InitializeNameSet();
+            Name = SetNamePanel.NameSet.GetRandomName();
+        }
         public Pet (string name)
         {
             Name = name;
