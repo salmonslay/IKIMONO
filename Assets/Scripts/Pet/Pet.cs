@@ -21,7 +21,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// The name of the pet.
         /// </summary>
-        [JsonProperty("name")] public string Name { get; }
+        [JsonProperty("name")] public string Name { get; private set; }
 
         [JsonProperty("hunger")] public PetNeed Hunger { get; } = new PetNeedHunger();
 
@@ -38,6 +38,13 @@ namespace IKIMONO.Pet
         public Pet (string name)
         {
             Name = name;
+        }
+
+        public void SetName(string name)
+        {
+            Name = name;
+            Debug.Log($"Pet name set to {name}");
+            Player.Instance.Save();
         }
         
         public void UpdateValues()
