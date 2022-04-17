@@ -12,13 +12,6 @@ namespace IKIMONO.Pet
     [JsonObject(MemberSerialization.OptIn)]
     public class Pet
     {
-        public delegate void UpdatedValuesEventHandler();
-        
-        /// <summary>
-        /// Called when the pet's values are updated.
-        /// </summary>
-        public static event UpdatedValuesEventHandler UpdatedValues;
-        
         /// <summary>
         /// The name of the pet.
         /// </summary>
@@ -60,7 +53,6 @@ namespace IKIMONO.Pet
             Energy.UpdateValue();
             Fun.UpdateValue();
             Hygiene.UpdateValue();
-            UpdatedValues?.Invoke();
         }
         
         /// <summary>

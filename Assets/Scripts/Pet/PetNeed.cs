@@ -10,6 +10,14 @@ namespace IKIMONO.Pet
     [JsonObject(MemberSerialization.OptIn)]
     public abstract class PetNeed
     {
+        
+        public delegate void ValueUpdatedEventHandler();
+        
+        /// <summary>
+        /// Called when the pet's values are updated.
+        /// </summary>
+        public static event ValueUpdatedEventHandler ValueUpdated;
+        
         public abstract string Name { get; }
         public virtual float MaxValue { get; } = 100;
         public virtual float MinValue { get; } = 0;
@@ -56,6 +64,8 @@ namespace IKIMONO.Pet
             Value = Math.Max(MinValue, Math.Min(MaxValue, Value - delta));
             LastUpdated = now;
             
+            ValueUpdated?.Invoke();
+
             Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
         }
         
