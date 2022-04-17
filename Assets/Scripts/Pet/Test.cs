@@ -9,7 +9,7 @@ namespace IKIMONO.Pet
     {
         private void Start()
         {
-            Pet.UpdatedValues += SetBars;
+            PetNeed.ValueUpdated += SetBars;
         }
 
         public void RenamePet()
