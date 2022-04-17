@@ -444,10 +444,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 232882136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8282de918fe65438fde39bebd2d716, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e8c03fe0f164d84d82a2b7c3b3d87f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemScriptableObject: {fileID: 11400000, guid: 3413246c3055f8d4ca3e0ae49c0576f9, type: 2}
 --- !u!114 &232882139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,8 +492,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 232882138}
-        m_TargetAssemblyTypeName: PurchaseItemButton, Assembly-CSharp
-        m_MethodName: BuyItem
+        m_TargetAssemblyTypeName: AndroidNotifications, Assembly-CSharp
+        m_MethodName: PushNotification
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
