@@ -31,8 +31,7 @@ namespace IKIMONO.Pet
 
         public Pet()
         {
-            SetNamePanel.InitializeNameSet();
-            Name = SetNamePanel.NameSet.GetRandomName();
+            Name = NameSet.GetRandomName();
         }
         public Pet (string name)
         {

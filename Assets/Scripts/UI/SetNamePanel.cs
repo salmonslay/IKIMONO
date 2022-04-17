@@ -1,5 +1,7 @@
+using System;
 using IKIMONO.Pet;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -8,31 +10,14 @@ namespace IKIMONO.UI
 {
     public class SetNamePanel : MonoBehaviour
     {
-        public static NameSet NameSet { get; private set; } // TODO: Init before use?
-        
         [SerializeField] private InputField _nameInputField;
         [SerializeField] private Text _statusText;
         private void Start()
         {
-            InitializeNameSet();
             _nameInputField.text = Player.Instance.Pet.Name;
             _statusText.text = "";
         }
         
-        public static void InitializeNameSet()
-        {
-            if (NameSet != null) return;
-            
-            TextAsset json = Resources.Load<TextAsset>("Data/names");
-                
-            if (json == null)
-            {
-                Debug.LogWarning("No names found! Please add a names.json file to the Resources/Data/ folder.");
-                NameSet = new NameSet();
-            }
-            NameSet = JsonConvert.DeserializeObject<NameSet>(json.text);
-        }
-
         public void SetRandom()
         {
             _nameInputField.text = NameSet.GetRandomName();
@@ -61,23 +46,45 @@ namespace IKIMONO.UI
     [JsonObject(MemberSerialization.OptIn)]
     public class NameSet
     {
-        [JsonProperty("girls")] public string[] FemaleNames;
+        private static NameSet _instance;
 
-        [JsonProperty("boys")] public string[] MaleNames;
+        [JsonProperty("girls")] public string[] FemaleNames = Array.Empty<string>();
 
-        public string GetRandomName()
+        [JsonProperty("boys")] public string[] MaleNames = Array.Empty<string>();
+
+        static NameSet()
+        {
+            Initialize();
+        }
+
+        private static void Initialize()
+        {
+            TextAsset json = Resources.Load<TextAsset>("Data/names");
+
+            if (json == null)
+            {
+                Debug.LogWarning("No names found! Please add a names.json file to the Resources/Data/ folder.");
+            }
+            else
+            {
+                _instance = JsonConvert.DeserializeObject<NameSet>(json.text);
+            }
+        }
+
+
+        public static string GetRandomName()
         {
             return Random.Range(0, 2) == 1 ? GetRandomFemaleName() : GetRandomMaleName();
         }
         
-        public string GetRandomFemaleName()
+        public static string GetRandomFemaleName()
         {
-            return FemaleNames[Random.Range(0, FemaleNames.Length)];
+            return _instance.FemaleNames[Random.Range(0, _instance.FemaleNames.Length)];
         }
         
-        public string GetRandomMaleName()
+        public static string GetRandomMaleName()
         {
-            return MaleNames[Random.Range(0, MaleNames.Length)];
+            return _instance.MaleNames[Random.Range(0, _instance.MaleNames.Length)];
         }
     }
 }
