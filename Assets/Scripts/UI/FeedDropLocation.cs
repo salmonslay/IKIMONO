@@ -13,16 +13,14 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             // Hitta vilket item som dragit.
             Item item = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
 
-            //Kontrollera att det �r ett fooditem.
+            // Exit out if itemtype is not food.
             if (!item.ItemScriptableObject.ItemType.Equals(Item.ItemType.Food))
             {
                 return;
             }
 
-            // Ta bort foodItem ur inventory.
-            PlayerTestClass.Instance.GetInventory().RemoveItem(item, 1);
-
             PetNeed hunger = Player.Instance.Pet.Hunger;
+
             if (hunger.Value > hunger.MaxValue - 1)
             {
                 // TODO: gör nåt åt det?
@@ -30,6 +28,9 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             }
             else
             {
+                // Ta bort foodItem ur inventory.
+                PlayerTestClass.Instance.GetInventory().RemoveItem(item, 1);
+                // Add foor to hunger
                 hunger.Increase(item.ItemScriptableObject.FoodValue);
             }
         }

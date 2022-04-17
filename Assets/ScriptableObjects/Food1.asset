@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemType: 0
   ItemName: Food1
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  FoodValue: 0
-  PurchaseCost: 0
+  FoodValue: 1
+  PurchaseCost: 1
