@@ -10,5 +10,6 @@ public class FoodItemScriptableObject : ScriptableObject
     public string ItemName;
     public Sprite Sprite;
     public float FoodValue;
+    public float EnergyValue;
     public int PurchaseCost;
 }
