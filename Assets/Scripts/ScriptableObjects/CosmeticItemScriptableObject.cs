@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/ItemScriptableObject")]
+[CreateAssetMenu(fileName = "New Item", menuName = "ScriptableObjects/Cosmetic")]
 public class CosmeticItemScriptableObject : ScriptableObject
 {
-
-    public Item.ItemType ItemType = Item.ItemType.Cosmetic;
+    public readonly Item.ItemType ItemType = Item.ItemType.Cosmetic;
     public string ItemName;
     public Sprite Sprite;
     public int PurchaseCost;
-
 }
