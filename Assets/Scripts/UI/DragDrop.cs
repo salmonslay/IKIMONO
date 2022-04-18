@@ -10,7 +10,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private Image _imageOriginal;
     private Image _imageCopy;
 
-    [SerializeField] private Canvas _canvas;
+    private Canvas _canvas;
     private CanvasGroup _canvasGroup;
 
     private void Awake()
@@ -18,6 +18,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         _imageOriginal = transform.Find("Image").GetComponent<Image>();
         _canvasGroup = GetComponent<CanvasGroup>();
         _itemSlot = GetComponent<ItemSlot>();
+        _canvas = transform.GetComponentInParent<Canvas>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
