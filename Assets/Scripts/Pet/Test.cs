@@ -10,6 +10,7 @@ namespace IKIMONO.Pet
         private void Start()
         {
             PetNeed.ValueUpdated += SetBars;
+            UpdateAll();
         }
 
         public void RenamePet()
@@ -25,6 +26,12 @@ namespace IKIMONO.Pet
         public void UpdateAll()
         {
             Player.Instance.Pet.UpdateValues();
+        }
+
+        public void HowLongToZeroHunger()
+        {
+            DateTime timeSpan = Player.Instance.Pet.Hunger.TimeAtMinValue;
+            Debug.Log("Time to zero hunger: " + timeSpan.ToString("HH:mm:ss"));
         }
 
         public static void SetBars()
