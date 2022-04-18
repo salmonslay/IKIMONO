@@ -25,7 +25,6 @@ public class AndroidNotifications : MonoBehaviour
     {
         Pet pet = Player.Instance.Pet;
 
-        AndroidNotification notification = new AndroidNotification();
         string title = "Hunger level: " + pet.Hunger.Value + " /100";
         string messageText = "Your pet" + pet.Name + " is hungry!";
         string smallIcon = "smalltesticon";

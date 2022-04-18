@@ -9,7 +9,6 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] private Transform _itemSlotContainer;
     [SerializeField] private GameObject _itemSlot;
     private Transform _itemSlotTransform;
-    [SerializeField] private int _maxColumns = 3;
 
     public void SetInventory(Inventory inventory)
     {
@@ -35,9 +34,6 @@ public class UI_Inventory : MonoBehaviour
         }
 
         // Gå igenom alla items i inventory och uppdatera UI.
-        const float itemSlotSize = 125f;
-        int x = 0;
-        int y = 0;
         foreach (Item item in _inventory.GetItemList())
         {
             // Skapa inventoryslot och placera ut i inventory.
