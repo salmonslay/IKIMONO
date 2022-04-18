@@ -7,12 +7,15 @@ public class UI_Inventory : MonoBehaviour
 
     private Inventory _inventory;
     [SerializeField] private Transform _itemSlotContainer;
-    [SerializeField] private Transform _itemSlot;
+    [SerializeField] private GameObject _itemSlot;
+    private Transform _itemSlotTransform;
+    [SerializeField] private int _maxColumns = 3;
 
     public void SetInventory(Inventory inventory)
     {
         _inventory = inventory;
         inventory.OnItemListChanged += OnItemListChanged;
+        _itemSlotTransform = _itemSlot.transform;
 
         RefreshInventoryItems();
     }
@@ -25,14 +28,12 @@ public class UI_Inventory : MonoBehaviour
 
     private void RefreshInventoryItems()
     {
-        // Tar bort alla itemslots förutom templaten.
+        // Tar bort alla itemslots innan nya placeras ut.
         foreach (Transform child in _itemSlotContainer)
         {
-            if (child == _itemSlot) continue;
             Destroy(child.gameObject);
         }
 
-        // TODO: Byt ut mot UnityEngine.UI.GridLayoutGroup
         // Gå igenom alla items i inventory och uppdatera UI.
         const float itemSlotSize = 125f;
         int x = 0;
@@ -40,9 +41,8 @@ public class UI_Inventory : MonoBehaviour
         foreach (Item item in _inventory.GetItemList())
         {
             // Skapa inventoryslot och placera ut i inventory.
-            RectTransform itemSlotRectTransform = Instantiate(_itemSlot, _itemSlotContainer).GetComponent<RectTransform>();
+            RectTransform itemSlotRectTransform = Instantiate(_itemSlotTransform, _itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotSize, y * -itemSlotSize);
 
             // Sätt sprite till items sprite.
             Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
@@ -54,10 +54,6 @@ public class UI_Inventory : MonoBehaviour
 
             // Lägg till referens till item i itemslot scriptet så att det går att anv�nda från UI.
             itemSlotRectTransform.GetComponent<ItemSlot>().SetUp(item, _inventory);
-
-            // Uppdatera x och y koordinaterna så att nya items hamnar rätt i UI.
-            x++;
-            if (x >= 3) { x = 0; y++; }
         }
     }
 
