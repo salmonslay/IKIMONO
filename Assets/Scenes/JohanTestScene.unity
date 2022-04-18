@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 232882139}
   - component: {fileID: 232882138}
   m_Layer: 5
-  m_Name: PurchaseButton (3)
+  m_Name: Check hunger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 232882138}
         m_TargetAssemblyTypeName: AndroidNotifications, Assembly-CSharp
-        m_MethodName: PushNotification
+        m_MethodName: PushNotificationTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -26,24 +26,18 @@ public class AndroidNotifications : MonoBehaviour
         Pet pet = Player.Instance.Pet;
 
         AndroidNotification notification = new AndroidNotification();
-        notification.Title = "Hunger level: " + pet.Hunger.Value + " /100";
-        notification.Text = "Your pet" + pet.Name + " is hungry!";
-        notification.SmallIcon = "smalltesticon";
-        notification.ShowTimestamp = true;
-        notification.FireTime = System.DateTime.Now.AddSeconds(5);
+        string title = "Hunger level: " + pet.Hunger.Value + " /100";
+        string messageText = "Your pet" + pet.Name + " is hungry!";
+        string smallIcon = "smalltesticon";
+        string largeIcon = "largetesticon";
+        float fireDelay = 5f;
 
-        var notificationId = AndroidNotificationCenter.SendNotification(notification, "TestChannel");
-        Debug.Log(AndroidNotificationCenter.CheckScheduledNotificationStatus(notificationId));
 
-        if (AndroidNotificationCenter.CheckScheduledNotificationStatus(notificationId) == NotificationStatus.Scheduled)
-        {
-            AndroidNotificationCenter.CancelAllNotifications();
-            AndroidNotificationCenter.SendNotification(notification, "TestChannel");
-        }
-
+        AndroidNotification testNotification = BuildNotification(title, messageText, smallIcon, largeIcon, fireDelay);
+        PushNotification(testNotification);
     }
 
-    public void BuildNotification(string title, string messageText, string smallIcon, string largeIcon = null, float fireTimeDelay = 0)
+    public AndroidNotification BuildNotification(string title, string messageText, string smallIcon, string largeIcon = null, float fireTimeDelay = 0)
     {
         AndroidNotification notification = new AndroidNotification();
         notification.Title = title;
@@ -53,6 +47,8 @@ public class AndroidNotifications : MonoBehaviour
             notification.LargeIcon = largeIcon;
         notification.ShowTimestamp = true;
         notification.FireTime = System.DateTime.Now.AddSeconds(fireTimeDelay);
+
+        return notification;
     }
 
     public void PushNotification(AndroidNotification notification)
