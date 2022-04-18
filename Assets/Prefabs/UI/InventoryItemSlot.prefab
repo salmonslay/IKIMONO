@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f965d57c9205f6341acd77c2eed2d237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 0}
 --- !u!225 &118257441531078203
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -276,7 +275,7 @@ RectTransform:
   m_GameObject: {fileID: 118257441694502009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 118257441531078215}
   m_RootOrder: 1
