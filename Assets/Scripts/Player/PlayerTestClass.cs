@@ -30,4 +30,8 @@ public class PlayerTestClass : MonoBehaviour
     {
         return _inventory;
     }
+
+    //bjdhgfkbfhfgvjkdfsgbhfdsjkgb fdhgjk
+
+    //bhfjkbfhidsgfsdgdf
 }
