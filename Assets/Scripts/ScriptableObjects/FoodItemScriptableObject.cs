@@ -4,10 +4,10 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/ItemScriptableObject")]
-public class ItemScriptableObject : ScriptableObject
+public class FoodItemScriptableObject : ScriptableObject
 {
 
-    public Item.ItemType ItemType;
+    public Item.ItemType ItemType = Item.ItemType.Food;
     public string ItemName;
     public Sprite Sprite;
     public float FoodValue;

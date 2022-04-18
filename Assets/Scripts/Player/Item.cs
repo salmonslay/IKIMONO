@@ -9,10 +9,10 @@ public class Item
     public enum ItemType
     {
         Food,
-        Furniture,
+        Cosmetic,
     }
 
-    public ItemScriptableObject ItemScriptableObject;
+    public FoodItemScriptableObject ItemScriptableObject;
 
     [JsonProperty("item")] private string _itemName => ItemScriptableObject.ItemName;
     [JsonProperty("amount")] private int _amount;
@@ -29,12 +29,12 @@ public class Item
             default:
             case ItemType.Food:
                 return true;
-            case ItemType.Furniture:
+            case ItemType.Cosmetic:
                 return false;
         }
     }
 
-    
+
     public override string ToString()
     {
         return ItemScriptableObject.ItemName;
