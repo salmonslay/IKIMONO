@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
+[JsonObject(MemberSerialization.OptIn)]
 public class Inventory
 {
     public event EventHandler OnItemListChanged;
 
-    private List<Item> _itemList;
+    [JsonProperty("items")] private List<Item> _itemList;
 
     public Inventory()
     {
@@ -20,16 +22,16 @@ public class Inventory
         //Finns item inte i listan, lägg till
         if (item.IsStackable())
         {
-            bool _alreadyInInventory = false;
+            bool alreadyInInventory = false;
             foreach (Item inventoryItem in _itemList)
             {
                 if (inventoryItem.ItemObject == item.ItemObject)
                 {
                     inventoryItem.AddAmount(amount);
-                    _alreadyInInventory = true;
+                    alreadyInInventory = true;
                 }
             }
-            if (!_alreadyInInventory)
+            if (!alreadyInInventory)
             {
                 item.AddAmount(amount);
                 _itemList.Add(item);
@@ -50,16 +52,16 @@ public class Inventory
         //Fanns item i listan och är nu under 1, ta bort ur listan
         if (item.IsStackable())
         {
-            Item _itemInInventory = null;
+            Item itemInInventory = null;
             foreach (Item inventoryItem in _itemList)
             {
                 if (inventoryItem.ItemObject == item.ItemObject)
                 {
                     inventoryItem.RemoveAmount(amount);
-                    _itemInInventory = inventoryItem;
+                    itemInInventory = inventoryItem;
                 }
             }
-            if (_itemInInventory != null && _itemInInventory.GetAmount() <= 0)
+            if (itemInInventory != null && itemInInventory.GetAmount() <= 0)
             {
                 _itemList.Remove(item);
             }
