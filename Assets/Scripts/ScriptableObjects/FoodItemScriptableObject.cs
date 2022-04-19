@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
 using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New Food", menuName = "ScriptableObjects/Food")]
-public class FoodItemScriptableObject : ScriptableObject
+public class FoodItemScriptableObject : ItemScriptableObject
 {
-    public readonly Item.ItemType ItemType = Item.ItemType.Food;
-    public string ItemName;
-    public Sprite Sprite;
-    public float FoodValue;
+    public float HungerValue;
     public float EnergyValue;
-    public int PurchaseCost;
 }

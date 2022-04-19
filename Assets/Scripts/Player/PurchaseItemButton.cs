@@ -18,6 +18,6 @@ public class PurchaseItemButton : MonoBehaviour
 
     public void BuyItem()
     {
-        _inventory.AddItem(new Item { ItemScriptableObject = _itemScriptableObject }, 1);
+        _inventory.AddItem(new Item { ItemObject = _itemScriptableObject }, 1);
     }
 }
