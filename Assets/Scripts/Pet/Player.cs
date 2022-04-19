@@ -34,6 +34,8 @@ namespace IKIMONO.Pet
         /// </summary>
         [JsonProperty("createdAt")] public DateTime CreationDate { get; } = DateTime.Now;
         
+        [JsonProperty("inventory")] public Inventory Inventory { get; private set; } = new Inventory();
+        
         #endregion
         
         // Init the instance.

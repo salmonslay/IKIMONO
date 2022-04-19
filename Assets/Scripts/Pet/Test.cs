@@ -1,5 +1,6 @@
 ﻿using System;
 using IKIMONO.UI;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ namespace IKIMONO.Pet
     {
         private void Start()
         {
+            Debug.Log($"Found {ItemScriptableObject.AllItems.Length} items in the database");
+
             PetNeed.ValueUpdated += SetBars;
             UpdateAll();
         }

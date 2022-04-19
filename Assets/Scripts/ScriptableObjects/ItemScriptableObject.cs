@@ -7,5 +7,7 @@ namespace ScriptableObjects
         public string ItemName;
         public Sprite Sprite;
         public int PurchaseCost;
+        
+        public static ItemScriptableObject[] AllItems => Resources.LoadAll<ItemScriptableObject>("Items");
     }
 }

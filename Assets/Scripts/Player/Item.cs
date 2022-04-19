@@ -8,9 +8,10 @@ using UnityEngine;
 public class Item
 {
     public ItemScriptableObject ItemObject;
-
-    [JsonProperty("item")] private string _itemName => ItemObject.ItemName;
-    [JsonProperty("amount")] private int _amount;
+    public string Name => ItemObject.ItemName;
+    
+    [JsonProperty("item")] private string _itemName;
+    [JsonProperty("amount")] public int Amount;
 
     public Sprite GetSprite()
     {
@@ -34,17 +35,17 @@ public class Item
 
     public int GetAmount()
     {
-        return _amount;
+        return Amount;
     }
 
     public void AddAmount(int addedValue)
     {
-        _amount += addedValue;
+        Amount += addedValue;
     }
 
     public void RemoveAmount(int removedAmount)
     {
-        _amount -= removedAmount;
+        Amount -= removedAmount;
     }
 
 }
