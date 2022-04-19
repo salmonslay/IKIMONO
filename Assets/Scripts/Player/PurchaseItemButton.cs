@@ -1,3 +1,4 @@
+using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private FoodItemScriptableObject _itemScriptableObject;
+    [SerializeField] private ItemScriptableObject _itemScriptableObject;
     private Inventory _inventory;
 
     private void Start()
