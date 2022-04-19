@@ -1,10 +1,11 @@
 using IKIMONO.Pet;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private FoodItemScriptableObject _itemScriptableObject;
+    [SerializeField] private ItemScriptableObject  _itemScriptableObject;
 
     private void Start()
     {
