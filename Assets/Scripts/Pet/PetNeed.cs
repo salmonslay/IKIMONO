@@ -48,6 +48,8 @@ namespace IKIMONO.Pet
         /// </summary>
         [JsonProperty("updatedAt")]
         public DateTime LastUpdated { get; private set; } = DateTime.Now;
+        
+        public DateTime TimeAtMinValue => LastUpdated + TimeSpan.FromHours(MaxValue / DecayRate);
 
         /// <summary>
         /// Update this need to a new value from time.

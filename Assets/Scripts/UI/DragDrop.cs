@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private ItemSlot _itemSlot;
     private Image _imageOriginal;
     private Image _imageCopy;
 
-    [SerializeField] private Canvas _canvas;
+    private Canvas _canvas;
     private CanvasGroup _canvasGroup;
 
     private void Awake()
@@ -18,6 +18,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         _imageOriginal = transform.Find("Image").GetComponent<Image>();
         _canvasGroup = GetComponent<CanvasGroup>();
         _itemSlot = GetComponent<ItemSlot>();
+        _canvas = transform.GetComponentInParent<Canvas>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -47,9 +48,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         // Blocka raycasts igen så att det går att dra item igen.
         _canvasGroup.blocksRaycasts = true;
-        // Ta bort kopian som dragits runt.
-        Destroy(_imageCopy.gameObject);
     }
+
 
 
     public Item GetItem()
@@ -57,4 +57,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         return _itemSlot.GetItem();
     }
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        // Ta bort kopian som dragits runt.
+        Destroy(_imageCopy.gameObject);
+    }
 }

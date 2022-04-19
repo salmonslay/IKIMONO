@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private ItemScriptableObject _itemScriptableObject;
+    [SerializeField] private FoodItemScriptableObject _itemScriptableObject;
     private Inventory _inventory;
 
     private void Start()

@@ -46,6 +46,15 @@
                     "guid": "d7fa69d18af97504ba456a9ea038bc67",
                     "type": 3
                 }
+            },
+            {
+                "Id": "largetesticon",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "a2ffbcd36e9b32c45aeffde475cf4c75",
+                    "type": 3
+                }
             }
         ]
     }
