@@ -1,43 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using ScriptableObjects;
 using UnityEngine;
 
 [JsonObject(MemberSerialization.OptIn)]
 public class Item
 {
-    public enum ItemType
-    {
-        Food,
-        Cosmetic,
-    }
+    public ItemScriptableObject ItemObject;
 
-    public FoodItemScriptableObject ItemScriptableObject;
-
-    [JsonProperty("item")] private string _itemName => ItemScriptableObject.ItemName;
+    [JsonProperty("item")] private string _itemName => ItemObject.ItemName;
     [JsonProperty("amount")] private int _amount;
 
     public Sprite GetSprite()
     {
-        return ItemScriptableObject.Sprite;
+        return ItemObject.Sprite;
     }
 
     public bool IsStackable()
     {
-        switch (ItemScriptableObject.ItemType)
-        {
-            default:
-            case ItemType.Food:
-                return true;
-            case ItemType.Cosmetic:
-                return false;
-        }
+        if (ItemObject.GetType() == typeof(FoodItemScriptableObject))
+            return true;
+        else if (ItemObject.GetType() == typeof(CosmeticItemScriptableObject))
+            return false;
+
+        return false;
     }
-
-
+    
     public override string ToString()
     {
-        return ItemScriptableObject.ItemName;
+        return ItemObject.ItemName;
     }
 
     public int GetAmount()

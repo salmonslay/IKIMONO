@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using IKIMONO.Pet;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,13 +15,17 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             Item item = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
 
             // Exit out if itemtype is not food.
-            if (!item.ItemScriptableObject.ItemType.Equals(Item.ItemType.Food))
+            if (item.ItemObject.GetType() != typeof(FoodItemScriptableObject))
             {
                 return;
             }
 
-            PetNeed hunger = Player.Instance.Pet.Hunger;
+            FoodItemScriptableObject food = (FoodItemScriptableObject) item.ItemObject;
 
+            PetNeed hunger = Player.Instance.Pet.Hunger;
+            PetNeed energy = Player.Instance.Pet.Energy;
+
+            // TODO: edge-case for energy items?
             if (hunger.Value > hunger.MaxValue - 1)
             {
                 // TODO: gör nåt åt det?
@@ -30,8 +35,10 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             {
                 // Ta bort foodItem ur inventory.
                 PlayerTestClass.Instance.GetInventory().RemoveItem(item, 1);
-                // Add foor to hunger
-                hunger.Increase(item.ItemScriptableObject.FoodValue);
+                // Add food to hunger
+                hunger.Increase(food.HungerValue);
+                // Add food to energy
+                energy.Increase(food.EnergyValue);
             }
         }
     }

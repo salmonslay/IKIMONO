@@ -23,7 +23,7 @@ public class Inventory
             bool _alreadyInInventory = false;
             foreach (Item inventoryItem in _itemList)
             {
-                if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
+                if (inventoryItem.ItemObject == item.ItemObject)
                 {
                     inventoryItem.AddAmount(amount);
                     _alreadyInInventory = true;
@@ -53,7 +53,7 @@ public class Inventory
             Item _itemInInventory = null;
             foreach (Item inventoryItem in _itemList)
             {
-                if (inventoryItem.ItemScriptableObject == item.ItemScriptableObject)
+                if (inventoryItem.ItemObject == item.ItemObject)
                 {
                     inventoryItem.RemoveAmount(amount);
                     _itemInInventory = inventoryItem;
