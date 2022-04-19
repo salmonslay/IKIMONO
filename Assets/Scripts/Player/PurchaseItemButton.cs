@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
     [SerializeField] private FoodItemScriptableObject _itemScriptableObject;
-    private Inventory _inventory;
 
     private void Start()
     {
-        _inventory = PlayerTestClass.Instance.GetInventory(); ;
-
-        Text _text = transform.Find("Text").GetComponent<Text>();
-        _text.text = "Buy: " + _itemScriptableObject.ToString();
+        Text text = transform.Find("Text").GetComponent<Text>();
+        text.text = "Buy: " + _itemScriptableObject.ItemName;
     }
 
     public void BuyItem()
     {
-        _inventory.AddItem(new Item { ItemObject = _itemScriptableObject }, 1);
+        Player.Instance.Inventory.AddItem(new Item(_itemScriptableObject), 1);
+        // TODO: reduce coins? is this done elsewhere?
+        
+        Player.Instance.Save();
     }
 }

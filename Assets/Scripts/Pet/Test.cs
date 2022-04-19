@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using IKIMONO.UI;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 namespace IKIMONO.Pet
 {
@@ -14,6 +16,17 @@ namespace IKIMONO.Pet
 
             PetNeed.ValueUpdated += SetBars;
             UpdateAll();
+        }
+
+        public void PrintJson()
+        {
+            string json = Player.Instance.ToString();
+            string path = System.IO.Path.GetTempPath();
+            string fileName = $"{path}/{Player.Instance.Pet.Name}.json";
+            System.IO.File.WriteAllText(fileName, json);
+            Debug.Log($"Saved json to {fileName}");
+            Debug.Log("Opening...");
+            Process.Start(fileName);
         }
 
         public void RenamePet()
