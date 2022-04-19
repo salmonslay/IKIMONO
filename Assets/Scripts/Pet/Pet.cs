@@ -52,6 +52,7 @@ namespace IKIMONO.Pet
             Energy.UpdateValue();
             Fun.UpdateValue();
             Hygiene.UpdateValue();
+            Player.Instance.Save();
         }
         
         /// <summary>
