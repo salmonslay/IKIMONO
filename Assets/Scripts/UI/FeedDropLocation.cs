@@ -9,6 +9,7 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("Test0");
         if (eventData.pointerDrag != null)
         {
             // Hitta vilket item som dragit.
@@ -20,7 +21,7 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
                 return;
             }
 
-            FoodItemScriptableObject food = (FoodItemScriptableObject) item.ItemObject;
+            FoodItemScriptableObject food = (FoodItemScriptableObject)item.ItemObject;
 
             PetNeed hunger = Player.Instance.Pet.Hunger;
             PetNeed energy = Player.Instance.Pet.Energy;
@@ -34,7 +35,7 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             else
             {
                 // Ta bort foodItem ur inventory.
-                PlayerTestClass.Instance.GetInventory().RemoveItem(item, 1);
+                Player.Instance.Inventory.RemoveItem(item, 1);
                 // Add food to hunger
                 hunger.Increase(food.HungerValue);
                 // Add food to energy

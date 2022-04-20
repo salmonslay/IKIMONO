@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private ItemScriptableObject  _itemScriptableObject;
+    [SerializeField] private ItemScriptableObject _itemScriptableObject;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class PurchaseItemButton : MonoBehaviour
     {
         Player.Instance.Inventory.AddItem(new Item(_itemScriptableObject), 1);
         // TODO: reduce coins? is this done elsewhere?
-        
+
         Player.Instance.Save();
     }
 }

@@ -1,10 +1,11 @@
+using IKIMONO.Pet;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
     private ItemSlot _itemSlot;
     private Image _imageOriginal;
@@ -25,6 +26,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         // Skapa kopia itembilden som ska drag runt.
         _imageCopy = Instantiate(_imageOriginal, transform);
+        _imageCopy.transform.SetParent(_canvas.transform);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -59,7 +61,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        _imageCopy.transform.SetParent(_itemSlot.transform);
         // Ta bort kopian som dragits runt.
         Destroy(_imageCopy.gameObject);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Player.Instance.Inventory.RemoveItem(GetItem(), 1);
     }
 }
