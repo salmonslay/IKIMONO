@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using IKIMONO.Pet;
 using Newtonsoft.Json;
-using UnityEngine;
 
 [JsonObject(MemberSerialization.OptIn)]
 public class Inventory
@@ -15,6 +14,8 @@ public class Inventory
     {
         _itemList = new List<Item>();
     }
+
+
 
     public void AddItem(Item item, int amount)
     {
@@ -33,17 +34,16 @@ public class Inventory
             }
             if (!alreadyInInventory)
             {
-                item.AddAmount(amount);
                 _itemList.Add(item);
             }
         }
         else
         {
-            item.AddAmount(amount);
             _itemList.Add(item);
         }
         //Trigga förändring i UI
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        Player.Instance.Save();
     }
 
     public void RemoveItem(Item item, int amount)
@@ -71,10 +71,12 @@ public class Inventory
             _itemList.Remove(item);
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        Player.Instance.Save();
     }
 
     public List<Item> GetItemList()
     {
         return _itemList;
     }
+
 }
