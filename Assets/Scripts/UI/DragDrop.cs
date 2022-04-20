@@ -1,6 +1,4 @@
 using IKIMONO.Pet;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,13 +24,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         // Skapa kopia itembilden som ska drag runt.
         _imageCopy = Instantiate(_imageOriginal, transform);
+        _imageCopy.raycastTarget = false;
         _imageCopy.transform.SetParent(_canvas.transform);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Se till att bilden inte blockar raycasts så att det går att droppa på annat.
-        _canvasGroup.blocksRaycasts = false;
+        //_canvasGroup.blocksRaycasts = false;
 
         // Sätt lätt transparens på bilden som dras.
         Color _imageCopyColor = _imageCopy.color;
@@ -49,7 +48,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         // Blocka raycasts igen så att det går att dra item igen.
-        _canvasGroup.blocksRaycasts = true;
+        //_canvasGroup.blocksRaycasts = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

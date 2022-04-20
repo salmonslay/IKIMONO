@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using IKIMONO.Pet;
-using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +6,6 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Test0");
         if (eventData.pointerDrag != null)
         {
             // Hitta vilket item som dragit.
