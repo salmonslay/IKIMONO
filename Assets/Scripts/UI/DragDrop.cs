@@ -51,14 +51,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         // Blocka raycasts igen så att det går att dra item igen.
         _canvasGroup.blocksRaycasts = true;
     }
-
-
-
-    public Item GetItem()
-    {
-        return _itemSlot.GetItem();
-    }
-
     public void OnPointerUp(PointerEventData eventData)
     {
         _imageCopy.transform.SetParent(_itemSlot.transform);
@@ -70,4 +62,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         Player.Instance.Inventory.RemoveItem(GetItem(), 1);
     }
+
+    public Item GetItem()
+    {
+        return _itemSlot.GetItem();
+    }
+
 }
