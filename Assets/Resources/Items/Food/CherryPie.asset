@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8652dd15712cd8e4f9ebfa20950f490e, type: 3}
-  m_Name: Hamburger
+  m_Name: CherryPie
   m_EditorClassIdentifier: 
-  ItemName: Hamburger
-  Sprite: {fileID: 21300000, guid: 31c131a26c1019b49859fa0ba23e5c11, type: 3}
-  FoodValue: 10
+  ItemName: Cherry Pie
+  Sprite: {fileID: 21300000, guid: 481802a4a2f8c65448f5f5881eb7e7a1, type: 3}
+  PurchaseCost: 3
+  HungerValue: 2
   EnergyValue: 0
-  PurchaseCost: 4
