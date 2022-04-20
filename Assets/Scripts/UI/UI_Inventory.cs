@@ -1,3 +1,4 @@
+using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,10 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] private GameObject _itemSlot;
     private Transform _itemSlotTransform;
 
-    public void SetInventory(Inventory inventory)
+    public void Start()
     {
-        _inventory = inventory;
-        inventory.OnItemListChanged += OnItemListChanged;
+        _inventory = Player.Instance.Inventory;
+        _inventory.OnItemListChanged += OnItemListChanged;
         _itemSlotTransform = _itemSlot.transform;
 
         RefreshInventoryItems();
