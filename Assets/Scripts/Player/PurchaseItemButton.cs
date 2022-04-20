@@ -16,8 +16,6 @@ public class PurchaseItemButton : MonoBehaviour
     public void BuyItem()
     {
         Player.Instance.Inventory.AddItem(new Item(_itemScriptableObject), 1);
-        // TODO: reduce coins? is this done elsewhere?
 
-        Player.Instance.Save();
     }
 }
