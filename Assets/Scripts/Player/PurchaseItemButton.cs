@@ -1,21 +1,14 @@
 using IKIMONO.Pet;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PurchaseItemButton : MonoBehaviour
 {
-    [SerializeField] private ItemScriptableObject _itemScriptableObject;
+    public ItemScriptableObject ItemObject;
 
-    private void Start()
-    {
-        Text text = transform.Find("Text").GetComponent<Text>();
-        text.text = "Buy: " + _itemScriptableObject.ItemName;
-    }
 
     public void BuyItem()
     {
-        Player.Instance.Inventory.AddItem(new Item(_itemScriptableObject), 1);
-
+        Player.Instance.Inventory.AddItem(new Item(ItemObject), 1);
     }
 }
