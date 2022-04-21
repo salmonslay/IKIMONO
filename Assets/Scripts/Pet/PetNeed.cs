@@ -21,7 +21,10 @@ namespace IKIMONO.Pet
         public abstract string Name { get; }
         public virtual float MaxValue { get; } = 100;
         public virtual float MinValue { get; } = 0;
-
+        public abstract string NotificationTitle { get; }
+        public abstract string NotificationDescription { get; }
+        public abstract string NotificationIcon { get; }
+        
         /// <summary>
         /// How much the need will decrease per hour. MaxValue/DecayRate = hours to reach MinValue.
         /// </summary>
