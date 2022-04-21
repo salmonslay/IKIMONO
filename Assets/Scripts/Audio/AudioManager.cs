@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("ManageSound")]                     // F�r att kalla in ett ljud fr�n vartsomhelst k�r: FindObjectOfType<AudioManager>().playSound(r�ttstavatnamn);
     public List<Sound> soundArray;
     public SoundDictionary<String, List<Sound>> PetHappy;
+    public SoundDictionary<String, List<Sound>> CoinSound;
     //public SoundDictionary<String, List<Sound>> PetSad;
 
 
