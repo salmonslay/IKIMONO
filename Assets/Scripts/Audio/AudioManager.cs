@@ -18,11 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
-    private void Start()
-    {
-        //Sortera soundArray med namnen till nya listor fr olika ämnen
-        //Randomizea ljuden
-    }
+   
     private void Awake()
     {
         if (Instance == null)                    
@@ -64,10 +60,6 @@ public class AudioManager : MonoBehaviour
 
 
 
-
-
-
-
     public void getList(String a)
     {
 
@@ -85,27 +77,6 @@ public class AudioManager : MonoBehaviour
        
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void playSound(string getList, string soundToPlay)
