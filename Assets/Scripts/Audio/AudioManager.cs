@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("ManageSound")]                     // F�r att kalla in ett ljud fr�n vartsomhelst k�r: FindObjectOfType<AudioManager>().playSound(r�ttstavatnamn);
     public List<Sound> soundArray;
     public SoundDictionary<String, List<Sound>> PetHappy;
-   public SoundDictionary<String, List<Sound>> PetSad;
+    //public SoundDictionary<String, List<Sound>> PetSad;
 
 
 
@@ -46,18 +46,11 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    //public void fillArrayFromResourceMap()
-    //{
-    //    // l�gg till ljud fr�n resources
-    //    // l�gg till str�ngnamn
-    //}
-
+ 
     public void randomizeSound()
     {
 
     }
-
-
 
 
     public void getList(String a)
@@ -134,8 +127,14 @@ public class AudioManager : MonoBehaviour
                 }
                 else
                 {
-                    //soundAudioClip.source.Play();
-                    AudioSource.PlayClipAtPoint(soundAudioClip.audioClip, Vector3.zero);
+                    soundAudioClip.source.Play();
+
+                    //GameObject go = new GameObject();
+                    //AudioSource source = go.AddComponent<AudioSource>();
+                    //source.clip = soundContainer.audioClip;
+                    //source.Play();
+                    //print("hej");
+                    //Destroy(go, soundContainer.audioClip.length);
 
                 }
 
