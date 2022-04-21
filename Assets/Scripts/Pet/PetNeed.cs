@@ -55,6 +55,26 @@ namespace IKIMONO.Pet
         public DateTime TimeAtMinValue => LastUpdated + TimeSpan.FromHours(MaxValue / DecayRate);
 
         /// <summary>
+        /// Get the time at which the need will reach a specific value.
+        /// </summary>
+        public DateTime GetTimeAtValue(float value)
+        {
+            /*
+             * Formula:
+             * mv = 100, dr = 2
+             * v = 50, ex = 25
+             * v / dr = 25
+             */
+            UpdateValue();
+            TimeSpan span = TimeSpan.FromHours(value / DecayRate);
+            Debug.Log(this);
+            Debug.Log(value);
+            Debug.Log(DecayRate);
+            Debug.Log(value / DecayRate);
+            return LastUpdated + span;
+        }
+
+        /// <summary>
         /// Update this need to a new value from time.
         /// </summary>
         public void UpdateValue()
@@ -91,6 +111,11 @@ namespace IKIMONO.Pet
         public void Decrease(float amount)
         {
             Value = Math.Max(MinValue, Value - amount);
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}: {Value}/{MaxValue}";
         }
     }
 }

@@ -16,6 +16,8 @@ namespace IKIMONO.Pet
 
             PetNeed.ValueUpdated += SetBars;
             UpdateAll();
+
+            print(Player.Instance.Pet.Hunger.GetTimeAtValue(50));
         }
 
         public void PrintJson()
