@@ -32,12 +32,16 @@ public class AndroidNotifications : MonoBehaviour
         float fireDelay = 5f;
 
 
-        AndroidNotification testNotification = BuildNotification(title, messageText, smallIcon, largeIcon, fireDelay);
+        AndroidNotification testNotification = BuildNotification(title, messageText, largeIcon, fireDelay, smallIcon);
         PushNotification(testNotification);
     }
 
-    public AndroidNotification BuildNotification(string title, string messageText, string smallIcon, string largeIcon = null, float fireTimeDelay = 0)
+    public AndroidNotification BuildNotification(string title, string messageText, string largeIcon = null, float fireTimeDelay = 0, string smallIcon = "small_app_icon")
     {
+        if(string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(messageText))
+        {
+            return;
+        }
         AndroidNotification notification = new AndroidNotification();
         notification.Title = title;
         notification.Text = messageText;
