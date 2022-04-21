@@ -119,13 +119,7 @@ public class AudioManager : MonoBehaviour
                 {
                     soundAudioClip.source.Play();
 
-                    //GameObject go = new GameObject();
-                    //AudioSource source = go.AddComponent<AudioSource>();
-                    //source.clip = soundContainer.audioClip;
-                    //source.Play();
-                    //print("hej");
-                    //Destroy(go, soundContainer.audioClip.length);
-
+                    
                 }
 
 
