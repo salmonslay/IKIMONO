@@ -40,8 +40,10 @@ public class AndroidNotifications : MonoBehaviour
     {
         if(string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(messageText))
         {
-            return;
+            // TODO: Johan?
+            return new AndroidNotification();
         }
+        
         AndroidNotification notification = new AndroidNotification();
         notification.Title = title;
         notification.Text = messageText;
