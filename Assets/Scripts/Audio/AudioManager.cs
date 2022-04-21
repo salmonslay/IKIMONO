@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound soundClip in soundArray)
         {
+            Debug.Log(soundClip.source);
             soundClip.source = gameObject.AddComponent<AudioSource>();
             soundClip.source.clip = soundClip.audioClip;
             soundClip.source.volume = soundClip.volume;
@@ -60,13 +61,27 @@ public class AudioManager : MonoBehaviour
         if (PetHappy.containsKey(a))
         {
 
+            foreach (Sound soundClip in PetHappy.ljud)
+            {
+                
+                soundClip.source = gameObject.AddComponent<AudioSource>();
+                soundClip.source.clip = soundClip.audioClip;
+                soundClip.source.volume = soundClip.volume;
+                soundClip.source.pitch = soundClip.pitch;
+                soundClip.source.loop = soundClip.loop;
+                soundClip.source.mute = soundClip.mute;
+                Debug.Log(soundClip.source);
+            }
+
             Debug.Log("N�r listan och nyckeln fungerar");
             
             soundArray = PetHappy.returnSound();
             Debug.Log(PetHappy.ljud[0].source);
-            
+            Debug.Log(PetHappy.ljud[0].volume);
 
-        }else { Debug.Log("getList metoden �r kaputt"); }
+
+        }
+        else { Debug.Log("getList metoden �r kaputt"); }
        
 
     }
@@ -85,32 +100,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void stopSound(string soundToStop)
-    {
-        stopClip(soundToStop);
-    }
-
-
-    private AudioClip stopClip(string soundName)
-    {
-
-        foreach (Sound soundAudioClip in soundArray)
-        {
-            if (soundAudioClip.name == soundName)
-            {
-
-                soundAudioClip.source.Stop();
-                return soundAudioClip.audioClip;
-
-            }
-        }
-        Debug.Log("Sound" + soundName + "Not Found!");
-        return null;
-
-
-    }
-    
-
+     
     private AudioClip getClip(string soundList,string soundName)
     {
         getList(soundList);
@@ -151,25 +141,50 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public static AudioSource PlayAudio(AudioClip[] clips)
-    {
-        if (clips.Length == 0)
-            return null;
-        return PlayAudio(clips[Random.Range(0, clips.Length)]);
-    }
+
+    //public void stopSound(string soundToStop)
+    //{
+    //    stopClip(soundToStop);
+    //}
+
+
+    //private AudioClip stopClip(string soundName)
+    //{
+
+    //    foreach (Sound soundAudioClip in soundArray)
+    //    {
+    //        if (soundAudioClip.name == soundName)
+    //        {
+
+    //            soundAudioClip.source.Stop();
+    //            return soundAudioClip.audioClip;
+
+    //        }
+    //    }
+    //    Debug.Log("Sound" + soundName + "Not Found!");
+    //    return null;
+
+
+    //}
+    //public static AudioSource PlayAudio(AudioClip[] clips)
+    //{
+    //    if (clips.Length == 0)
+    //        return null;
+    //    return PlayAudio(clips[Random.Range(0, clips.Length)]);
+    //}
     
-    public static AudioSource PlayAudio(AudioClip clip)
-    {
-        if (clip == null) return null;
-        GameObject obj = new GameObject();
-        AudioSource source = obj.AddComponent<AudioSource>();
+    //public static AudioSource PlayAudio(AudioClip clip)
+    //{
+    //    if (clip == null) return null;
+    //    GameObject obj = new GameObject();
+    //    AudioSource source = obj.AddComponent<AudioSource>();
 
-        source.clip = clip;
-        source.Play();
+    //    source.clip = clip;
+    //    source.Play();
 
-        Destroy(obj, clip.length + 0.5f);
-        return source;
-    }
+    //    Destroy(obj, clip.length + 0.5f);
+    //    return source;
+    //}
 
 }
 
@@ -201,7 +216,7 @@ public class SoundDictionary<String, List>
 
     public List<Sound> ljud;
     public String nyckel;
-
+    
 
     public SoundDictionary(String nyckel, List<Sound> ljud)
     {
@@ -221,8 +236,19 @@ public class SoundDictionary<String, List>
 
     public List<Sound> returnSound()
     {
-        
+        //foreach (Sound soundClip in ljud)
+        //{
+        //    Debug.Log(soundClip.source);
+        //   // soundClip.source = gameObject.AddComponent<AudioSource>();
+        //    soundClip.source.clip = soundClip.audioClip;
+        //    soundClip.source.volume = soundClip.volume;
+        //    soundClip.source.pitch = soundClip.pitch;
+        //    soundClip.source.loop = soundClip.loop;
+        //    soundClip.source.mute = soundClip.mute;
+
+        //}
         Debug.Log(ljud[0].name);
+        Debug.Log(ljud[0].source);  // source är null, var tar den vägen?!?!
         return ljud;
         
     }
