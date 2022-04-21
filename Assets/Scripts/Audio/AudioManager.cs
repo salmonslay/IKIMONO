@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class AudioManager : MonoBehaviour
 {
 
-    [Header("ManageSound")]                     // Fï¿½r att kalla in ett ljud frï¿½n vartsomhelst kï¿½r: FindObjectOfType<AudioManager>().playSound(rï¿½ttstavatnamn);
+    [Header("ManageSound")]                     // För att kalla in ett ljud från vartsomhelst kör: FindObjectOfType<AudioManager>().playSound(rättstavatnamn);
     public List<Sound> soundArray;
     public SoundDictionary<String, List<Sound>> PetHappy;
    public SoundDictionary<String, List<Sound>> PetSad;
@@ -18,11 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
-    private void Start()
-    {
-        //Sortera soundArray med namnen till nya listor fr olika ï¿½mnen
-        //Randomizea ljuden
-    }
+   
     private void Awake()
     {
         if (Instance == null)                    
@@ -52,18 +48,14 @@ public class AudioManager : MonoBehaviour
 
     //public void fillArrayFromResourceMap()
     //{
-    //    // lï¿½gg till ljud frï¿½n resources
-    //    // lï¿½gg till strï¿½ngnamn
+    //    // lägg till ljud från resources
+    //    // lägg till strängnamn
     //}
 
     public void randomizeSound()
     {
 
     }
-
-
-
-
 
 
 
@@ -75,37 +67,16 @@ public class AudioManager : MonoBehaviour
         if (PetHappy.containsKey(a))
         {
 
-            Debug.Log("Nï¿½r listan och nyckeln fungerar");
+            Debug.Log("Når listan och nyckeln fungerar");
             
             soundArray = PetHappy.returnSound();
             Debug.Log(PetHappy.ljud[0].source);
             
 
-        }else { Debug.Log("getList metoden ï¿½r kaputt"); }
+        }else { Debug.Log("getList metoden är kaputt"); }
        
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void playSound(string getList, string soundToPlay)
@@ -183,27 +154,6 @@ public class AudioManager : MonoBehaviour
 
 
 
-    #region Fabian
-    public static AudioSource PlayAudio(AudioClip[] clips)
-    {
-        if (clips.Length == 0)
-            return null;
-        return PlayAudio(clips[Random.Range(0, clips.Length)]);
-    }
-    
-    public static AudioSource PlayAudio(AudioClip clip)
-    {
-        if (clip == null) return null;
-        GameObject obj = new GameObject();
-        AudioSource source = obj.AddComponent<AudioSource>();
-
-        source.clip = clip;
-        source.Play();
-
-        Destroy(obj, clip.length + 0.5f);
-        return source;
-    }
-    #endregion
 }
 
 
