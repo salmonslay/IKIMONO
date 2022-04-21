@@ -7,13 +7,22 @@ using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
-  
+
     [Header("ManageSound")]                     // För att kalla in ett ljud från vartsomhelst kör: FindObjectOfType<AudioManager>().playSound(rättstavatnamn);
-    public global::Sound[] soundArray;
+    public List<Sound> soundArray;
+    public SoundDictionary<String, List<Sound>> PetHappy;
+   public SoundDictionary<String, List<Sound>> PetSad;
+
+
+
 
     public static AudioManager Instance;
 
-
+    private void Start()
+    {
+        //Sortera soundArray med namnen till nya listor fr olika ämnen
+        //Randomizea ljuden
+    }
     private void Awake()
     {
         if (Instance == null)                    
@@ -41,10 +50,71 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void playSound(string soundToPlay)
+    //public void fillArrayFromResourceMap()
+    //{
+    //    // lägg till ljud från resources
+    //    // lägg till strängnamn
+    //}
+
+    public void randomizeSound()
     {
-        getClip(soundToPlay);
+
+    }
+
+
+
+
+
+
+
+
+    public void getList(String a)
+    {
+
+
+        if (PetHappy.containsKey(a))
+        {
+
+            Debug.Log("Når listan och nyckeln fungerar");
+            
+            soundArray = PetHappy.returnSound();
+            Debug.Log(PetHappy.ljud[0].source);
+            
+
+        }else { Debug.Log("getList metoden är kaputt"); }
        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void playSound(string getList, string soundToPlay)
+    {
+      
+
+        getClip(getList, soundToPlay);
+
+
         //Sound s = Array.Find(soundArray, sound => sound.name == soundToPlay);
         //s.source.Play();
 
@@ -75,11 +145,11 @@ public class AudioManager : MonoBehaviour
 
 
     }
+    
 
-
-    private AudioClip getClip(string soundName)
+    private AudioClip getClip(string soundList,string soundName)
     {
-
+        getList(soundList);
         foreach (Sound soundAudioClip in soundArray)  
         {
             if (soundAudioClip.name == soundName)                 
@@ -93,7 +163,8 @@ public class AudioManager : MonoBehaviour
                 }
                 else
                 {
-                    soundAudioClip.source.Play();
+                    //soundAudioClip.source.Play();
+                    AudioSource.PlayClipAtPoint(soundAudioClip.audioClip, Vector3.zero);
 
                 }
 
@@ -119,7 +190,6 @@ public class AudioManager : MonoBehaviour
 public class Sound
 {
     public string name;
-    // public AudioManager.Sound sound;
     public AudioClip audioClip;
     [Range(0f, 1f)]
     public float volume;
@@ -131,9 +201,45 @@ public class Sound
 
 
 
-    [HideInInspector]
-    public AudioSource source;
+    //[HideInInspector]
+   public AudioSource source;
 
 }
+
+[System.Serializable]
+public class SoundDictionary<String, List>
+{
+
+
+    public List<Sound> ljud;
+    public String nyckel;
+
+
+    public SoundDictionary(String nyckel, List<Sound> ljud)
+    {
+
+        this.ljud = ljud;
+        this.nyckel = nyckel;
+    }
+
+    public bool containsKey(String a)
+    {
+        if (a.Equals(nyckel)) {
+
+            return true;
+        }
+        return false;
+    }
+
+    public List<Sound> returnSound()
+    {
+        
+        Debug.Log(ljud[0].name);
+        return ljud;
+        
+    }
+}
+
+
 
 

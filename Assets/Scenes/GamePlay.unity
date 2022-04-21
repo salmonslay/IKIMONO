@@ -123,11 +123,155 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &50550068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4825149035195509102, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+  m_PrefabInstance: {fileID: 6519712099418132521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &50550071
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50550068}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8394020804317666952, guid: 517ce5a888d267643a432cd43349f4ef, type: 3}
   m_PrefabInstance: {fileID: 8394020804079281911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1381706818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381706820}
+  - component: {fileID: 1381706819}
+  m_Layer: 0
+  m_Name: Klicktest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1381706819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381706818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018e26b8ba48ec5469036c632fcf1a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1381706820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381706818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -70.36129, y: 92.66509, z: -868.01385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &763390030197705958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,15 +386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1732446744933639616, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4563637
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732446744933639616, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 73.33891
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732446744933639616, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -855.6249
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732446744933639616, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: m_LocalRotation.w
@@ -284,6 +428,186 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: test.nyckel
+      value: pipljud
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSad.nyckel
+      value: Sad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: vad.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.nyckel
+      value: Happy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ljud.soundListOf
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.nyckel"
+      value: "Gr\xE5t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.nyckel
+      value: Skratt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: test.ljud.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: SoundLib.ljud.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.ljud.Array.size"
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.ljud.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[0].name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[1].name
+      value: test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[2].name
+      value: test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[3].name
+      value: test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[4].name
+      value: test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[5].name
+      value: test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[1].name
+      value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[0].source
+      value: 
+      objectReference: {fileID: 50550071}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[1].source
+      value: 
+      objectReference: {fileID: 50550071}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: soundArray.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.ljud.Array.data[0].name"
+      value: tre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.ljud.Array.data[1].name"
+      value: fyra
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.ljud.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.ljud.Array.data[1].name
+      value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d8ffa96c1c76de47ad1d9f1d770b505, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 39127f29743d7c8459355304f2505d02, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.ljud.Array.data[0].audioClip"
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d8ffa96c1c76de47ad1d9f1d770b505, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: "IkimonGr\xE5t.ljud.Array.data[1].audioClip"
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d2941873914bad459aa56622325b083, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 39127f29743d7c8459355304f2505d02, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: IkimonSkratt.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 124765adad983554ca715666d0810640, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
 --- !u!1001 &8394020804079281911
