@@ -13,6 +13,7 @@ namespace IKIMONO.Pet
         private void Start()
         {
             Debug.Log($"Found {ItemScriptableObject.AllItems.Length} items in the database");
+            Player.Instance.Pet.Hunger.Set(0);
 
             PetNeed.ValueUpdated += SetBars;
             UpdateAll();
@@ -53,13 +54,18 @@ namespace IKIMONO.Pet
         public static void SetBars()
         {
             GameObject[] bars = GameObject.FindGameObjectsWithTag("DebugNeedBar");
-            for(int i = 0; i < bars.Length; i++)
+            for(int i = 0; i < bars.Length-1; i++)
             {
                 PetNeed need = Player.Instance.Pet.Needs[i];
                 bars[i].GetComponent<Slider>().value = need.Percentage;
                 bars[i].GetComponentInChildren<Text>().text =
                     $"{need.Name}: {Math.Round(need.Percentage * 100, 2)}%";
             }
+            
+            // edge case for the Average Mood bar
+            bars[bars.Length - 1].GetComponent<Slider>().value = Player.Instance.Pet.GetGeneralMood();
+            bars[bars.Length - 1].GetComponentInChildren<Text>().text =
+                $"Average Mood: {Math.Round(Player.Instance.Pet.GetGeneralMood(), 2)}%";
         }
     }
 }

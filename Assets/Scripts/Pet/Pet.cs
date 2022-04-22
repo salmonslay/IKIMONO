@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using IKIMONO.UI;
-using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace IKIMONO.Pet
 {
@@ -62,6 +60,26 @@ namespace IKIMONO.Pet
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public float GetGeneralMood()
+        {
+            PetNeed[] needs = { Hunger, Energy, Hygiene, Fun };
+            
+            float total = 0;
+            foreach (PetNeed need in needs)
+            {
+                if(need.Value < 20)
+                {
+                    total -= 100;
+                }
+                else if(need.Value > 40)
+                {
+                    total += need.Value;
+                }
+            }
+            
+            return total / needs.Length;
         }
     }
 }

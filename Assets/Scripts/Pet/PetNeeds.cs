@@ -15,7 +15,7 @@
         public override string NotificationTitle => "Your pet is lonely!";
         public override string NotificationDescription => "Your pet is lonely and needs to be socialized, come and play with it!";
         public override string NotificationIcon => "icon_social";
-        public override float DecayRate => 1f; // 100h to reach 0 
+        public override float DecayRate => 0f; // Will not decay, not used for now
     }
 
     public class PetNeedEnergy : PetNeed

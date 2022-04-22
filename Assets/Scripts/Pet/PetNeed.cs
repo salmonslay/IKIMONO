@@ -82,7 +82,7 @@ namespace IKIMONO.Pet
             
             ValueUpdated?.Invoke();
 
-            Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
+            // Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
         }
         
         /// <summary>
@@ -91,7 +91,7 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to increase this value with</param>
         public void Increase(float amount)
         {
-            UpdateValue();
+            UpdateValue(); 
             Value = Math.Min(MaxValue, Value + amount);
         }
         
@@ -101,7 +101,18 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to decrease this value with</param>
         public void Decrease(float amount)
         {
+            UpdateValue();
             Value = Math.Max(MinValue, Value - amount);
+        }
+
+        /// <summary>
+        /// Set the value of this need to a specific value. This will be clamped.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Set(float value)
+        {
+            UpdateValue();
+            Value = Mathf.Clamp(value, MinValue, MaxValue);
         }
 
         public override string ToString()
