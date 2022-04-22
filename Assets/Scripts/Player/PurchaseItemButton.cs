@@ -11,7 +11,7 @@ public class PurchaseItemButton : MonoBehaviour
     {
         Player player = Player.Instance;
         int itemCost = ItemObject.PurchaseCost;
-        if (player.Coins > itemCost)
+        if (player.Coins >= itemCost)
         {
             player.RemoveCoins(itemCost);
             player.Inventory.AddItem(new Item(ItemObject), 1);
