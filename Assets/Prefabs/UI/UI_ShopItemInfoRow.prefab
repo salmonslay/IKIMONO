@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 4974775034289153805}
   - component: {fileID: 4855100977142607676}
   m_Layer: 5
-  m_Name: ItemInfoRow
+  m_Name: UI_ShopItemInfoRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
