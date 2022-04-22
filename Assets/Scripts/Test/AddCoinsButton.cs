@@ -8,5 +8,6 @@ public class AddCoinsButton : MonoBehaviour
     public void AddCoins()
     {
         Player.Instance.AddCoins(10);
+        Debug.Log("Total coins: " + Player.Instance.Coins);
     }
 }
