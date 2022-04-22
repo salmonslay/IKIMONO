@@ -16,8 +16,6 @@ namespace IKIMONO.Pet
 
             PetNeed.ValueUpdated += SetBars;
             UpdateAll();
-
-            print(Player.Instance.Pet.Hunger.GetTimeAtValue(50));
         }
 
         public void PrintJson()
@@ -48,8 +46,8 @@ namespace IKIMONO.Pet
 
         public void HowLongToZeroHunger()
         {
-            DateTime timeSpan = Player.Instance.Pet.Hunger.TimeAtMinValue;
-            Debug.Log("Time to zero hunger: " + timeSpan.ToString("HH:mm:ss"));
+            Pet p = Player.Instance.Pet;
+            Debug.Log($"{p.Name} will starve at {p.Hunger.GetTimeAtValue(0)}. Well not really, but the hunger bar will be at 0.");
         }
 
         public static void SetBars()

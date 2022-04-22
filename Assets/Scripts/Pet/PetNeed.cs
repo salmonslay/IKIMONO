@@ -52,26 +52,17 @@ namespace IKIMONO.Pet
         [JsonProperty("updatedAt")]
         public DateTime LastUpdated { get; private set; } = DateTime.Now;
         
-        public DateTime TimeAtMinValue => LastUpdated + TimeSpan.FromHours(MaxValue / DecayRate);
+        public DateTime TimeAtMinValue => GetTimeAtValue(0);
 
         /// <summary>
         /// Get the time at which the need will reach a specific value.
         /// </summary>
-        public DateTime GetTimeAtValue(float value)
+        public DateTime GetTimeAtValue(float goalValue)
         {
-            /*
-             * Formula:
-             * mv = 100, dr = 2
-             * v = 50, ex = 25
-             * v / dr = 25
-             */
             UpdateValue();
-            TimeSpan span = TimeSpan.FromHours(value / DecayRate);
-            Debug.Log(this);
-            Debug.Log(value);
-            Debug.Log(DecayRate);
-            Debug.Log(value / DecayRate);
-            return LastUpdated + span;
+            float currentValue = Value;
+            float hoursToReachValue = (currentValue - goalValue) / DecayRate;
+            return LastUpdated + TimeSpan.FromHours(hoursToReachValue);
         }
 
         /// <summary>
