@@ -90,7 +90,7 @@ namespace IKIMONO.Pet
         }
         public void RemoveCoins(int amount)
         {
-            Coins = Math.Min(Coins - amount, 0);
+            Coins = Math.Max(Coins - amount, 0);
         }
 
         #endregion
