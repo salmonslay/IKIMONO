@@ -13,7 +13,6 @@ public class TabButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void Awake()
     {
         TabBackground = GetComponent<Image>();
-        tabGroup.AddTabButton(this);
     }
     public void OnPointerDown(PointerEventData eventData)
     {

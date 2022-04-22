@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TabGroup : MonoBehaviour
 {
-    private List<TabButton> tabButtons;
+    [SerializeField] private List<TabButton> tabButtons;
     [SerializeField] private List<GameObject> tabWindows;
 
     [SerializeField] private Color tabIdleColor;
@@ -16,15 +16,6 @@ public class TabGroup : MonoBehaviour
     private void Start()
     {
         OnTabSelected(tabButtons[0]);
-    }
-
-    public void AddTabButton(TabButton button)
-    {
-        if (tabButtons == null)
-        {
-            tabButtons = new List<TabButton>();
-        }
-        tabButtons.Add(button);
     }
 
     public void OnTabPressedDown(TabButton tab)
