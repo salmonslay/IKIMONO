@@ -52,7 +52,7 @@ namespace IKIMONO.Pet
         {
             PlayerPrefs.SetString("SaveFile", ToString());
             PlayerPrefs.Save();
-            Debug.Log("Saved save file.");
+            // Debug.Log("Saved save file.");
         }
 
         /// <summary>
