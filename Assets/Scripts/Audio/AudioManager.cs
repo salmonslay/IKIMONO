@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public List<Sound> soundArray;
     public SoundDictionary<String, List<Sound>> PetHappy;
     public SoundDictionary<String, List<Sound>> CoinSound;
+    public SoundDictionary<String, List<Sound>> PetEating;
+    public SoundDictionary<String, List<Sound>> PetSleeping;
     //public SoundDictionary<String, List<Sound>> PetSad;
 
 

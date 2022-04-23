@@ -344,12 +344,24 @@ PrefabInstance:
       value: Happy
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.nyckel
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.nyckel
+      value: Eating
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ljud.soundListOf
       value: test
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.nyckel"
       value: "Gr\xE5t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.nyckel
+      value: Sleeping
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.nyckel
@@ -372,8 +384,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.ljud.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.ljud.Array.size"
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.size
@@ -424,6 +448,54 @@ PrefabInstance:
       value: "tv\xE5"
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.ljud.Array.data[0].name
+      value: Coin1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.ljud.Array.data[1].name
+      value: Coin2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[0].name
+      value: Eating1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[1].name
+      value: Eating2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[2].name
+      value: Eating3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[3].name
+      value: Eating4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[4].name
+      value: Eating5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[5].name
+      value: Eating6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[6].name
+      value: Eating7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[7].name
+      value: Swallowing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[8].name
+      value: Hiccup1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[9].name
+      value: Hiccup2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].pitch
       value: 2.48
       objectReference: {fileID: 0}
@@ -434,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[2].pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[10].name
+      value: Hiccup3
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].random
@@ -496,6 +572,18 @@ PrefabInstance:
       value: fyra
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[0].name
+      value: Snore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[1].name
+      value: SnoreWhistle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[2].name
+      value: SnoreFull
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.data[0].name
       value: ett
       objectReference: {fileID: 0}
@@ -516,6 +604,58 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 39127f29743d7c8459355304f2505d02, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 313b4942652174d849b6f61b8a2b104c, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: CoinSound.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76e3afdc91e2144b8baad3dcfa3223e4, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3333962642c924f99aff41bb4b0dcecd, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 007610f2b21784a8e91bcb8cca625791, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 125d840e9975146409ffc17888f8d428, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b47c17cda84ad47e69d927c6154f254e, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 762a56c085fe94295ae81e124103ca80, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 157ca103b50604e188233f94b80bb952, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[6].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 20ee0502f0526404b9f0d78df26f8c87, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[7].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec7feef78fe424af08b5dc3ab176c24c, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[8].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97a5fb13cafd3449eb7031da31daa2e0, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[9].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 75e671ce89299400784ca13e9ab9f23b, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.ljud.Array.data[10].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.ljud.Array.data[0].audioClip"
       value: 
       objectReference: {fileID: 8300000, guid: 1d8ffa96c1c76de47ad1d9f1d770b505, type: 3}
@@ -523,6 +663,18 @@ PrefabInstance:
       propertyPath: "IkimonGr\xE5t.ljud.Array.data[1].audioClip"
       value: 
       objectReference: {fileID: 8300000, guid: 8d2941873914bad459aa56622325b083, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2e34fbb84e874b9caf03ddbe127e6f6, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b93b7b4dc41a1497dbd713764deef3f8, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.ljud.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 61511eb77c44f4d6cb571906549bda57, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.data[0].audioClip
       value: 
