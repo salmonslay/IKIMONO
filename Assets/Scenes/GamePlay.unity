@@ -336,6 +336,14 @@ PrefabInstance:
       value: Sad
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Swoosh.nyckel
+      value: Swoosh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bubbles.nyckel
+      value: Bubbles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: vad.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -352,8 +360,20 @@ PrefabInstance:
       value: Eating
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.nyckel
+      value: Scratches
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ShopSound.nyckel
+      value: ShopSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ljud.soundListOf
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.nyckel
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.nyckel"
@@ -376,6 +396,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Swoosh.ljud.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bubbles.ljud.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -390,6 +418,18 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.size
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ShopSound.ljud.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.ljud.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.ljud.Array.size"
@@ -428,8 +468,16 @@ PrefabInstance:
       value: test2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Swoosh.ljud.Array.data[0].name
+      value: Swoosh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bubbles.ljud.Array.data[0].name
+      value: Bubbles1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].volume
@@ -508,6 +556,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[0].name
+      value: Scratch1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[1].name
+      value: Scratch2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[2].name
+      value: Scratch3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ShopSound.ljud.Array.data[0].name
+      value: Kaching
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.data[10].name
       value: Hiccup3
       objectReference: {fileID: 0}
@@ -564,6 +628,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.ljud.Array.data[0].name
+      value: ButtonClick1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.ljud.Array.data[1].name
+      value: ButtonClick2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.ljud.Array.data[0].name"
       value: tre
       objectReference: {fileID: 0}
@@ -583,6 +655,14 @@ PrefabInstance:
       propertyPath: PetSleeping.ljud.Array.data[2].name
       value: SnoreFull
       objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Swoosh.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83759d9074ce5417880c06f13a0d15a9, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bubbles.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ed6ee928989e45c8a35fd71f963fcde, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.data[0].name
       value: ett
@@ -652,9 +732,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 75e671ce89299400784ca13e9ab9f23b, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 303c4cfb29d094e1180cb7faa93f8abc, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83e98f7bbce234fb8ac8ba774118e70c, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Scratches.ljud.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 09b7be3435efd48a2b14fadee06a7b0a, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ShopSound.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 991b6dc6ae3e645e1a14806b64a3af39, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.data[10].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c18a0ff8c15e545539980e48d6ff9ae4, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ButtonClick.ljud.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 305f3d1c5d7e7451e964139325efbfa3, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: "IkimonGr\xE5t.ljud.Array.data[0].audioClip"
       value: 
