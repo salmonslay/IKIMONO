@@ -17,7 +17,7 @@ namespace IKIMONO.Minigame.Jump
         {
             // TODO Tova: Use device tilting instead of keyboard input
             Vector2 move = new Vector2(Input.GetAxis("Horizontal"), 0);
-            transform.Translate(move * Time.deltaTime * 5);
+            transform.Translate( Time.deltaTime * 5 * move);
             
             // TODO Tova: Jump automatically when the player is on the ground
             if (Input.GetKeyDown(KeyCode.Space))
