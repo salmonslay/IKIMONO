@@ -5,10 +5,12 @@ namespace IKIMONO.Minigame.Jump
     public class JumpPlayer : MonoBehaviour
     {
         private Rigidbody2D _rigidbody2D;
+        private Vector3 _screenBounds;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _screenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         }
 
         private void Update()
@@ -20,6 +22,13 @@ namespace IKIMONO.Minigame.Jump
             // TODO Tova: Jump automatically when the player is on the ground
             if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
+            
+            // Teleport the player to the other side of the screen if they go off screen
+            Vector3 pos = transform.position;
+            if (pos.x > _screenBounds.x)
+                transform.position = new Vector3(-_screenBounds.x, pos.y, pos.z);
+            else if (pos.x < -_screenBounds.x)
+                transform.position = new Vector3(_screenBounds.x, pos.y, pos.z);
         }
         
         private void Jump()
