@@ -1,48 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class ButtonManager : MonoBehaviour
+namespace IKIMONO.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ButtonManager : MonoBehaviour
     {
-        
-    }
+        public void OpenSettings()
+        {
+            throw new NotImplementedException();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public void OpenShop()
+        {
+            throw new NotImplementedException();
+        }
 
-    public void openSettings()
-    {
+        public void NeedFun()
+        {
+            throw new NotImplementedException();
+        }
 
-    }
+        public void NeedHunger()
+        {
+            throw new NotImplementedException();
+        }
 
-    public void openShop()
-    {
+        public void NeedHygiene()
+        {
+            throw new NotImplementedException();
+        }
 
-    }
-
-    public void launchMiniGame()
-    {
-
-    }
-
-    public void feedIkimono()
-    {
-
-    }
-
-    public void cleanIkimono()
-    {
-
-    }
-
-    public void sleepIkimono()
-    {
-
+        public void NeedEnergy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
