@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace IKIMONO.Minigame.Jump
 {
+    /// <summary>
+    /// One platform can spawn per meter of distance (the global scoped Y axis).
+    /// </summary>
     public class PlatformSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _platformPrefab;
@@ -18,13 +21,14 @@ namespace IKIMONO.Minigame.Jump
         [Tooltip("The Y point where the lowest odds will be reached")] 
         [SerializeField] private float _finalPoint = 500f;
         
-        
+        /// <summary>
+        /// The last meter checked for spawning
+        /// </summary>
+        private float _lastSpawnedMeter = 0f;
 
         private void Update()
         {
-            // TODO: Do some sort of math to make the spawn rate pseudo-random
-            
-            // TODO: Make the spawn rate decrease as the player progresses
+            // TODO: Run the odds for spawning a platform if the player is close enough away to the last one spawned
         }
 
         private void SpawnPlatform()
