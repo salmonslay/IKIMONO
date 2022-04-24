@@ -1,3 +1,4 @@
+using System;
 using IKIMONO.UI;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -25,7 +26,9 @@ namespace IKIMONO.Pet
         
         [JsonProperty("hygiene")] public PetNeed Hygiene { get; } = new PetNeedHygiene();
         
-        public PetNeed[] Needs => new[] { Hunger, Social, Energy, Fun, Hygiene };
+        public PetNeed Overall { get; } = new PetNeedOverall();
+        
+        public PetNeed[] Needs => new[] { Hunger, Social, Energy, Fun, Hygiene, Overall };
 
         public Pet()
         {
@@ -69,17 +72,17 @@ namespace IKIMONO.Pet
             float total = 0;
             foreach (PetNeed need in needs)
             {
-                if(need.Value < 20)
+                if(need.Percentage < 0.2f)
                 {
-                    total -= 100;
+                    total -= 1;
                 }
-                else if(need.Value > 40)
+                else if(need.Percentage > 0.4f)
                 {
-                    total += need.Value;
+                    total += need.Percentage;
                 }
             }
             
-            return total / needs.Length;
+            return Mathf.Clamp(total / needs.Length, 0, 1);
         }
     }
 }

@@ -44,4 +44,14 @@
         public override string NotificationIcon => "icon_hygiene";
         public override float DecayRate => 0.8f; // 125h to reach 0
     }
+
+    public class PetNeedOverall : PetNeed
+    {
+        public override string Name { get; } = "Overall";
+        public override string NotificationTitle { get; } 
+        public override string NotificationDescription { get; }
+        public override string NotificationIcon { get; }
+
+        public override float Percentage => Player.Instance.Pet.GetGeneralMood();
+    }
 }

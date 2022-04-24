@@ -44,7 +44,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// The current percentage of the need (0.0-1.0).
         /// </summary>
-        public float Percentage => (Value - MinValue) / (MaxValue - MinValue);
+        public virtual float Percentage => (Value - MinValue) / (MaxValue - MinValue);
 
         /// <summary>
         /// The last time the need was updated.
