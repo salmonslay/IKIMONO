@@ -13,7 +13,7 @@ namespace IKIMONO.Minigame.Jump
         [Tooltip("The speed of the camera")]
         [SerializeField] private float _speedModifier = 2f;
         
-        private void Update()
+        private void FixedUpdate()
         {
             Vector3 targetPosition = _target.position;
             targetPosition.y += _offset;
