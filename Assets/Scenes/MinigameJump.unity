@@ -153,9 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459b8a7ba954d4cb5d8ba0ea7af37bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platformPrefab: {fileID: 0}
-  _spawnRate: 5
-  _minSpawnRate: 0.5
+  _platformPrefab: {fileID: 4437084428959550543, guid: 96e0b76578237774381b52e960d2ce3d, type: 3}
+  _initialSpawnRate: 70
+  _minSpawnRate: 5
+  _initialWidth: 1.5
+  _minWidth: 0.5
+  _finalPoint: 500
 --- !u!4 &292954811
 Transform:
   m_ObjectHideFlags: 0
