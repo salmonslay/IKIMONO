@@ -34,5 +34,33 @@ namespace IKIMONO
         {
             Player.Instance.Pet.UpdateValues();
         }
+        
+        /// <summary>
+        /// Plays a random AudioClip from an array
+        /// </summary>
+        /// <param name="clips">The clip pool to play from.</param>
+        /// <returns>The AudioSource that is playing the clip.</returns>
+        public static AudioSource PlayAudio(AudioClip[] clips)
+        {
+            return clips.Length == 0 ? null : PlayAudio(clips[Random.Range(0, clips.Length)]);
+        }
+        
+        /// <summary>
+        /// Plays a random AudioClip
+        /// </summary>
+        /// <param name="clip">The clip to play.</param>
+        /// <returns>The AudioSource that is playing the clip.</returns>
+        public static AudioSource PlayAudio(AudioClip clip)
+        {
+            if (clip == null) return null;
+            GameObject obj = new GameObject();
+            AudioSource source = obj.AddComponent<AudioSource>();
+
+            source.clip = clip;
+            source.Play();
+
+            Destroy(obj, clip.length + 0.5f);
+            return source;
+        }
     }
 }
