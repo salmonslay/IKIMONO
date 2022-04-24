@@ -1,4 +1,5 @@
 ﻿using System;
+using IKIMONO.UI;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -76,6 +77,7 @@ namespace IKIMONO.Pet
             }
 
             Debug.Log("No save file found.");
+            SetNamePanel.Open();
             return new Player();
         }
 
