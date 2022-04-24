@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace IKIMONO.Minigame.Jump
 {
@@ -15,6 +14,8 @@ namespace IKIMONO.Minigame.Jump
         /// The highest point the player has reached in the current game, in meters (global Y axis)
         /// </summary>
         public float HighestJump { get; private set; } = 0;
+        
+        public int CoinsCollected { get; private set; } = 0;
 
         private void Awake()
         {
@@ -35,6 +36,11 @@ namespace IKIMONO.Minigame.Jump
         {
             // Update highest jump
             HighestJump = Mathf.Max(HighestJump, Player.transform.position.y);
+        }
+
+        public void AddCoin()
+        {
+            CoinsCollected++;
         }
     }
 }
