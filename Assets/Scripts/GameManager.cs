@@ -1,3 +1,4 @@
+using System.Collections;
 using IKIMONO.Pet;
 using UnityEngine;
 
@@ -18,6 +19,18 @@ namespace IKIMONO
             {
                 Destroy(gameObject);
             }
+            
+            StartCoroutine(UpdateNeedValues());
+        }
+
+        private static IEnumerator UpdateNeedValues()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(15);
+                Player.Instance.Pet.UpdateValues();
+            }
+            // ReSharper disable once IteratorNeverReturns
         }
 
         private void OnApplicationQuit()
