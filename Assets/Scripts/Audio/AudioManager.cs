@@ -20,6 +20,12 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> ShopSound;
     public SoundDictionary<String, List<Sound>> Swoosh;
     public SoundDictionary<String, List<Sound>> ButtonClick;
+    //Minigame
+    public SoundDictionary<String, List<Sound>> GameOver;
+    public SoundDictionary<String, List<Sound>> Jump;
+    public SoundDictionary<String, List<Sound>> Bounce;
+    public SoundDictionary<String, List<Sound>> PlatformBreak;
+    public SoundDictionary<String, List<Sound>> PickupCoin;
 
 
 

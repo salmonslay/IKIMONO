@@ -328,8 +328,16 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Jump.nyckel
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: test.nyckel
       value: pipljud
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bounce.nyckel
+      value: Bounce
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSad.nyckel
@@ -346,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: vad.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: GameOver.nyckel
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.nyckel
@@ -372,6 +384,10 @@ PrefabInstance:
       value: test
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PickupCoin.nyckel
+      value: PickupCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ButtonClick.nyckel
       value: Button
       objectReference: {fileID: 0}
@@ -388,11 +404,23 @@ PrefabInstance:
       value: Skratt
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Jump.ljud.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PlatformBreak.nyckel
+      value: Break
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: test.ljud.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bounce.ljud.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
@@ -402,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Bubbles.ljud.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: GameOver.ljud.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.size
@@ -428,6 +460,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PickupCoin.ljud.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ButtonClick.ljud.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -442,6 +478,14 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Jump.ljud.Array.data[0].name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PlatformBreak.ljud.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].name
@@ -468,6 +512,10 @@ PrefabInstance:
       value: test2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bounce.ljud.Array.data[0].name
+      value: Bounce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Swoosh.ljud.Array.data[0].name
       value: Swoosh
       objectReference: {fileID: 0}
@@ -482,6 +530,10 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: GameOver.ljud.Array.data[0].name
+      value: GameOver3
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].name
@@ -503,6 +555,10 @@ PrefabInstance:
       propertyPath: CoinSound.ljud.Array.data[1].name
       value: Coin2
       objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Jump.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 874fdd435dbdc48d9a036f001ae8adb1, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.data[0].name
       value: Eating1
@@ -604,6 +660,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PickupCoin.ljud.Array.data[0].name
+      value: PickupCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 0}
@@ -627,6 +687,10 @@ PrefabInstance:
       propertyPath: soundArray.Array.data[5].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 61b10ea6bea609a41bcc501502b5c411, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: Bounce.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b6c626550c7ec42e89adc97e52d3bf04, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ButtonClick.ljud.Array.data[0].name
       value: ButtonClick1
@@ -672,6 +736,10 @@ PrefabInstance:
       value: "tv\xE5"
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: GameOver.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e037759065051419f95aa34bda653c7f, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1d8ffa96c1c76de47ad1d9f1d770b505, type: 3}
@@ -683,6 +751,10 @@ PrefabInstance:
       propertyPath: PetHappy.ljud.Array.data[2].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 39127f29743d7c8459355304f2505d02, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PlatformBreak.ljud.Array.data[0].name
+      value: PlatformBreak
+      objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: CoinSound.ljud.Array.data[0].audioClip
       value: 
@@ -752,6 +824,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PickupCoin.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a10e807c2cc3143c89d7bb44d27c3311, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ButtonClick.ljud.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c18a0ff8c15e545539980e48d6ff9ae4, type: 3}
@@ -787,6 +863,10 @@ PrefabInstance:
       propertyPath: IkimonSkratt.ljud.Array.data[1].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 124765adad983554ca715666d0810640, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PlatformBreak.ljud.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 003268cb4f66c443c85ea0b7dbe63d44, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
 --- !u!1001 &8394020804079281911
