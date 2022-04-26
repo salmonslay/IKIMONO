@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> ShopSound;
     public SoundDictionary<String, List<Sound>> Swoosh;
     public SoundDictionary<String, List<Sound>> ButtonClick;
-    //Minigame
+    [Header("MiniGame")]
     public SoundDictionary<String, List<Sound>> GameOver;
     public SoundDictionary<String, List<Sound>> Jump;
     public SoundDictionary<String, List<Sound>> Bounce;
@@ -28,22 +28,19 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> PickupCoin;
 
 
-
-
-
     public static AudioManager Instance;
 
-   
+
     private void Awake()
     {
-        if (Instance == null)                    
+        if (Instance == null)
         {
             Instance = this;
         }
         else
         {
-            Destroy(gameObject);         
-            return;                   
+            Destroy(gameObject);
+            return;
         }
         DontDestroyOnLoad(this);
 
@@ -62,9 +59,34 @@ public class AudioManager : MonoBehaviour
     }
 
 
- 
-    public void randomizeSound()
+    public List<Sound> soundClips;
+    public void randomizeSound(string list)
     {
+       
+
+        getList(list);
+        
+        int clipIndex = Random.Range(0, soundArray.Count);
+        soundArray[clipIndex].source.Play();
+
+    }
+
+
+
+
+
+    public void playSound(string getList, string soundToPlay)
+    {
+
+
+        getClip(getList, soundToPlay);
+
+      
+
+
+        //Sound s = Array.Find(soundArray, sound => sound.name == soundToPlay);
+        //s.source.Play();
+
 
     }
 
@@ -78,7 +100,7 @@ public class AudioManager : MonoBehaviour
 
             foreach (Sound soundClip in PetHappy.ljud)
             {
-                
+
                 soundClip.source = gameObject.AddComponent<AudioSource>();
                 soundClip.source.clip = soundClip.audioClip;
                 soundClip.source.volume = soundClip.volume;
@@ -89,7 +111,7 @@ public class AudioManager : MonoBehaviour
             }
 
             Debug.Log("N�r listan och nyckeln fungerar");
-            
+
             soundArray = PetHappy.returnSound();
             Debug.Log(PetHappy.ljud[0].source);
             Debug.Log(PetHappy.ljud[0].volume);
@@ -97,31 +119,15 @@ public class AudioManager : MonoBehaviour
 
         }
         else { Debug.Log("getList metoden �r kaputt"); }
-       
 
     }
 
-
-    public void playSound(string getList, string soundToPlay)
-    {
-      
-
-        getClip(getList, soundToPlay);
-
-
-        //Sound s = Array.Find(soundArray, sound => sound.name == soundToPlay);
-        //s.source.Play();
-
-
-    }
-
-     
-    private AudioClip getClip(string soundList,string soundName)
+    private AudioClip getClip(string soundList, string soundName)
     {
         getList(soundList);
-        foreach (Sound soundAudioClip in soundArray)  
+        foreach (Sound soundAudioClip in soundArray)
         {
-            if (soundAudioClip.name == soundName)                 
+            if (soundAudioClip.name == soundName)
             {
 
                 if (soundAudioClip.random == true)
@@ -134,20 +140,22 @@ public class AudioManager : MonoBehaviour
                 {
                     soundAudioClip.source.Play();
 
-                    
+
                 }
 
 
 
-                return soundAudioClip.audioClip;            
+                return soundAudioClip.audioClip;
 
             }
         }
-        Debug.Log("Sound" + soundName + "Not Found!");              
+        Debug.Log("Sound" + soundName + "Not Found!");
         return null;
 
 
     }
+
+
 
 
 
@@ -181,7 +189,7 @@ public class AudioManager : MonoBehaviour
     //        return null;
     //    return PlayAudio(clips[Random.Range(0, clips.Length)]);
     //}
-    
+
     //public static AudioSource PlayAudio(AudioClip clip)
     //{
     //    if (clip == null) return null;
