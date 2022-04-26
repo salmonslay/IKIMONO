@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2d7cc1930d9f8d43a85cd374c12e948
+guid: 20844d36a12aed540a86093aa31e9f4c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Fabled
+  - Minimal
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -116,6 +116,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI PetNeed
       objectReference: {fileID: 0}
+    - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 20844d36a12aed540a86093aa31e9f4c, type: 3}
+    - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
 --- !u!1 &8163809816638962675 stripped
