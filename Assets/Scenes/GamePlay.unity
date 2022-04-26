@@ -328,6 +328,10 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.key
+      value: DayAmb
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Jump.nyckel
       value: Jump
       objectReference: {fileID: 0}
@@ -336,12 +340,24 @@ PrefabInstance:
       value: pipljud
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.key
+      value: Happy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Bounce.nyckel
       value: Bounce
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: DayAmb.nyckel
       value: Day
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.key
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.key
+      value: Eating
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSad.nyckel
@@ -448,6 +464,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: GameOver.ljud.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -476,12 +496,24 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Scratches.ljud.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: ShopSound.ljud.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.sound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.size
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PickupCoin.ljud.Array.size
@@ -580,7 +612,19 @@ PrefabInstance:
       value: Bubbles2
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: soundArray.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
@@ -610,6 +654,10 @@ PrefabInstance:
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[2].name
       value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.data[0].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Jump.ljud.Array.data[0].audioClip
@@ -676,6 +724,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[1].name
+      value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[2].name
+      value: tre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Scratches.ljud.Array.data[0].name
       value: Scratch1
       objectReference: {fileID: 0}
@@ -692,8 +752,52 @@ PrefabInstance:
       value: ShopSpend
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.sound.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.data[10].name
       value: Hiccup3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[0].name
+      value: ett
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[1].name
+      value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[2].name
+      value: tre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[3].name
+      value: fyra
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[4].name
+      value: fem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[5].name
+      value: sex
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[6].name
+      value: sju
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[7].name
+      value: "\xE5tt"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[8].name
+      value: nio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[9].name
+      value: tio
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].random
@@ -721,6 +825,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[2].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
@@ -780,6 +896,66 @@ PrefabInstance:
       value: fyra
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.sound.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[10].name
+      value: elva
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[8].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSad.ljud.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 024e62d69395b4b2299c6848b7b5adee, type: 3}
@@ -820,12 +996,64 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 5c83359320d234fdf914648daae2de24, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: DayAmb.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f03ea97355d139d4c916beed86974c7d, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.data[0].name
       value: ett
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: IkimonSkratt.ljud.Array.data[1].name
       value: "tv\xE5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.sound.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[8].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[9].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: GameOver.ljud.Array.data[0].audioClip
@@ -847,6 +1075,10 @@ PrefabInstance:
       propertyPath: NightAmb.ljud.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 942b65ef6612cd84480818083e71918b, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[10].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetHappy.ljud.Array.data[0].audioClip
       value: 
@@ -912,6 +1144,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 75e671ce89299400784ca13e9ab9f23b, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c66b841acff848389f492109c482187, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e5546b3301734a77877033c1f237a2b, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetHappy.sound.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f2ae520f343e548158708304b6a2d28c, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Scratches.ljud.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 303c4cfb29d094e1180cb7faa93f8abc, type: 3}
@@ -928,9 +1172,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 991b6dc6ae3e645e1a14806b64a3af39, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: MainMusic.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 43d0c32574c4545139ee7000b3ed4104, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetEating.ljud.Array.data[10].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3333962642c924f99aff41bb4b0dcecd, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 007610f2b21784a8e91bcb8cca625791, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 125d840e9975146409ffc17888f8d428, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b47c17cda84ad47e69d927c6154f254e, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 762a56c085fe94295ae81e124103ca80, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 157ca103b50604e188233f94b80bb952, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[6].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 20ee0502f0526404b9f0d78df26f8c87, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[7].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec7feef78fe424af08b5dc3ab176c24c, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[8].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97a5fb13cafd3449eb7031da31daa2e0, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[9].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 75e671ce89299400784ca13e9ab9f23b, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PickupCoin.ljud.Array.data[0].audioClip
       value: 
@@ -955,6 +1243,10 @@ PrefabInstance:
       propertyPath: "IkimonGr\xE5t.ljud.Array.data[1].audioClip"
       value: 
       objectReference: {fileID: 8300000, guid: 8d2941873914bad459aa56622325b083, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetEating.sound.Array.data[10].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSleeping.ljud.Array.data[0].audioClip
       value: 

@@ -97,7 +97,27 @@ public class AudioManager : MonoBehaviour
 
     public void getList(String a)
     {
+        if (MainMusic.containsKey(a))
+        {
 
+            foreach (Sound soundClip in MainMusic.sound)
+            {
+
+                soundClip.source = gameObject.AddComponent<AudioSource>();
+                soundClip.source.clip = soundClip.audioClip;
+                soundClip.source.volume = soundClip.volume;
+                soundClip.source.pitch = soundClip.pitch;
+                soundClip.source.loop = soundClip.loop;
+                soundClip.source.mute = soundClip.mute;
+                Debug.Log(soundClip.source);
+            }
+
+
+            soundArray = MainMusic.returnSound();
+
+
+
+        }
         if (PetHappy.containsKey(a))
         {
 
@@ -117,6 +137,27 @@ public class AudioManager : MonoBehaviour
             soundArray = PetHappy.returnSound();
             Debug.Log(PetHappy.sound[0].source);
             Debug.Log(PetHappy.sound[0].volume);
+
+
+        }
+        if (PetEating.containsKey(a))
+        {
+
+            foreach (Sound soundClip in PetEating.sound)
+            {
+
+                soundClip.source = gameObject.AddComponent<AudioSource>();
+                soundClip.source.clip = soundClip.audioClip;
+                soundClip.source.volume = soundClip.volume;
+                soundClip.source.pitch = soundClip.pitch;
+                soundClip.source.loop = soundClip.loop;
+                soundClip.source.mute = soundClip.mute;
+                Debug.Log(soundClip.source);
+            }
+
+
+            soundArray = PetEating.returnSound();
+          
 
 
         }
