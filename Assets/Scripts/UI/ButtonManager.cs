@@ -9,16 +9,35 @@ namespace IKIMONO.UI
         [SerializeField] private GameObject _uiInventoryWindow;
         [SerializeField] private GameObject _uiShopWindow;
         [SerializeField] private GameObject _uiSettingsWindow;
+
+        private GameObject activeWindow;
+
         public void OpenSettings()
         {
             ResetUIWindows();
-            _uiSettingsWindow.SetActive(true);
+            if (activeWindow != _uiSettingsWindow)
+            {
+                _uiSettingsWindow.SetActive(true);
+                activeWindow = _uiSettingsWindow;
+            }
+            else
+            {
+                activeWindow = null;
+            }
         }
 
         public void OpenShop()
         {
             ResetUIWindows();
-            _uiShopWindow.SetActive(true);
+            if (activeWindow != _uiShopWindow)
+            {
+                _uiShopWindow.SetActive(true);
+                activeWindow = _uiShopWindow;
+            }
+            else
+            {
+                activeWindow = null;
+            }
         }
 
         public void NeedFun()
@@ -29,7 +48,15 @@ namespace IKIMONO.UI
         public void NeedHunger()
         {
             ResetUIWindows();
-            _uiInventoryWindow.SetActive(true);
+            if (activeWindow != _uiInventoryWindow)
+            {
+                _uiInventoryWindow.SetActive(true);
+                activeWindow = _uiInventoryWindow;
+            }
+            else
+            {
+                activeWindow = null;
+            }
         }
 
         public void NeedHygiene()
@@ -42,7 +69,7 @@ namespace IKIMONO.UI
             throw new NotImplementedException();
         }
 
-        private void ResetUIWindows()
+        public void ResetUIWindows()
         {
             _uiInventoryWindow.SetActive(false);
             _uiShopWindow.SetActive(false);

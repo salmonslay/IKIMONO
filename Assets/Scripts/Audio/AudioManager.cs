@@ -10,15 +10,17 @@ public class AudioManager : MonoBehaviour
 
     [Header("ManageSound")]                     // F�r att kalla in ett ljud fr�n vartsomhelst k�r: FindObjectOfType<AudioManager>().playSound(r�ttstavatnamn);
     public List<Sound> soundArray;
+    //Pet
     public SoundDictionary<String, List<Sound>> PetHappy;
-    public SoundDictionary<String, List<Sound>> CoinSound;
     public SoundDictionary<String, List<Sound>> PetEating;
     public SoundDictionary<String, List<Sound>> PetSleeping;
     public SoundDictionary<String, List<Sound>> PetSad;
     public SoundDictionary<String, List<Sound>> Scratches;
     public SoundDictionary<String, List<Sound>> Bubbles;
+    //Shop
     public SoundDictionary<String, List<Sound>> ShopSound;
     public SoundDictionary<String, List<Sound>> Swoosh;
+    //UI
     public SoundDictionary<String, List<Sound>> ButtonClick;
     [Header("MiniGame")]
     public SoundDictionary<String, List<Sound>> GameOver;
@@ -26,7 +28,14 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> Bounce;
     public SoundDictionary<String, List<Sound>> PlatformBreak;
     public SoundDictionary<String, List<Sound>> PickupCoin;
+    //Music
+    public SoundDictionary<String, List<Sound>> MainMusic;
+    public SoundDictionary<String, List<Sound>> MinigameMusic;
+    //Ambience
+    public SoundDictionary<String, List<Sound>> NightAmb;
+    public SoundDictionary<String, List<Sound>> DayAmb;
 
+    //public SoundDictionary<String, List<Sound>> CoinSound;
 
     public static AudioManager Instance;
 
