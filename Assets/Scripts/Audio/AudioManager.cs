@@ -12,7 +12,21 @@ public class AudioManager : MonoBehaviour
     public List<Sound> soundArray;
     public SoundDictionary<String, List<Sound>> PetHappy;
     public SoundDictionary<String, List<Sound>> CoinSound;
-    //public SoundDictionary<String, List<Sound>> PetSad;
+    public SoundDictionary<String, List<Sound>> PetEating;
+    public SoundDictionary<String, List<Sound>> PetSleeping;
+    public SoundDictionary<String, List<Sound>> PetSad;
+    public SoundDictionary<String, List<Sound>> Scratches;
+    public SoundDictionary<String, List<Sound>> Bubbles;
+    public SoundDictionary<String, List<Sound>> ShopSound;
+    public SoundDictionary<String, List<Sound>> Swoosh;
+    public SoundDictionary<String, List<Sound>> ButtonClick;
+    //Minigame
+    public SoundDictionary<String, List<Sound>> GameOver;
+    public SoundDictionary<String, List<Sound>> Jump;
+    public SoundDictionary<String, List<Sound>> Bounce;
+    public SoundDictionary<String, List<Sound>> PlatformBreak;
+    public SoundDictionary<String, List<Sound>> PickupCoin;
+
 
 
 

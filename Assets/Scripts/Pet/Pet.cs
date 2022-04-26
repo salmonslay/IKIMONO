@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using IKIMONO.UI;
-using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace IKIMONO.Pet
 {
@@ -27,7 +26,9 @@ namespace IKIMONO.Pet
         
         [JsonProperty("hygiene")] public PetNeed Hygiene { get; } = new PetNeedHygiene();
         
-        public PetNeed[] Needs => new[] { Hunger, Social, Energy, Fun, Hygiene };
+        public PetNeed Overall { get; } = new PetNeedOverall();
+        
+        public PetNeed[] Needs => new[] { Hunger, Social, Energy, Fun, Hygiene, Overall };
 
         public Pet()
         {
@@ -62,6 +63,26 @@ namespace IKIMONO.Pet
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public float GetGeneralMood()
+        {
+            PetNeed[] needs = { Hunger, Energy, Hygiene, Fun };
+            
+            float total = 0;
+            foreach (PetNeed need in needs)
+            {
+                if(need.Percentage < 0.2f)
+                {
+                    total -= 1;
+                }
+                else if(need.Percentage > 0.4f)
+                {
+                    total += need.Percentage;
+                }
+            }
+            
+            return Mathf.Clamp(total / needs.Length, 0, 1);
         }
     }
 }

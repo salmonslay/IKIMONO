@@ -44,7 +44,7 @@ namespace IKIMONO.Pet
         /// <summary>
         /// The current percentage of the need (0.0-1.0).
         /// </summary>
-        public float Percentage => (Value - MinValue) / (MaxValue - MinValue);
+        public virtual float Percentage => (Value - MinValue) / (MaxValue - MinValue);
 
         /// <summary>
         /// The last time the need was updated.
@@ -52,26 +52,17 @@ namespace IKIMONO.Pet
         [JsonProperty("updatedAt")]
         public DateTime LastUpdated { get; private set; } = DateTime.Now;
         
-        public DateTime TimeAtMinValue => LastUpdated + TimeSpan.FromHours(MaxValue / DecayRate);
+        public DateTime TimeAtMinValue => GetTimeAtValue(0);
 
         /// <summary>
         /// Get the time at which the need will reach a specific value.
         /// </summary>
-        public DateTime GetTimeAtValue(float value)
+        public DateTime GetTimeAtValue(float goalValue)
         {
-            /*
-             * Formula:
-             * mv = 100, dr = 2
-             * v = 50, ex = 25
-             * v / dr = 25
-             */
             UpdateValue();
-            TimeSpan span = TimeSpan.FromHours(value / DecayRate);
-            Debug.Log(this);
-            Debug.Log(value);
-            Debug.Log(DecayRate);
-            Debug.Log(value / DecayRate);
-            return LastUpdated + span;
+            float currentValue = Value;
+            float hoursToReachValue = (currentValue - goalValue) / DecayRate;
+            return LastUpdated + TimeSpan.FromHours(hoursToReachValue);
         }
 
         /// <summary>
@@ -91,7 +82,7 @@ namespace IKIMONO.Pet
             
             ValueUpdated?.Invoke();
 
-            Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
+            // Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
         }
         
         /// <summary>
@@ -100,7 +91,7 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to increase this value with</param>
         public void Increase(float amount)
         {
-            UpdateValue();
+            UpdateValue(); 
             Value = Math.Min(MaxValue, Value + amount);
         }
         
@@ -110,7 +101,18 @@ namespace IKIMONO.Pet
         /// <param name="amount">The amount to decrease this value with</param>
         public void Decrease(float amount)
         {
+            UpdateValue();
             Value = Math.Max(MinValue, Value - amount);
+        }
+
+        /// <summary>
+        /// Set the value of this need to a specific value. This will be clamped.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Set(float value)
+        {
+            UpdateValue();
+            Value = Mathf.Clamp(value, MinValue, MaxValue);
         }
 
         public override string ToString()

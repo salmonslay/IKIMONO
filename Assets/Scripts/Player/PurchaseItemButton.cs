@@ -9,6 +9,12 @@ public class PurchaseItemButton : MonoBehaviour
 
     public void BuyItem()
     {
-        Player.Instance.Inventory.AddItem(new Item(ItemObject), 1);
+        Player player = Player.Instance;
+        int itemCost = ItemObject.PurchaseCost;
+        if (player.Coins >= itemCost)
+        {
+            player.RemoveCoins(itemCost);
+            player.Inventory.AddItem(new Item(ItemObject), 1);
+        }
     }
 }

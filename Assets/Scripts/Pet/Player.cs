@@ -1,4 +1,5 @@
 ﻿using System;
+using IKIMONO.UI;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -11,39 +12,39 @@ namespace IKIMONO.Pet
     public class Player
     {
         public static Player Instance { get; private set; }
-        
+
         #region Save file Variables
 
         /// <summary>
         /// The pet data.
         /// </summary>
         [JsonProperty("pet")] public Pet Pet { get; set; } = new Pet();
-        
+
         /// <summary>
         /// The index for the chosen background. 
         /// </summary>
         [JsonProperty("background")] public int BackgroundIndex { get; } = -1;
-        
+
         /// <summary>
         /// The amount of money the player has.
         /// </summary>
-        [JsonProperty("coins")] public int Coins { get; private set;  } = 0;
-        
+        [JsonProperty("coins")] public int Coins { get; private set; } = 0;
+
         /// <summary>
         /// The DateTime the save file was created.
         /// </summary>
         [JsonProperty("createdAt")] public DateTime CreationDate { get; } = DateTime.Now;
-        
+
         [JsonProperty("inventory")] public Inventory Inventory { get; private set; } = new Inventory();
-        
+
         #endregion
-        
+
         // Init the instance.
         static Player()
         {
             Instance = Load();
         }
-        
+
         #region Methods
         /// <summary>
         /// Saves this save file to the PlayerPrefs.
@@ -52,9 +53,9 @@ namespace IKIMONO.Pet
         {
             PlayerPrefs.SetString("SaveFile", ToString());
             PlayerPrefs.Save();
-            Debug.Log("Saved save file.");
+            // Debug.Log("Saved save file.");
         }
-        
+
         /// <summary>
         /// Creates a SaveFile class from the PlayerPrefs. If no save file exists, a new one is created.
         /// </summary>
@@ -76,6 +77,7 @@ namespace IKIMONO.Pet
             }
 
             Debug.Log("No save file found.");
+            SetNamePanel.Open();
             return new Player();
         }
 
@@ -83,12 +85,16 @@ namespace IKIMONO.Pet
         {
             return JsonConvert.SerializeObject(this);
         }
-        
+
         public void AddCoins(int amount)
         {
             Coins += amount;
         }
-        
+        public void RemoveCoins(int amount)
+        {
+            Coins = Math.Max(Coins - amount, 0);
+        }
+
         #endregion
     }
 }

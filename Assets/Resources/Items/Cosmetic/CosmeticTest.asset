@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CosmeticTest
   m_EditorClassIdentifier: 
   ItemName: Dice
-  Sprite: {fileID: 21300000, guid: fdc3250e956e33c44bca54326611d393, type: 3}
+  Sprite: {fileID: 21300000, guid: d7fa69d18af97504ba456a9ea038bc67, type: 3}
   PurchaseCost: 0
