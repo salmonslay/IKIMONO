@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 4437084428959550542}
   - component: {fileID: 825566102}
   m_Layer: 0
-  m_Name: Platform
+  m_Name: PlatformContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,3 +288,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 1393050438057141494}
+  _platform: {fileID: 2317298493276752489}
