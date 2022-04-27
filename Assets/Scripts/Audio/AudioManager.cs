@@ -128,6 +128,12 @@ public class AudioManager : MonoBehaviour
             soundArray = DayAmb.returnSound();
         }
 
+        if (NightAmb.containsKey(a))
+        {
+
+            setSourceInfo(NightAmb.sound);
+            soundArray = NightAmb.returnSound();
+        }
 
 
         if (PetHappy.containsKey(a))
