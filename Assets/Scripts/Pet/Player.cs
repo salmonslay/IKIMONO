@@ -37,6 +37,8 @@ namespace IKIMONO.Pet
 
         [JsonProperty("inventory")] public Inventory Inventory { get; private set; } = new Inventory();
 
+        [JsonProperty("settings")] public Settings Settings { get; private set; } = new Settings();
+
         #endregion
 
         // Init the instance.
