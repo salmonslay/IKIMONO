@@ -8,7 +8,7 @@ public class Klicker : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().playSound("Music", "ett");
-        //FindObjectOfType<AudioManager>().playSound("DayAmb", "ett");
+        FindObjectOfType<AudioManager>().playSound("DayAmb", "ett");
     }
 
     // Update is called once per frame

@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: DayAmb.sound.Array.data[0].volume
-      value: 1
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Jump.ljud.Array.data[0].audioClip
