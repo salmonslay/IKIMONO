@@ -13,7 +13,7 @@ namespace IKIMONO.Minigame.Jump
             scale.x = width;
             _platform.transform.localScale = scale;
         }
-        
+
         public const float CoinOdds = 0.1f;
 
         private void Awake()

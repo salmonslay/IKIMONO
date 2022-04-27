@@ -16,10 +16,9 @@ namespace IKIMONO.Minigame.Jump
 
         private void Update()
         {
-            // TODO Tova: Use device tilting instead of keyboard input
             Vector2 move = new Vector2(Input.GetAxis("Horizontal"), 0);
-            transform.Translate( Time.deltaTime * 5 * move);
-            
+            transform.Translate(Time.deltaTime * 5 * move);
+
             if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
 
@@ -28,8 +27,6 @@ namespace IKIMONO.Minigame.Jump
                 Jump();
             }
 
-
-            
             // Teleport the player to the other side of the screen if they go off screen
             Vector3 pos = transform.position;
             if (pos.x > _screenBounds.x)

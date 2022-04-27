@@ -5,16 +5,16 @@ namespace IKIMONO.Minigame.Jump
     public class JumpManager : MonoBehaviour
     {
         public static JumpManager Instance;
-        
+
         public JumpPlayer Player { get; private set; }
-        
+
         public GameState GameState { get; private set; } = GameState.None;
 
         /// <summary>
         /// The highest point the player has reached in the current game, in meters (global Y axis)
         /// </summary>
         public float HighestJump { get; private set; } = 0;
-        
+
         public int CoinsCollected { get; private set; } = 0;
 
         private void Awake()
@@ -28,7 +28,7 @@ namespace IKIMONO.Minigame.Jump
             {
                 Instance = this;
             }
-            
+
             Player = FindObjectOfType<JumpPlayer>();
         }
 

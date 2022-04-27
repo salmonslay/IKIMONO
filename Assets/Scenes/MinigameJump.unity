@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _platformPrefab: {fileID: 4437084428959550543, guid: 96e0b76578237774381b52e960d2ce3d, type: 3}
-  _initialSpawnRate: 70
-  _minSpawnRate: 5
+  _initialSpawnRate: 0.7
+  _minSpawnRate: 0.05
   _initialWidth: 1.5
   _minWidth: 0.5
   _finalPoint: 500
@@ -589,7 +589,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1139012249
 MonoBehaviour:
   m_ObjectHideFlags: 0
