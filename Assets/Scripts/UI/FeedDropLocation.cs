@@ -6,7 +6,7 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
             // Hitta vilket item som dragit.
             Item item = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
