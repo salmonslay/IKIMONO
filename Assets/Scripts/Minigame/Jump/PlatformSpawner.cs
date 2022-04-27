@@ -30,16 +30,25 @@ namespace IKIMONO.Minigame.Jump
         /// <summary>
         /// The last meter checked for spawning
         /// </summary>
-        private float _lastSpawnedMeter = 0f;
+        private int _lastSpawnedMeter = 0;
 
         private void Update()
         {
             // TODO Tova:
             // - If the player is close enough to the last spawned meter, run SpawnPlatform(_lastSpawnedMeter)
+
+            float playerYPosition = JumpManager.Instance.Player.transform.position.y;
+
+            if (playerYPosition + 20 > _lastSpawnedMeter)
+            {
+                SpawnPlatform(++_lastSpawnedMeter);
+            }
+
         }
 
         private void SpawnPlatform(int y)
         {
+
             // TODO Tova:
             // - Check if this meter has already been spawned (if so, don't spawn)
             // - Run the odds for spawning a platform from GetCurrentSpawnRate()
