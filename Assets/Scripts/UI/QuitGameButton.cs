@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitGame : MonoBehaviour
+public class QuitGameButton : MonoBehaviour
 {
-    public void SaveAndQuitGame()
+    public void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
