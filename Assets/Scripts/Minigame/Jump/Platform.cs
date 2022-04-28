@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace IKIMONO.Minigame.Jump
 {
@@ -14,13 +15,21 @@ namespace IKIMONO.Minigame.Jump
             _platform.transform.localScale = scale;
         }
 
-        public const float CoinOdds = 0.1f;
+        private const float CoinOdds = 0.1f;
 
         private void Awake()
         {
             if (Random.value < CoinOdds)
             {
                 _coin.SetActive(true);
+            }
+        }
+
+        private void Update()
+        {
+            if(JumpManager.Instance.Player.transform.position.y > transform.position.y + 8f)
+            {
+                Destroy(gameObject);
             }
         }
     }
