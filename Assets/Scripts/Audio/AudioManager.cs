@@ -112,6 +112,108 @@ public class AudioManager : MonoBehaviour
 
     public void getList(String a)
     {
+
+        if (PetHappy.containsKey(a))
+        {
+
+            setSourceInfo(PetHappy.sound);
+            soundArray = PetHappy.returnSound();
+
+
+
+        }
+
+        if (PetEating.containsKey(a))
+        {
+            setSourceInfo(PetEating.sound);
+            soundArray = PetEating.returnSound();
+
+        }
+
+        if (PetSleeping.containsKey(a))
+        {
+            setSourceInfo(PetSleeping.sound);
+            soundArray = PetSleeping.returnSound();
+
+        }
+
+        if (PetSad.containsKey(a))
+        {
+            setSourceInfo(PetSad.sound);
+            soundArray = PetSad.returnSound();
+
+        }
+
+        if (Scratches.containsKey(a))
+        {
+            setSourceInfo(Scratches.sound);
+            soundArray = Scratches.returnSound();
+
+        }
+
+        if (Bubbles.containsKey(a))
+        {
+            setSourceInfo(Bubbles.sound);
+            soundArray = Bubbles.returnSound();
+
+        }
+
+        if (ShopSound.containsKey(a))
+        {
+            setSourceInfo(ShopSound.sound);
+            soundArray = ShopSound.returnSound();
+
+        }
+
+        if (Swoosh.containsKey(a))
+        {
+            setSourceInfo(Swoosh.sound);
+            soundArray = Swoosh.returnSound();
+
+        }
+
+        if (ButtonClick.containsKey(a))
+        {
+            setSourceInfo(ButtonClick.sound);
+            soundArray = ButtonClick.returnSound();
+
+        }
+
+        if (GameOver.containsKey(a))
+        {
+            setSourceInfo(GameOver.sound);
+            soundArray = GameOver.returnSound();
+
+        }
+
+        if (Jump.containsKey(a))
+        {
+            setSourceInfo(Jump.sound);
+            soundArray = Jump.returnSound();
+
+        }
+
+        if (Bounce.containsKey(a))
+        {
+            setSourceInfo(Bounce.sound);
+            soundArray = Bounce.returnSound();
+
+        }
+
+        if (PlatformBreak.containsKey(a))
+        {
+            setSourceInfo(PlatformBreak.sound);
+            soundArray = PlatformBreak.returnSound();
+
+        }
+
+        if (PickupCoin.containsKey(a))
+        {
+            setSourceInfo(PickupCoin.sound);
+            soundArray = PickupCoin.returnSound();
+
+        }
+
         if (MainMusic.containsKey(a))
         {
             setSourceInfo(MainMusic.sound);
@@ -119,8 +221,13 @@ public class AudioManager : MonoBehaviour
 
         }
 
+        if (MinigameMusic.containsKey(a))
+        {
+            setSourceInfo(MinigameMusic.sound);
+            soundArray = MinigameMusic.returnSound();
 
-
+        }
+       
         if (DayAmb.containsKey(a))
         {
 
@@ -135,24 +242,6 @@ public class AudioManager : MonoBehaviour
             soundArray = NightAmb.returnSound();
         }
 
-
-        if (PetHappy.containsKey(a))
-        {
-
-            setSourceInfo(PetHappy.sound);
-            soundArray = PetHappy.returnSound();
-
-
-
-        }
-
-
-        if (PetEating.containsKey(a))
-        {
-            setSourceInfo(PetEating.sound);
-            soundArray = PetEating.returnSound();
-
-        }
         else { Debug.Log("getList method failure"); }
 
     }
@@ -216,6 +305,7 @@ public class Sound
 
     //[HideInInspector]
     public AudioSource source;
+    
 
 }
 
