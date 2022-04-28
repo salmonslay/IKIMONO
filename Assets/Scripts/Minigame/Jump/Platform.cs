@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 namespace IKIMONO.Minigame.Jump
@@ -7,6 +8,8 @@ namespace IKIMONO.Minigame.Jump
     {
         [SerializeField] private GameObject _coin;
         [SerializeField] private GameObject _platform;
+        [SerializeField] private AudioClip _platformSound;
+        [SerializeField] private AudioMixerGroup _platformMixer;
         private static float _coinOdds => 0.05f * JumpManager.Instance.Player.transform.position.y / 100;
         private Transform _camera;
 
@@ -44,6 +47,10 @@ namespace IKIMONO.Minigame.Jump
             Vector2 velocity = rb.velocity;
             velocity.y = 10.2f; // slightly above 10 to make sure it reaches
             rb.velocity = velocity;
+
+            AudioSource source = GameManager.PlayAudio(_platformSound);
+            source.pitch = Random.Range(0.9f, 1.1f);
+            source.outputAudioMixerGroup = _platformMixer;
         }
     }
 }
