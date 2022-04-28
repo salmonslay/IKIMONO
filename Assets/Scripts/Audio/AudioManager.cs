@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("AudioMixers")]
+    [SerializeField] AudioMixerGroup effectMixer;
+    [SerializeField] AudioMixerGroup musicMixer;
 
     [Header("ManageSound")]                     // För att kalla in ljud skriv : FindObjectOfType<AudioManager>().playSound("LjudetsKey", "LjudetsNamn");
     public List<Sound> soundArray;              // För att randomizea en ljudlista skriv : FindObjectOfType<AudioManager>().randomizeSound("LjudetsKey");
@@ -33,6 +37,7 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> NightAmb;
     public SoundDictionary<String, List<Sound>> DayAmb;
 
+   
 
 
     public static AudioManager Instance;
@@ -62,8 +67,7 @@ public class AudioManager : MonoBehaviour
             soundClip.source.loop = soundClip.loop;
             soundClip.source.mute = soundClip.mute;
 
-
-            // AudioMixer kopplat till alla
+            
 
         }
     }
@@ -106,6 +110,16 @@ public class AudioManager : MonoBehaviour
             soundClip.source.pitch = soundClip.pitch;
             soundClip.source.loop = soundClip.loop;
             soundClip.source.mute = soundClip.mute;
+
+            
+
+            if (listInfo == MinigameMusic.sound || listInfo == MainMusic.sound)
+            {
+                soundClip.source.outputAudioMixerGroup = musicMixer;
+            }else
+            {
+                soundClip.source.outputAudioMixerGroup = effectMixer;
+            }
 
         }
     }
