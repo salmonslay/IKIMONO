@@ -30,35 +30,40 @@ namespace IKIMONO.Minigame.Jump
         /// <summary>
         /// The last meter checked for spawning
         /// </summary>
+        private int _lastCheckedMeter = 0;
+        
+        /// <summary>
+        /// The last meter with a platform spawned
+        /// </summary>
         private int _lastSpawnedMeter = 0;
+        
+        
         private Vector3 _screenBounds;
 
         private void Awake()
         {
             _screenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-
         }
 
         private void Update()
         {
-
             float playerYPosition = JumpManager.Instance.Player.transform.position.y;
 
-            if (playerYPosition + 20 > _lastSpawnedMeter)
+            if (playerYPosition + 20 > _lastCheckedMeter)
             {
-                SpawnPlatform(++_lastSpawnedMeter);
+                TrySpawnPlatform(++_lastCheckedMeter);
             }
-
         }
 
-        private void SpawnPlatform(int y)
+        private void TrySpawnPlatform(int y)
         {
 
-            if (UnityEngine.Random.value > GetCurrentSpawnRate())
+            if (UnityEngine.Random.value > GetCurrentSpawnRate() && y + 5 < _lastSpawnedMeter)
             {
                 return;
             }
 
+            _lastSpawnedMeter = y;
             GameObject spawnedPlatform = Instantiate(_platformPrefab);
             Platform platform = spawnedPlatform.GetComponent<Platform>();
             platform.SetWidth(GetCurrentWidth());
