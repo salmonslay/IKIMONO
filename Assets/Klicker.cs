@@ -20,8 +20,8 @@ public class Klicker : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
            FindObjectOfType<AudioManager>().randomizeSound("Happy");
-           FindObjectOfType<AudioManager>().randomizeSound("Eating");
-           FindObjectOfType<AudioManager>().playSound("Button", "One"); 
+           //FindObjectOfType<AudioManager>().randomizeSound("Eating");
+           //FindObjectOfType<AudioManager>().playSound("Button", "One"); 
             
             Debug.Log("Spacetestknappfungerar");
         }
