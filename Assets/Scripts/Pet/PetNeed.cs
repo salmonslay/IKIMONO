@@ -21,6 +21,7 @@ namespace IKIMONO.Pet
         public abstract string Name { get; }
         public virtual float MaxValue { get; } = 100;
         public virtual float MinValue { get; } = 0;
+        public virtual bool HasNotifications { get; } = true;
         public abstract string NotificationTitle { get; }
         public abstract string NotificationDescription { get; }
         public abstract string NotificationIcon { get; }

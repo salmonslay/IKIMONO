@@ -16,6 +16,7 @@
         public override string NotificationDescription => "Your pet is lonely and needs to be socialized, come and play with it!";
         public override string NotificationIcon => "icon_social";
         public override float DecayRate => 0f; // Will not decay, not used for now
+        public override bool HasNotifications => false;
     }
 
     public class PetNeedEnergy : PetNeed
@@ -51,7 +52,7 @@
         public override string NotificationTitle { get; } 
         public override string NotificationDescription { get; }
         public override string NotificationIcon { get; }
-
+        public override bool HasNotifications => false;
         public override float Percentage => Player.Instance.Pet.GetGeneralMood();
     }
 }
