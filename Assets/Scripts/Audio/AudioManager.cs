@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixerGroup musicMixer;
 
     [Header("ManageSound")]                     // För att kalla in ljud skriv : FindObjectOfType<AudioManager>().playSound("LjudetsKey", "LjudetsNamn");
-    public List<Sound> soundArray;              // För att randomizea en ljudlista skriv : FindObjectOfType<AudioManager>().randomizeSound("LjudetsKey");
+    public List<Sound> soundArray;              //   AudioManager.Instance.playSound("Music", "One");         För att randomizea en ljudlista skriv : FindObjectOfType<AudioManager>().randomizeSound("LjudetsKey");
     [Header("Pet")]
     public SoundDictionary<String, List<Sound>> PetHappy;
     public SoundDictionary<String, List<Sound>> PetEating;
@@ -37,7 +37,9 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> NightAmb;
     public SoundDictionary<String, List<Sound>> DayAmb;
 
-   
+    public AudioSource effectsource;
+    public AudioSource music;
+
 
 
     public static AudioManager Instance;
@@ -55,6 +57,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+
+
 
 
         foreach (Sound soundClip in soundArray)
