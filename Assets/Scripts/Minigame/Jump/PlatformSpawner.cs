@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace IKIMONO.Minigame.Jump
 {
@@ -38,11 +37,11 @@ namespace IKIMONO.Minigame.Jump
         private int _lastSpawnedMeter = 0;
         
         
-        private Vector3 _screenBounds;
+        public static Vector3 ScreenBounds { get; private set; }
 
         private void Awake()
         {
-            _screenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            ScreenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         }
 
         private void Update()
@@ -77,7 +76,7 @@ namespace IKIMONO.Minigame.Jump
             // set the platform's position
             Vector3 position = Vector3.zero;
             position.y = y;
-            position.x = UnityEngine.Random.Range(-_screenBounds.x, _screenBounds.x);
+            position.x = UnityEngine.Random.Range(-ScreenBounds.x, ScreenBounds.x);
             platformContainer.transform.position = position;
         }
     }

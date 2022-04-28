@@ -7,6 +7,8 @@ namespace IKIMONO.Minigame.Jump
     {
         [SerializeField] private GameObject _coin;
         [SerializeField] private GameObject _platform;
+        private static float _coinOdds => 0.05f * JumpManager.Instance.Player.transform.position.y / 100;
+        private Transform _camera;
 
         public void SetWidth(float width)
         {
@@ -15,11 +17,11 @@ namespace IKIMONO.Minigame.Jump
             _platform.transform.localScale = scale;
         }
 
-        private const float CoinOdds = 0.1f;
-
         private void Awake()
         {
-            if (Random.value < CoinOdds)
+            _camera = Camera.main!.gameObject.transform;
+            
+            if (Random.value < _coinOdds)
             {
                 _coin.SetActive(true);
             }
@@ -27,7 +29,7 @@ namespace IKIMONO.Minigame.Jump
 
         private void Update()
         {
-            if(JumpManager.Instance.Player.transform.position.y > transform.position.y + 8f)
+            if(_camera.position.y - transform.position.y > PlatformSpawner.ScreenBounds.y)
             {
                 Destroy(gameObject);
             }
