@@ -31,7 +31,7 @@ namespace IKIMONO.Minigame.Jump
         {
             if(_camera.position.y - transform.position.y > PlatformSpawner.ScreenBounds.y)
             {
-                Destroy(gameObject);
+                Destroy(transform.parent.gameObject);
             }
         }
 
