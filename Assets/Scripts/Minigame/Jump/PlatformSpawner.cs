@@ -65,17 +65,20 @@ namespace IKIMONO.Minigame.Jump
             }
 
             _lastSpawnedMeter = y;
-            GameObject spawnedPlatform = Instantiate(_platformPrefab);
-            Platform platform = spawnedPlatform.GetComponent<Platform>();
+            
+            // instantiate the platform
+            GameObject platformContainer = Instantiate(_platformPrefab);
+            Platform platform = platformContainer.GetComponentInChildren<Platform>();
+            
+            // set the platform's width
             float platformWidth = Mathf.Lerp(_initialWidth, _minWidth, _lastSpawnedMeter / _finalPoint);
             platform.SetWidth(platformWidth);
 
+            // set the platform's position
             Vector3 position = Vector3.zero;
-
             position.y = y;
             position.x = UnityEngine.Random.Range(-_screenBounds.x, _screenBounds.x);
-
-            spawnedPlatform.transform.position = position;
+            platformContainer.transform.position = position;
         }
     }
 }

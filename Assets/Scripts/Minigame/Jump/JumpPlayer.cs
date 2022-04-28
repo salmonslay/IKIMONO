@@ -6,7 +6,6 @@ namespace IKIMONO.Minigame.Jump
     {
         private Rigidbody2D _rigidbody2D;
         private Vector3 _screenBounds;
-        [SerializeField] private Transform _groundCheck;
 
         private void Awake()
         {
@@ -22,10 +21,10 @@ namespace IKIMONO.Minigame.Jump
             if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
 
-            if (IsGrounded())
+            /*if (IsGrounded())
             {
                 Jump();
-            }
+            }*/
 
             // Teleport the player to the other side of the screen if they go off screen
             Vector3 pos = transform.position;
@@ -33,10 +32,18 @@ namespace IKIMONO.Minigame.Jump
                 transform.position = new Vector3(-_screenBounds.x, pos.y, pos.z);
             else if (pos.x < -_screenBounds.x)
                 transform.position = new Vector3(_screenBounds.x, pos.y, pos.z);
+            
+            // Rotate the player to face the direction they are moving in
+            // This is slightly off-set to avoid lots of changes from small movements
+            if (move.x < -0.1f)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else if (move.x > 0.1f)
+                transform.localScale = new Vector3(1, 1, 1);
         }
 
         public bool IsGrounded()
         {
+            /*
             if (_rigidbody2D.velocity.y > 0)
             {
                 return false;
@@ -48,6 +55,7 @@ namespace IKIMONO.Minigame.Jump
                 if (!collider.CompareTag("Player") && !collider.isTrigger)
                     return true;
             }
+            */
             return false;
         }
 

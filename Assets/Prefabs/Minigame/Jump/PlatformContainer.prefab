@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 2116681082605775802}
   - component: {fileID: 8914430337212735642}
   - component: {fileID: 6524360806610866950}
+  - component: {fileID: 6763799935460461452}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -210,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.47670513}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -221,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.046589702}
   m_EdgeRadius: 0
 --- !u!251 &6524360806610866950
 PlatformEffector2D:
@@ -242,6 +243,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6763799935460461452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317298493276752489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60475fe49e3f4f81899ede589456ead1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coin: {fileID: 1393050438057141494}
+  _platform: {fileID: 2317298493276752489}
 --- !u!1 &4437084428959550543
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +266,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4437084428959550542}
-  - component: {fileID: 825566102}
   m_Layer: 0
   m_Name: PlatformContainer
   m_TagString: Untagged
@@ -275,17 +289,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &825566102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437084428959550543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60475fe49e3f4f81899ede589456ead1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coin: {fileID: 1393050438057141494}
-  _platform: {fileID: 2317298493276752489}
