@@ -57,8 +57,9 @@ namespace IKIMONO.Minigame.Jump
 
         private void TrySpawnPlatform(int y)
         {
-
-            if (UnityEngine.Random.value > GetCurrentSpawnRate() && y + 5 < _lastSpawnedMeter)
+            float spawnRate = Mathf.Lerp(_initialSpawnRate, _minSpawnRate, _lastSpawnedMeter / _finalPoint);
+            
+            if (UnityEngine.Random.value > spawnRate && y + 5 < _lastSpawnedMeter)
             {
                 return;
             }
@@ -66,7 +67,8 @@ namespace IKIMONO.Minigame.Jump
             _lastSpawnedMeter = y;
             GameObject spawnedPlatform = Instantiate(_platformPrefab);
             Platform platform = spawnedPlatform.GetComponent<Platform>();
-            platform.SetWidth(GetCurrentWidth());
+            float platformWidth = Mathf.Lerp(_initialWidth, _minWidth, _lastSpawnedMeter / _finalPoint);
+            platform.SetWidth(platformWidth);
 
             Vector3 position = Vector3.zero;
 
@@ -75,21 +77,5 @@ namespace IKIMONO.Minigame.Jump
 
             spawnedPlatform.transform.position = position;
         }
-
-        private float GetCurrentSpawnRate()
-        {
-            // This is basically a linear function:
-            // The spawn rate will go from _initialSpawnRate to _minSpawnRate as the player progresses towards the _finalPoint
-            float percent = Math.Min(JumpManager.Instance.HighestJump / _finalPoint, 1);
-            return Mathf.Clamp(_initialSpawnRate - (_initialSpawnRate - _minSpawnRate) * percent, _minSpawnRate, _initialSpawnRate);
-        }
-
-        private float GetCurrentWidth()
-        {
-            // The math is the same as above, but the width will go from _initialWidth to _minWidth
-            float percent = Math.Min(JumpManager.Instance.HighestJump / _finalPoint, 1);
-            return Mathf.Clamp(_initialWidth - (_initialWidth - _minWidth) * percent, _minWidth, _initialWidth);
-        }
-
     }
 }
