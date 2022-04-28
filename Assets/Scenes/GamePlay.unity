@@ -503,6 +503,10 @@ PrefabInstance:
       value: Swoosh
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: musicMixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 0de840b4d43797f4287b290a2b237235, type: 2}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: Bubbles.key
       value: Bubbles
       objectReference: {fileID: 0}
@@ -510,6 +514,10 @@ PrefabInstance:
       propertyPath: Jump.nyckel
       value: Jump
       objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: effectMixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 6caaa3afc698c43479683b9778c0677c, type: 2}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: test.nyckel
       value: pipljud
