@@ -7,9 +7,20 @@ using UnityEngine;
 public class AndroidNotifications : MonoBehaviour
 {
 
+    public static AndroidNotifications Instance { get; private set; }
 
-    void Start()
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         AndroidNotificationChannel notificationChannel = new AndroidNotificationChannel()
         {
             Id = "TestChannel",
@@ -21,29 +32,14 @@ public class AndroidNotifications : MonoBehaviour
         AndroidNotificationCenter.RegisterNotificationChannel(notificationChannel);
     }
 
-    public void PushNotificationTest()
+    public AndroidNotification BuildNotification(string title, string messageText, string largeIcon = null, float fireTimeDelay = 0, string smallIcon = "icon_app_small")
     {
-        Pet pet = Player.Instance.Pet;
-
-        string title = "Hunger level: " + pet.Hunger.Value + " /100";
-        string messageText = "Your pet" + pet.Name + " is hungry!";
-        string smallIcon = "smalltesticon";
-        string largeIcon = "largetesticon";
-        float fireDelay = 5f;
-
-
-        AndroidNotification testNotification = BuildNotification(title, messageText, largeIcon, fireDelay, smallIcon);
-        PushNotification(testNotification);
-    }
-
-    public AndroidNotification BuildNotification(string title, string messageText, string largeIcon = null, float fireTimeDelay = 0, string smallIcon = "small_app_icon")
-    {
-        if(string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(messageText))
+        if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(messageText))
         {
             // TODO: Johan?
             return new AndroidNotification();
         }
-        
+
         AndroidNotification notification = new AndroidNotification();
         notification.Title = title;
         notification.Text = messageText;
@@ -58,11 +54,17 @@ public class AndroidNotifications : MonoBehaviour
 
     public void PushNotification(AndroidNotification notification)
     {
+        if (string.IsNullOrEmpty(notification.Title) || string.IsNullOrEmpty(notification.Text))
+        {
+            return;
+        }
+
         var notificationId = AndroidNotificationCenter.SendNotification(notification, "TestChannel");
 
         if (AndroidNotificationCenter.CheckScheduledNotificationStatus(notificationId) == NotificationStatus.Scheduled)
         {
-            AndroidNotificationCenter.CancelAllNotifications();
+            AndroidNotificationCenter.CancelNotification(notificationId);
+            //AndroidNotificationCenter.CancelAllNotifications();
             AndroidNotificationCenter.SendNotification(notification, "TestChannel");
         }
     }
