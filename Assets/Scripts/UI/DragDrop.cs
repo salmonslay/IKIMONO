@@ -59,7 +59,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Player.Instance.Inventory.RemoveItem(GetItem(), 1);
+        //Player.Instance.Inventory.RemoveItem(GetItem(), 1);
     }
 
     public Item GetItem()
