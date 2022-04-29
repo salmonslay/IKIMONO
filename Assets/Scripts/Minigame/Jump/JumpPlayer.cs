@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace IKIMONO.Minigame.Jump
 {
@@ -6,6 +7,11 @@ namespace IKIMONO.Minigame.Jump
     {
         private Rigidbody2D _rigidbody2D;
         private Vector3 _screenBounds;
+        
+        /// <summary>
+        /// The first jump is always manual. If this is true, this jump has been triggered by the player.
+        /// </summary>
+        private bool _hasJumped = false;
 
         private void Awake()
         {
@@ -15,16 +21,18 @@ namespace IKIMONO.Minigame.Jump
 
         private void Update()
         {
-            Vector2 move = new Vector2(Input.GetAxis("Horizontal"), 0);
+            // Use tilt if possible, but fallback to keyboard input
+            float horizontalControl = Input.GetAxis("Horizontal");
+            float horizontalTilt = Input.acceleration.x * 2;
+            Vector2 move = horizontalControl != 0 ? new Vector2(horizontalControl, 0) : new Vector2(horizontalTilt, 0);
+            
             transform.Translate(Time.deltaTime * 5 * move);
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                Jump();
-
-            /*if (IsGrounded())
+            
+            // The first jump is always manual
+            if (Input.GetMouseButtonDown(0) && !_hasJumped || Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
-            }*/
+            }
 
             // Teleport the player to the other side of the screen if they go off screen
             Vector3 pos = transform.position;
@@ -63,6 +71,7 @@ namespace IKIMONO.Minigame.Jump
         {
             // This technically doesn't require a grounded check, but it might be good to have? Eh let's skip that for now
             _rigidbody2D.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            _hasJumped = true;
         }
     }
 }
