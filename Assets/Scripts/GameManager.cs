@@ -7,12 +7,13 @@ namespace IKIMONO
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
-        AndroidNotifications androidNotifications;
+        private AndroidNotifications _androidNotifications;
+        
         private void Start()
         {
             Player.Instance.Pet.UpdateValues();
-            androidNotifications = AndroidNotifications.Instance;
-            androidNotifications.CancelAllNotifications();
+            _androidNotifications = AndroidNotifications.Instance;
+            _androidNotifications.CancelAllNotifications();
 
             if (Instance == null)
             {
@@ -67,7 +68,7 @@ namespace IKIMONO
 
         private void ScheduleNeedNotifications()
         {
-            androidNotifications.CancelAllNotifications();
+            _androidNotifications.CancelAllNotifications();
             foreach (PetNeed need in Player.Instance.Pet.Needs)
             {
                 if (need.GetType() == typeof(PetNeedEnergy) && ((PetNeedEnergy)need).IsSleeping)
@@ -78,7 +79,7 @@ namespace IKIMONO
                 if (need.HasNotifications && need.Value > fireAtNeedValue)
                 {
                     float fireDelay = (float)need.GetTimeAtValue(fireAtNeedValue).Subtract(System.DateTime.Now).TotalSeconds;
-                    androidNotifications.PushNotification(androidNotifications.BuildNotification(
+                    _androidNotifications.PushNotification(_androidNotifications.BuildNotification(
                         need.NotificationTitle,
                         need.NotificationDescription,
                         need.NotificationIcon, fireDelay));
