@@ -48,6 +48,8 @@ namespace IKIMONO.Minigame.Jump
             velocity.y = 10.2f; // slightly above 10 to make sure it reaches
             rb.velocity = velocity;
 
+            JumpManager.Instance.JumpCount++;
+
             AudioSource source = GameManager.PlayAudio(_platformSound);
             source.pitch = Random.Range(0.9f, 1.1f);
             source.outputAudioMixerGroup = _platformMixer;

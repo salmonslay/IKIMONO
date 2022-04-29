@@ -47,6 +47,11 @@ namespace IKIMONO.Minigame.Jump
                 transform.localScale = new Vector3(-1, 1, 1);
             else if (move.x > 0.1f)
                 transform.localScale = new Vector3(1, 1, 1);
+
+            if (_rigidbody2D.velocity.y < -10)
+            {
+                JumpManager.Instance.GameOver();
+            }
         }
 
         public bool IsGrounded()
