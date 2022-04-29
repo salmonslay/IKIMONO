@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace IKIMONO.UI
 {
@@ -42,7 +43,7 @@ namespace IKIMONO.UI
 
         public void NeedFun()
         {
-            throw new NotImplementedException();
+            SceneManager.LoadScene("MinigameJump");
         }
 
         public void NeedHunger()
