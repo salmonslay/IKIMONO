@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace IKIMONO.Minigame.Jump
 {
@@ -16,6 +17,8 @@ namespace IKIMONO.Minigame.Jump
         public float HighestJump { get; private set; } = 0;
 
         public int CoinsCollected { get; private set; } = 0;
+        
+        [SerializeField] private Text _coinText;
 
         private void Awake()
         {
@@ -41,6 +44,7 @@ namespace IKIMONO.Minigame.Jump
         public void AddCoin()
         {
             CoinsCollected++;
+            _coinText.text = CoinsCollected.ToString();
         }
     }
 }
