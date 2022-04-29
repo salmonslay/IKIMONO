@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: 1621.4175}
-  m_SizeDelta: {x: 931.8182, y: 100}
+  m_AnchoredPosition: {x: 465.90906, y: -50}
+  m_SizeDelta: {x: 931.8181, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1481704366894820634
 GameObject:
@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -744.90906}
-  m_SizeDelta: {x: 0, y: 189.81816}
+  m_AnchoredPosition: {x: 465.90906, y: -1345}
+  m_SizeDelta: {x: 931.8181, y: 830}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1481704365097683482
 CanvasRenderer:
@@ -341,8 +341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_SizeDelta: {x: 400, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2857607090855127665
 MonoBehaviour:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413983736905d0941becdf38206b2300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabGroup: {fileID: 0}
+  tabGroup: {fileID: 5132400696938483217}
   TabBackground: {fileID: 0}
 --- !u!1 &3461078977798878608
 GameObject:
@@ -632,14 +632,14 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 20
+    m_Top: 10
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -727,7 +727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5132400696938483230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ RectTransform:
   m_GameObject: {fileID: 5132400696938483231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.995, y: 0.995, z: 1}
   m_Children:
   - {fileID: 7137783019231603409}
   - {fileID: 4709710885021794554}
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0.1764706}
+  m_Color: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5132400696938483231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413983736905d0941becdf38206b2300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabGroup: {fileID: 0}
+  tabGroup: {fileID: 5132400696938483217}
   TabBackground: {fileID: 0}
 --- !u!1 &7963254851697113460
 GameObject:
@@ -1032,7 +1032,6 @@ GameObject:
   - component: {fileID: 5472429891283302856}
   - component: {fileID: 3731274625663542763}
   - component: {fileID: 8854250336167693993}
-  - component: {fileID: 2676913867631137352}
   m_Layer: 5
   m_Name: ReturnButton
   m_TagString: Untagged
@@ -1142,9 +1141,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2676913867631137352}
-        m_TargetAssemblyTypeName: CloseWindowsButton, Assembly-CSharp
-        m_MethodName: CloseWindows
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: IKIMONO.UI.ButtonManager, Assembly-CSharp
+        m_MethodName: ResetUIWindows
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1154,19 +1153,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2676913867631137352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9078941897399087203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e35a7d10b7711d4fb9ef7ef838f7b03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentWindow: {fileID: 0}
 --- !u!1001 &5132400697491741362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,11 +1198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 931.8181
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 550
+      value: 830
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1248,11 +1234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 465.90906
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -375
+      value: -515
       objectReference: {fileID: 0}
     - target: {fileID: 460970409571228232, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1288,7 +1274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460970410602141559, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -520
+      value: -810
       objectReference: {fileID: 0}
     - target: {fileID: 3845479118528286744, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
       propertyPath: m_Sprite
@@ -1337,6 +1323,7 @@ PrefabInstance:
     - {fileID: 3845479118795774994, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
     - {fileID: 3845479118795774995, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
     - {fileID: 460970410602141561, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
+    - {fileID: 1587724872403252718, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de3be7ab0900ffb49aed501682ac07a2, type: 3}
 --- !u!1 &4709710885021794555 stripped
 GameObject:
