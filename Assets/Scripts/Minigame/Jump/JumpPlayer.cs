@@ -48,9 +48,10 @@ namespace IKIMONO.Minigame.Jump
             else if (move.x > 0.1f)
                 transform.localScale = new Vector3(1, 1, 1);
 
-            if (_rigidbody2D.velocity.y < -10)
+            if (_rigidbody2D != null && _rigidbody2D.velocity.y < -20)
             {
                 JumpManager.Instance.GameOver();
+                Destroy(_rigidbody2D);
             }
         }
 
