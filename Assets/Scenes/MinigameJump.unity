@@ -1236,7 +1236,6 @@ GameObject:
   - component: {fileID: 749524308355714960}
   - component: {fileID: 749524308355714961}
   - component: {fileID: 749524308355714958}
-  - component: {fileID: 2878176940026419196}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -1492,20 +1491,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Game Over!
---- !u!114 &2878176940026419196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749524308355714959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12c22582cf77d35458feba030dc901bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nameInputField: {fileID: 0}
-  _statusText: {fileID: 6175741654240965441}
 --- !u!222 &6175741654240965440
 CanvasRenderer:
   m_ObjectHideFlags: 0
