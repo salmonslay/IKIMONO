@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Hamburger
   Sprite: {fileID: 21300000, guid: 31c131a26c1019b49859fa0ba23e5c11, type: 3}
-  PurchaseCost: 4
+  PurchaseCost: 0
+  FunValue: 0
   HungerValue: 5
+  HygieneValue: 0
   EnergyValue: 0
+  SocialValue: 0
