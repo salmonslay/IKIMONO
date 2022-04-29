@@ -7,9 +7,9 @@ namespace IKIMONO.Minigame.Jump
     /// </summary>
     public class PlatformSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject _platformPrefab;
 
         [Header("Platforms")]
+        [SerializeField] private GameObject _platformPrefab;
 
         [Tooltip("The odds of a platform spawning per meter")]
         [SerializeField] private float _initialSpawnRate = 0.7f;
@@ -25,7 +25,7 @@ namespace IKIMONO.Minigame.Jump
 
         [Tooltip("The Y point where the lowest spawning odds and platform width will be reached")]
         [SerializeField] private float _finalPoint = 500f;
-
+        
         /// <summary>
         /// The last meter checked for spawning
         /// </summary>
@@ -36,12 +36,19 @@ namespace IKIMONO.Minigame.Jump
         /// </summary>
         private int _lastSpawnedMeter = 0;
         
-        
+
         public static Vector3 ScreenBounds { get; private set; }
+        private Transform _camera;
+        
+        [Header("Misc")]
+        [SerializeField] private GameObject _ground;
+
 
         private void Awake()
         {
-            ScreenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            _camera = Camera.main!.transform;
+            ScreenBounds = Camera.main!.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.position.z));
+
         }
 
         private void Update()
@@ -51,6 +58,12 @@ namespace IKIMONO.Minigame.Jump
             if (playerYPosition + 20 > _lastCheckedMeter)
             {
                 TrySpawnPlatform(++_lastCheckedMeter);
+            }
+            
+            // Delete ground if it's off screen
+            if (_ground != null && _camera.position.y - _ground.transform.position.y > ScreenBounds.y)
+            {
+                Destroy(_ground);
             }
         }
 
