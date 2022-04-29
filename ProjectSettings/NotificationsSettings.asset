@@ -39,20 +39,47 @@
         },
         "DrawableResources": [
             {
-                "Id": "smalltesticon",
+                "Id": "icon_app_small",
                 "Type": 0,
                 "Asset": {
                     "fileID": 2800000,
-                    "guid": "d7fa69d18af97504ba456a9ea038bc67",
+                    "guid": "32d1fd0e5d00171499da566d81cc0f32",
                     "type": 3
                 }
             },
             {
-                "Id": "largetesticon",
+                "Id": "icon_hunger",
                 "Type": 1,
                 "Asset": {
                     "fileID": 2800000,
-                    "guid": "a2ffbcd36e9b32c45aeffde475cf4c75",
+                    "guid": "32d1fd0e5d00171499da566d81cc0f32",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "icon_social",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "cef3bb21f02572b47bef76958622adc3",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "icon_hygiene",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "51315e14cb3ab4b42918e76d437a6571",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "icon_sleep",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "93c7afda1db1c2d4287457b26b2662dc",
                     "type": 3
                 }
             }
