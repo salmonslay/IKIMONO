@@ -22,6 +22,9 @@ public class SetVolume : MonoBehaviour
     [SerializeField] private Image effectsToggleImage;
     [SerializeField] private Slider effectsSlider;
 
+    private float lastEffectsVolume;
+    private float lastMusicVolume;
+
     private Settings settings;
 
     private void Start()
@@ -29,6 +32,8 @@ public class SetVolume : MonoBehaviour
         settings = Player.Instance.Settings;
         effectsSlider.value = settings.EffectsVolume;
         musicSlider.value = settings.MusicVolume;
+        lastEffectsVolume = settings.EffectsVolume;
+        lastMusicVolume = settings.MusicVolume;
         SetMusicLevel(settings.MusicVolume);
         SetEffectsLevel(settings.EffectsVolume);
     }
@@ -60,6 +65,37 @@ public class SetVolume : MonoBehaviour
         {
             effectsToggleImage.sprite = soundOffSprite;
             effectsSlider.value = 0.0001f;
+        }
+    }
+
+    //@TODO Clean and optimize the mute scripts
+    public void MuteEffectsToggle()
+    {
+        if (settings.EffectsVolume < 0.0015f)
+        {
+            effectsToggleImage.sprite = soundOnSprite;
+            effectsSlider.value = lastEffectsVolume;
+            SetEffectsLevel(lastEffectsVolume);
+        }
+        else
+        {
+            lastEffectsVolume = settings.EffectsVolume;
+            SetEffectsLevel(0.0001f);
+        }
+    }
+
+    public void MuteMusicToggle()
+    {
+        if (settings.MusicVolume < 0.0015f)
+        {
+            musicToggleImage.sprite = soundOnSprite;
+            musicSlider.value = lastEffectsVolume;
+            SetMusicLevel(lastMusicVolume);
+        }
+        else
+        {
+            lastMusicVolume = settings.MusicVolume;
+            SetMusicLevel(0.0001f);
         }
     }
 
