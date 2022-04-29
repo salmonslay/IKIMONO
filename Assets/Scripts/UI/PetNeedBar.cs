@@ -1,3 +1,4 @@
+using System;
 using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,11 @@ namespace IKIMONO.UI
         public void SetNeed(PetNeed need)
         {
             _petNeed = need;
+        }
+
+        private void OnDestroy()
+        {
+            PetNeed.ValueUpdated -= UpdateValue;
         }
 
         private void UpdateValue()
