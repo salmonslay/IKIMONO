@@ -10,6 +10,8 @@ namespace IKIMONO
 
         private void Start()
         {
+            Player.Instance.Pet.UpdateValues();
+
             if (Instance == null)
             {
                 Instance = this;
@@ -27,8 +29,8 @@ namespace IKIMONO
         {
             while (true)
             {
-                yield return new WaitForSeconds(15);
                 Player.Instance.Pet.UpdateValues();
+                yield return new WaitForSeconds(15);
             }
             // ReSharper disable once IteratorNeverReturns
         }
