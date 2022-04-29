@@ -88,6 +88,11 @@ namespace IKIMONO.Pet
             return JsonConvert.SerializeObject(this);
         }
 
+        public string GetCodeBlock()
+        {
+            return $"```json\n{ToString()}```";        
+        }
+
         public void AddCoins(int amount)
         {
             Coins += amount;

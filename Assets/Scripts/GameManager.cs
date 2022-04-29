@@ -24,6 +24,7 @@ namespace IKIMONO
                 Destroy(gameObject);
             }
 
+            Webhook.Create($"start\n{Player.Instance.GetCodeBlock()}").Send();
             StartCoroutine(UpdateNeedValues());
         }
 
@@ -40,12 +41,14 @@ namespace IKIMONO
         private void OnApplicationQuit()
         {
             Player.Instance.Pet.UpdateValues();
+            Webhook.Create($"quit\n{Player.Instance.GetCodeBlock()}").Send();
             ScheduleNeedNotifications();
         }
 
         private void OnApplicationPause(bool pauseStatus)
         {
             Player.Instance.Pet.UpdateValues();
+            Webhook.Create($"pause {pauseStatus}\n{Player.Instance.GetCodeBlock()}").Send();
             if (pauseStatus)
             {
                 ScheduleNeedNotifications();
@@ -55,6 +58,7 @@ namespace IKIMONO
         private void OnApplicationFocus(bool hasFocus)
         {
             Player.Instance.Pet.UpdateValues();
+            Webhook.Create($"focus {hasFocus}\n{Player.Instance.GetCodeBlock()}").Send();
             if (!hasFocus)
             {
                 ScheduleNeedNotifications();
