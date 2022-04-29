@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GamePlay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JohanTestScene.unity
     guid: fcebcdbca3466354da1a55bea819d7bc
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: a4501066f86dbdc4f881b4a24d9807e4
+  - enabled: 1
+    path: Assets/Scenes/MinigameJump.unity
+    guid: 20c4de873050bce4e889b81aa89ae666
   m_configObjects: {}
