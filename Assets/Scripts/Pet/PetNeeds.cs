@@ -1,4 +1,6 @@
-﻿namespace IKIMONO.Pet
+﻿using Newtonsoft.Json;
+
+namespace IKIMONO.Pet
 {
     public class PetNeedHunger : PetNeed
     {
@@ -25,7 +27,8 @@
         public override string NotificationTitle => "Your pet is tired!";
         public override string NotificationDescription => "Your pet is tired and needs to sleep, come and give it a nap!";
         public override string NotificationIcon => "icon_energy";
-        public override float DecayRate => 5; // 20h to reach 0
+        public override float DecayRate => IsSleeping ? -12 : 5; // 20h to reach 0, 8h to reach 100
+        [JsonProperty("sleeping")] public bool IsSleeping { get; set; }
     }
     
     public class PetNeedFun : PetNeed
@@ -54,5 +57,7 @@
         public override string NotificationIcon { get; }
         public override bool HasNotifications => false;
         public override float Percentage => Player.Instance.Pet.GetGeneralMood();
+        
+        // TODO: Value always returns 100, need to calculate it
     }
 }

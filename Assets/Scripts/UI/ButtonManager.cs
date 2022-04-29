@@ -1,4 +1,5 @@
 using System;
+using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -67,7 +68,10 @@ namespace IKIMONO.UI
 
         public void NeedEnergy()
         {
-            throw new NotImplementedException();
+            PetNeedEnergy energy = (PetNeedEnergy)Player.Instance.Pet.Energy;
+            energy.IsSleeping = !energy.IsSleeping;
+            Player.Instance.Save();
+            FindObjectOfType<Ikimono>().SetSprite();
         }
 
         public void ResetUIWindows()

@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 480040750}
   - component: {fileID: 480040749}
   - component: {fileID: 480040748}
+  - component: {fileID: 480040751}
   m_Layer: 5
   m_Name: Ikimono
   m_TagString: Untagged
@@ -451,6 +452,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480040746}
   m_CullTransparentMesh: 1
+--- !u!114 &480040751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480040746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7ceec0645bc1b438ab159c8c7c9e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idle: {fileID: 21300000, guid: f4979a9e709acca4b818f3bc1389cf3c, type: 3}
+  _sad: {fileID: 21300000, guid: 35f19f97872d18c41a18773f00337ddf, type: 3}
+  _sleeping: {fileID: 21300000, guid: 8a1e7611d496dd0438b77cb93863c413, type: 3}
 --- !u!1 &492860171
 GameObject:
   m_ObjectHideFlags: 0
