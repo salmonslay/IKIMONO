@@ -7,10 +7,12 @@ namespace IKIMONO
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
-
+        AndroidNotifications androidNotifications;
         private void Start()
         {
             Player.Instance.Pet.UpdateValues();
+            androidNotifications = AndroidNotifications.Instance;
+            androidNotifications.CancelAllNotifications();
 
             if (Instance == null)
             {
@@ -21,7 +23,7 @@ namespace IKIMONO
             {
                 Destroy(gameObject);
             }
-            
+
             StartCoroutine(UpdateNeedValues());
         }
 
@@ -38,18 +40,48 @@ namespace IKIMONO
         private void OnApplicationQuit()
         {
             Player.Instance.Pet.UpdateValues();
+            ScheduleNeedNotifications();
         }
 
         private void OnApplicationPause(bool pauseStatus)
         {
             Player.Instance.Pet.UpdateValues();
+            if (pauseStatus)
+            {
+                ScheduleNeedNotifications();
+            }
         }
 
         private void OnApplicationFocus(bool hasFocus)
         {
             Player.Instance.Pet.UpdateValues();
+            if (!hasFocus)
+            {
+                ScheduleNeedNotifications();
+            }
         }
-        
+
+        private void ScheduleNeedNotifications()
+        {
+            androidNotifications.CancelAllNotifications();
+            foreach (PetNeed need in Player.Instance.Pet.Needs)
+            {
+                if (need.GetType() == typeof(PetNeedEnergy) && ((PetNeedEnergy)need).IsSleeping)
+                {
+                    continue;
+                }
+                float fireAtNeedValue = 30;
+                if (need.HasNotifications && need.Value > fireAtNeedValue)
+                {
+                    float fireDelay = (float)need.GetTimeAtValue(fireAtNeedValue).Subtract(System.DateTime.Now).TotalSeconds;
+                    androidNotifications.PushNotification(androidNotifications.BuildNotification(
+                        need.NotificationTitle,
+                        need.NotificationDescription,
+                        need.NotificationIcon, fireDelay));
+                }
+            }
+        }
+
         /// <summary>
         /// Plays a random AudioClip from an array
         /// </summary>
@@ -59,7 +91,7 @@ namespace IKIMONO
         {
             return clips.Length == 0 ? null : PlayAudio(clips[Random.Range(0, clips.Length)]);
         }
-        
+
         /// <summary>
         /// Plays a random AudioClip
         /// </summary>
