@@ -79,6 +79,16 @@ namespace IKIMONO.UI
             _uiInventoryWindow.SetActive(false);
             _uiShopWindow.SetActive(false);
             _uiSettingsWindow.SetActive(false);
+            activeWindow = null;
+        }
+
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
         }
     }
 }
