@@ -82,6 +82,13 @@ namespace IKIMONO.UI
             activeWindow = null;
         }
 
+        public void DeleteSave()
+        {
+            // TODO: add confirmation dialog
+            PlayerPrefs.DeleteAll();
+            Application.Quit();
+        }
+
         public void QuitGame()
         {
 #if UNITY_EDITOR
