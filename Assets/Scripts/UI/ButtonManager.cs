@@ -68,7 +68,7 @@ namespace IKIMONO.UI
 
         public void NeedEnergy()
         {
-            PetNeedEnergy energy = (PetNeedEnergy)Player.Instance.Pet.Energy;
+            PetNeedEnergy energy = Player.Instance.Pet.Energy;
             energy.IsSleeping = !energy.IsSleeping;
             Player.Instance.Save();
             FindObjectOfType<Ikimono>().SetSprite();

@@ -24,9 +24,7 @@ namespace IKIMONO.UI
 
         public void SetSprite()
         {
-            PetNeedEnergy energy = (PetNeedEnergy)_player.Pet.Energy;
-            
-            if (energy.IsSleeping)
+            if (_player.Pet.Energy.IsSleeping)
             {
                 _image.sprite = _sleeping;   
             }
