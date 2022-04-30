@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Cherry Pie
   Sprite: {fileID: 21300000, guid: 481802a4a2f8c65448f5f5881eb7e7a1, type: 3}
-  PurchaseCost: 0
+  PurchaseCost: 15
   FunValue: 0
-  HungerValue: 2
+  HungerValue: 20
   HygieneValue: 0
   EnergyValue: 0
   SocialValue: 0

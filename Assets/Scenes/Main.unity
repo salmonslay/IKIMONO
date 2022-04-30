@@ -2011,6 +2011,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 492860172}
     m_Modifications:
+    - target: {fileID: 4709710885021794548, guid: e3b6eb6c4a897df43b291d8464ab6d0f, type: 3}
+      propertyPath: itemList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709710885021794548, guid: e3b6eb6c4a897df43b291d8464ab6d0f, type: 3}
+      propertyPath: itemList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bc6f6ae328da0e3499ff09eefacd00a7, type: 2}
+    - target: {fileID: 4709710885021794548, guid: e3b6eb6c4a897df43b291d8464ab6d0f, type: 3}
+      propertyPath: itemList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 76e6916c3649f4f4b9c94326abe22c04, type: 2}
     - target: {fileID: 5132400696938483230, guid: e3b6eb6c4a897df43b291d8464ab6d0f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

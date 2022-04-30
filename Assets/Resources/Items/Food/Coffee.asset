@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Cup of Coffee
   Sprite: {fileID: 21300000, guid: af3c0527b6dd7cc48ab18fd4318b196d, type: 3}
-  PurchaseCost: 0
+  PurchaseCost: 10
   FunValue: 0
-  HungerValue: 1
+  HungerValue: 5
   HygieneValue: 0
-  EnergyValue: 5
+  EnergyValue: 10
   SocialValue: 0
