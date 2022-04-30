@@ -102,6 +102,11 @@ namespace IKIMONO.Pet
             Coins = Math.Max(Coins - amount, 0);
         }
 
+        public static void Reset()
+        {            
+            PlayerPrefs.DeleteAll();
+            Instance = new Player();
+        }
         #endregion
     }
 }

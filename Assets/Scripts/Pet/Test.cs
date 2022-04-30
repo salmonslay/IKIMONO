@@ -36,7 +36,7 @@ namespace IKIMONO.Pet
         }
         public void NukeData()
         {
-            PlayerPrefs.DeleteAll();
+            Player.Reset();
             Debug.Log("boom. restart the game");
         }
 

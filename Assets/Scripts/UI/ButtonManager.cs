@@ -85,7 +85,7 @@ namespace IKIMONO.UI
         public void DeleteSave()
         {
             // TODO: add confirmation dialog
-            PlayerPrefs.DeleteAll();
+            Player.Reset();
             Application.Quit();
         }
 
