@@ -82,9 +82,8 @@ namespace IKIMONO.Pet
             LastUpdated = now;
             
             ValueUpdated?.Invoke();
-
-            if(GetType() == typeof(PetNeedEnergy))
-                Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
+            
+            // Debug.Log($"{Name} updated after {Math.Round(elapsed.TotalMinutes, 2)} minutes, from {oldValue} to {Value}. Delta: {delta}");
         }
         
         /// <summary>
