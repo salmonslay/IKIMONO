@@ -1,8 +1,7 @@
-using System;
 using IKIMONO.UI;
 using Newtonsoft.Json;
 using UnityEngine;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 namespace IKIMONO.Pet
 {
@@ -36,11 +35,12 @@ namespace IKIMONO.Pet
             Name = NameSet.GetRandomName();
             
             // TODO: Move default values to PetNeed classes
-            Hunger.Decrease(UnityEngine.Random.Range(20,40));
-            Energy.Decrease(UnityEngine.Random.Range(10,20));
-            Fun.Decrease(UnityEngine.Random.Range(50,60));
-            Hygiene.Decrease(UnityEngine.Random.Range(5,30));
+            Hunger.Decrease(Random.Range(20,40));
+            Energy.Decrease(Random.Range(10,20));
+            Fun.Decrease(Random.Range(50,60));
+            Hygiene.Decrease(Random.Range(5,30));
         }
+        
         public Pet (string name)
         {
             Name = name;
