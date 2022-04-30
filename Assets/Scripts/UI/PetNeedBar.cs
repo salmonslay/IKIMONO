@@ -13,6 +13,7 @@ namespace IKIMONO.UI
         private void Awake()
         {
             PetNeed.ValueUpdated += UpdateValue;
+            Player.Instance.Pet.UpdateValues();
         }
 
         public void SetNeed(PetNeed need)
