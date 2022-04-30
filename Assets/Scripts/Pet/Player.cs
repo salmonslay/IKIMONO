@@ -21,14 +21,14 @@ namespace IKIMONO.Pet
         [JsonProperty("pet")] public Pet Pet { get; set; } = new Pet();
 
         /// <summary>
-        /// The index for the chosen background. 
+        /// The index for the chosen background. Not currently used.
         /// </summary>
         [JsonProperty("background")] public int BackgroundIndex { get; } = -1;
 
         /// <summary>
         /// The amount of money the player has.
         /// </summary>
-        [JsonProperty("coins")] public int Coins { get; private set; } = 0;
+        [JsonProperty("coins")] public int Coins { get; private set; } = 50;
 
         /// <summary>
         /// The DateTime the save file was created.
