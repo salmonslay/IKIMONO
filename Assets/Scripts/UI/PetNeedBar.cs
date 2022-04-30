@@ -8,6 +8,7 @@ namespace IKIMONO.UI
     public class PetNeedBar : MonoBehaviour
     {
         [SerializeField] private Image _fillImage;
+        [SerializeField] private Gradient _gradient;
         private PetNeed _petNeed;
 
         private void Awake()
@@ -29,8 +30,9 @@ namespace IKIMONO.UI
         private void UpdateValue()
         {
             if (_petNeed == null) return;
-            
-            _fillImage.fillAmount = _petNeed.Percentage;
+
+            _fillImage.fillAmount = _petNeed.Percentage + 0.05f; // make sure the bar is always visible, even if it's at 0%
+            _fillImage.color = _gradient.Evaluate(_petNeed.Percentage);
         }
     }
 }

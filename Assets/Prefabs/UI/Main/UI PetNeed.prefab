@@ -13,6 +13,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fillImage: {fileID: 8163809816189571806}
+  _gradient:
+    serializedVersion: 2
+    key0: {r: 0.754717, g: 0.501958, b: 0.513073, a: 1}
+    key1: {r: 0.6502923, g: 0.65882355, b: 0.50980395, a: 1}
+    key2: {r: 0.5442522, g: 0.75686276, b: 0.5019608, a: 0}
+    key3: {r: 0.5442522, g: 0.75686276, b: 0.5019608, a: 0}
+    key4: {r: 0.5442522, g: 0.75686276, b: 0.5019608, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32189
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1001 &3473786989616367138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28,6 +57,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: aa5ab85d4b3239e4998394889d166b90, type: 3}
+    - target: {fileID: 4719476755187275004, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39607844
+      objectReference: {fileID: 0}
     - target: {fileID: 4719476756617739728, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
