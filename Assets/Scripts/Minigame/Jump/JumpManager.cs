@@ -60,6 +60,7 @@ namespace IKIMONO.Minigame.Jump
             
             // This is extremely ugly, a refactor would be nice at some point
             Pet.Player.Instance.Pet.Fun.Increase(HighestJump/32); // divide by 32 to make it a bit less predictable
+            Pet.Player.Instance.AddCoins(CoinsCollected);
         }
         
         public void PlayAgain()
