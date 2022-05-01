@@ -60,12 +60,7 @@ namespace IKIMONO.UI
                 activeWindow = null;
             }
         }
-
-        public void NeedHygiene()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void NeedEnergy()
         {
             PetNeedEnergy energy = Player.Instance.Pet.Energy;
