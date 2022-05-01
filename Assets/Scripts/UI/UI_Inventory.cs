@@ -1,4 +1,5 @@
 using IKIMONO.Pet;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +30,9 @@ public class UI_Inventory : MonoBehaviour
     private void RefreshInventoryItems()
     {
         // Tar bort alla itemslots innan nya placeras ut.
-        foreach (Transform child in _itemSlotContainer)
+        for (int i = _itemSlotContainer.childCount - 1; i >= 0; i--)
         {
-            Destroy(child.gameObject);
+            Destroy(_itemSlotContainer.GetChild(i).gameObject);
         }
 
         // Gå igenom alla items i inventory och uppdatera UI.
