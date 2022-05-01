@@ -23,7 +23,7 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
             PetNeed energy = Player.Instance.Pet.Energy;
 
             // TODO: edge-case for energy items?
-            if (hunger.Value > hunger.MaxValue - 1)
+            if (food.EnergyValue < 1 && energy.Value > energy.MaxValue - 1 && hunger.Value > hunger.MaxValue - 1)
             {
                 // TODO: gör nåt åt det?
                 return;
