@@ -10,7 +10,7 @@ namespace IKIMONO.Minigame.Jump
         [SerializeField] private GameObject _platform;
         [SerializeField] private AudioClip _platformSound;
         [SerializeField] private AudioMixerGroup _platformMixer;
-        private static float _coinOdds => 0.05f * JumpManager.Instance.Player.transform.position.y / 100;
+        private static float _coinOdds => 0.05f * JumpManager.Instance.Player.transform.position.y / 30;
         private Transform _camera;
 
         public void SetWidth(float width)
