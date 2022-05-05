@@ -38,6 +38,8 @@ namespace IKIMONO.Minigame.Jump
             }
 
             Player = FindObjectOfType<JumpPlayer>();
+            
+            // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
         }
 
         private void Update()
@@ -61,6 +63,8 @@ namespace IKIMONO.Minigame.Jump
             // This is extremely ugly, a refactor would be nice at some point
             Pet.Player.Instance.Pet.Fun.Increase(HighestJump/32); // divide by 32 to make it a bit less predictable
             Pet.Player.Instance.AddCoins(CoinsCollected);
+            
+            // @PhilipAudio: Play the game over sound here, and tune down the music a bit.
         }
         
         public void PlayAgain()

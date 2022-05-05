@@ -8,8 +8,7 @@ namespace IKIMONO.Minigame.Jump
     {
         [SerializeField] private GameObject _coin;
         [SerializeField] private GameObject _platform;
-        [SerializeField] private AudioClip _platformSound;
-        [SerializeField] private AudioMixerGroup _platformMixer;
+        
         private static float _coinOdds => 0.05f * JumpManager.Instance.Player.transform.position.y / 30;
         private Transform _camera;
 
@@ -50,9 +49,7 @@ namespace IKIMONO.Minigame.Jump
 
             JumpManager.Instance.JumpCount++;
 
-            AudioSource source = GameManager.PlayAudio(_platformSound);
-            source.pitch = Random.Range(0.9f, 1.1f);
-            source.outputAudioMixerGroup = _platformMixer;
+            // @PhilipAudio: Play the jump sound here. It should include a random pitch.
         }
     }
 }

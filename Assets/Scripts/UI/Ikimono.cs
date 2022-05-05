@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using IKIMONO.Pet;
 using UnityEngine.UI;
@@ -21,6 +20,10 @@ namespace IKIMONO.UI
             
             SetSprite();
         }
+        
+        // @PhilipAudio: Put the snore sounds in this class. They should be looped with randomized intervals,
+        // and you can use Player.Instance.Pet.Energy.IsSleeping to verify whether or not the pet is sleeping.
+        // This is not event based, so you can use it in Update.
 
         public void SetSprite()
         {

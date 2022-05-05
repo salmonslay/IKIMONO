@@ -115,8 +115,10 @@ namespace IKIMONO.UI
             }
         }
 
-        public void Clean()
+        public static void Clean()
         {
+            // @PhilipAudio: Play the cleaning sound here, and maybe some bubbles?
+            // This is ran multiple times per swipe, so it will require a cooldown.
             Player.Instance.Pet.Hygiene.Increase(0.05f);
         }
     }
