@@ -70,18 +70,15 @@ public class AudioManager : MonoBehaviour
 
     }
 
-
     public void randomizeSound(string list)
     {
 
 
-        getList(list);
+        tryListKey(list);
         int clipIndex = Random.Range(0, soundArray.Count);
         soundArray[clipIndex].source.PlayOneShot(soundArray[clipIndex].audioClip);
 
     }
-
-
 
     public void playSound(string getList, string soundToPlay)
     {
@@ -117,7 +114,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void getList(String a)
+    public void tryListKey(String a)
     {
 
         if (PetHappy.containsKey(a))
@@ -252,7 +249,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioClip getClip(string soundList, string soundName)
     {
-        getList(soundList);
+        tryListKey(soundList);
         foreach (Sound soundAudioClip in soundArray)
         {
             if (soundAudioClip.name == soundName)
@@ -310,18 +307,12 @@ public class Sound
 }
 
 
-
-
-
-
 [System.Serializable]
 public class SoundDictionary<String, List>
 {
 
-
     public List<Sound> sound;
     public String key;
-
 
     public SoundDictionary(String nyckel, List<Sound> ljud)
     {
