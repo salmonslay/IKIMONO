@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void randomizeSound(string list)
+    public void RandomizeSound(string list)
     {
 
 
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void playSound(string getList, string soundToPlay)
+    public void PlaySound(string getList, string soundToPlay)
     {
 
         getClip(getList, soundToPlay);
@@ -114,6 +114,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    
     public void tryListKey(String a)
     {
 

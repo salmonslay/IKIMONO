@@ -9,7 +9,7 @@ namespace IKIMONO.Minigame.Jump
             if (!col.gameObject.CompareTag("Player")) return;
 
             // @PhilipAudio: Play coin pick up sound here
-            AudioManager.Instance.randomizeSound("Coin");
+            AudioManager.Instance.RandomizeSound("Coin");
             
             JumpManager.Instance.AddCoin();
             

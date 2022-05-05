@@ -7,8 +7,8 @@ public class Klicker : MonoBehaviour
    
     void Start()
     {
-        AudioManager.Instance.playSound("Music", "Two");
-        AudioManager.Instance.playSound("DayAmb", "One");
+        AudioManager.Instance.PlaySound("Music", "Two");
+        AudioManager.Instance.PlaySound("DayAmb", "One");
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class Klicker : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            AudioManager.Instance.randomizeSound("Happy");
+            AudioManager.Instance.RandomizeSound("Happy");
             //FindObjectOfType<AudioManager>().randomizeSound("Eating");
             //AudioManager.Instance.playSound("Jump", "One"); 
 

@@ -39,7 +39,7 @@ namespace IKIMONO.Minigame.Jump
 
             Player = FindObjectOfType<JumpPlayer>();
 
-            AudioManager.Instance.playSound("MinigameMusic", "One");
+            AudioManager.Instance.PlaySound("MinigameMusic", "One");
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
         }
 
@@ -65,7 +65,7 @@ namespace IKIMONO.Minigame.Jump
             Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32); // divide by 32 to make it a bit less predictable
             Pet.Player.Instance.AddCoins(CoinsCollected);
 
-            AudioManager.Instance.randomizeSound("GameOver");
+            AudioManager.Instance.RandomizeSound("GameOver");
             // @PhilipAudio: Play the game over sound here, and tune down the music a bit.
         }
 
