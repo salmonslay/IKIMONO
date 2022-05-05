@@ -38,7 +38,8 @@ namespace IKIMONO.Minigame.Jump
             }
 
             Player = FindObjectOfType<JumpPlayer>();
-            
+
+            AudioManager.Instance.playSound("MinigameMusic", "One");
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
         }
 
@@ -59,14 +60,15 @@ namespace IKIMONO.Minigame.Jump
             _gameOverPanel.SetActive(true);
             const string color = "#C08C2B";
             _gameOverText.text = $"You travelled <color={color}>{Mathf.RoundToInt(HighestJump)}</color> meters, collected <color={color}>{CoinsCollected}</color> coin{(CoinsCollected == 1 ? "" : "s")} and jumped <color={color}>{JumpCount}</color> times!";
-            
+
             // This is extremely ugly, a refactor would be nice at some point
-            Pet.Player.Instance.Pet.Fun.Increase(HighestJump/32); // divide by 32 to make it a bit less predictable
+            Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32); // divide by 32 to make it a bit less predictable
             Pet.Player.Instance.AddCoins(CoinsCollected);
-            
+
+            AudioManager.Instance.randomizeSound("GameOver");
             // @PhilipAudio: Play the game over sound here, and tune down the music a bit.
         }
-        
+
         public void PlayAgain()
         {
             SceneManager.LoadScene("MinigameJump");
