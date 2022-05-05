@@ -1342,7 +1342,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSleeping.sound.Array.size
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[0].name
+      value: One
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[1].name
+      value: Four
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[2].name
+      value: Four
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSleeping.sound.Array.data[3].name
@@ -1356,6 +1368,18 @@ PrefabInstance:
       propertyPath: PetSleeping.sound.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4900b152c2c504c7b938e833eab71205, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4900b152c2c504c7b938e833eab71205, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: PetSleeping.sound.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4900b152c2c504c7b938e833eab71205, type: 3}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSleeping.sound.Array.data[3].audioClip
       value: 
