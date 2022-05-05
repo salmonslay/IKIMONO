@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [Header("ManageSound")]          // För att kalla in ljud skriv : AurioManager.Instance.playSound("LjudetsKey", "LjudetsNamn");
                                      // För att ramdomizea bland alla ljuden i listan skriv: AudioManager.Instance.randomizeSound("LjudetsKey");
 
-    public List<Sound> soundArray;                 
+    public List<Sound> soundArray;
     [Header("Pet")]
     public SoundDictionary<String, List<Sound>> PetHappy;
     public SoundDictionary<String, List<Sound>> PetEating;
@@ -94,8 +94,9 @@ public class AudioManager : MonoBehaviour
             if (listInfo == MinigameMusic.sound || listInfo == MainMusic.sound)
             {
                 soundClip.source = musicSource;
-                
-            }else if(listInfo == DayAmb.sound || listInfo == NightAmb.sound)
+
+            }
+            else if (listInfo == DayAmb.sound || listInfo == NightAmb.sound)
             {
                 soundClip.source = ambianceSource;
             }
@@ -114,14 +115,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    
+
     public void tryListKey(String a)
     {
 
         if (PetHappy.containsKey(a))
         {
             setSourceInfo(PetHappy.sound);
-            soundArray = PetHappy.returnSound();         
+            soundArray = PetHappy.returnSound();
         }
 
         if (PetEating.containsKey(a))
@@ -241,10 +242,10 @@ public class AudioManager : MonoBehaviour
 
             setSourceInfo(NightAmb.sound);
             soundArray = NightAmb.returnSound();
-           
+
         }
 
-        else { Debug.Log("getList method failure"); }
+        //else { Debug.Log("getList method failure"); }
 
     }
 
@@ -303,7 +304,7 @@ public class Sound
 
     //[HideInInspector]
     public AudioSource source;
-    
+
 
 }
 
