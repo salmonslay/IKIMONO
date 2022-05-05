@@ -7,8 +7,9 @@ namespace IKIMONO.Minigame.Jump
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!col.gameObject.CompareTag("Player")) return;
-            
+
             // @PhilipAudio: Play coin pick up sound here
+            AudioManager.Instance.randomizeSound("Coin");
             
             JumpManager.Instance.AddCoin();
             
