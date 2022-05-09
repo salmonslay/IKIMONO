@@ -8,27 +8,27 @@ public class Item
 {
     public ItemScriptableObject ItemObject => ItemScriptableObject.AllItems.FirstOrDefault(item => item.ItemName == _itemName);
     public string Name => ItemObject.ItemName;
-    
+
     [JsonProperty("item")] private string _itemName;
-    [JsonProperty("amount")] public int Amount;
-    
+    [JsonProperty("amount")] private int Amount;
+
     [JsonConstructor]
     public Item()
     {
-        
+
     }
     public Item(string itemName, int amount = 1)
     {
         _itemName = itemName;
         Amount = amount;
     }
-    
+
     public Item(ItemScriptableObject item, int amount = 1)
     {
         _itemName = item.ItemName;
         Amount = amount;
     }
-    
+
     public Sprite GetSprite()
     {
         return ItemObject.Sprite;
@@ -43,7 +43,7 @@ public class Item
 
         return false;
     }
-    
+
     public override string ToString()
     {
         return ItemObject.ItemName;

@@ -7,24 +7,21 @@ using Newtonsoft.Json;
 public class Inventory
 {
     public event EventHandler OnItemListChanged;
-
-    [JsonProperty("items")] private List<Item> _itemList;
+    [JsonProperty("items")] public List<Item> ItemList { get; }
 
     public Inventory()
     {
-        _itemList = new List<Item>();
+        ItemList = new List<Item>();
     }
-
-
 
     public void AddItem(Item item, int amount)
     {
-        //Om item kan stacka -> Hitta i listan och addera på amount
-        //Finns item inte i listan, lägg till
+        // If the item is stackable and already exist in inventory add to it's amount, else
+        // Add item to _itemList.
         if (item.IsStackable())
         {
             bool alreadyInInventory = false;
-            foreach (Item inventoryItem in _itemList)
+            foreach (Item inventoryItem in ItemList)
             {
                 if (inventoryItem.ItemObject == item.ItemObject)
                 {
@@ -34,26 +31,27 @@ public class Inventory
             }
             if (!alreadyInInventory)
             {
-                _itemList.Add(item);
+                ItemList.Add(item);
             }
         }
+        // If the item is not stackable -> Just add to _itemList.
         else
         {
-            _itemList.Add(item);
+            ItemList.Add(item);
         }
-        //Trigga förändring i UI
+        // Trigger OnItemListChanged to update UI.
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
         Player.Instance.Save();
     }
 
     public void RemoveItem(Item item, int amount)
     {
-        //Om item kan stacka -> Hitta i listan och substrahera på amount
-        //Fanns item i listan och är nu under 1, ta bort ur listan
+        // If the item is stackable and exist in inventory -> Remove from amount.
+        // If it was the last one left -> Remove it from _itemList.
         if (item.IsStackable())
         {
             Item itemInInventory = null;
-            foreach (Item inventoryItem in _itemList)
+            foreach (Item inventoryItem in ItemList)
             {
                 if (inventoryItem.ItemObject == item.ItemObject)
                 {
@@ -63,20 +61,16 @@ public class Inventory
             }
             if (itemInInventory != null && itemInInventory.GetAmount() <= 0)
             {
-                _itemList.Remove(item);
+                ItemList.Remove(item);
             }
         }
+        // If the item isn't stackable -> Remove from _itemList.
         else
         {
-            _itemList.Remove(item);
+            ItemList.Remove(item);
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
         Player.Instance.Save();
-    }
-
-    public List<Item> GetItemList()
-    {
-        return _itemList;
     }
 
 }
