@@ -8,10 +8,10 @@ public class FeedDropLocation : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
-            // Hitta vilket item som dragit.
+            // Find what Item Object has been dragged.
             Item item = eventData.pointerDrag.GetComponent<DragDrop>().GetItem();
 
-            // Exit out if itemtype is not food.
+            // Return if itemtype is not food.
             if (item.ItemObject.GetType() != typeof(FoodItemScriptableObject))
             {
                 return;

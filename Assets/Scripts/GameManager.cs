@@ -8,7 +8,7 @@ namespace IKIMONO
     {
         public static GameManager Instance { get; private set; }
         private AndroidNotifications _androidNotifications;
-        
+
         private void Start()
         {
             Player.Instance.Pet.UpdateValues();
@@ -62,6 +62,7 @@ namespace IKIMONO
             }
         }
 
+        [SerializeField] private float fireNotificationsAtNeedValue = 30;
         private void ScheduleNeedNotifications()
         {
             _androidNotifications.CancelAllNotifications();
@@ -71,10 +72,9 @@ namespace IKIMONO
                 {
                     continue;
                 }
-                float fireAtNeedValue = 30;
-                if (need.HasNotifications && need.Value > fireAtNeedValue)
+                if (need.HasNotifications && need.Value > fireNotificationsAtNeedValue)
                 {
-                    float fireDelay = (float)need.GetTimeAtValue(fireAtNeedValue).Subtract(System.DateTime.Now).TotalSeconds;
+                    float fireDelay = (float)need.GetTimeAtValue(fireNotificationsAtNeedValue).Subtract(System.DateTime.Now).TotalSeconds;
                     _androidNotifications.PushNotification(_androidNotifications.BuildNotification(
                         need.NotificationTitle,
                         need.NotificationDescription,

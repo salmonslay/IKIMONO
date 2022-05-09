@@ -21,14 +21,14 @@ public class AndroidNotifications : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Create and register notification channel.
         AndroidNotificationChannel notificationChannel = new AndroidNotificationChannel()
         {
-            Id = "TestChannel",
-            Name = "Test Channel",
+            Id = "NeedsChannel",
+            Name = "Needs Channel",
             Importance = Importance.High,
-            Description = "Testing Notifications",
+            Description = "Channel for Pet Needs Notifications.",
         };
-
         AndroidNotificationCenter.RegisterNotificationChannel(notificationChannel);
     }
 
@@ -36,7 +36,8 @@ public class AndroidNotifications : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(messageText))
         {
-            // TODO: Johan?
+            // Return empty notification. 
+            // Checked for in PushNotification script.
             return new AndroidNotification();
         }
 
@@ -54,18 +55,21 @@ public class AndroidNotifications : MonoBehaviour
 
     public void PushNotification(AndroidNotification notification)
     {
-        if (string.IsNullOrEmpty(notification.Title) || string.IsNullOrEmpty(notification.Text))
+        // Check if notification is valid and return out if it is not.
+        if (string.IsNullOrWhiteSpace(notification.Title) || string.IsNullOrWhiteSpace(notification.Text))
         {
             return;
         }
 
-        var notificationId = AndroidNotificationCenter.SendNotification(notification, "TestChannel");
+        // Send notification.
+        var notificationId = AndroidNotificationCenter.SendNotification(notification, "NeedsChannel");
 
+        // Check if the notification is duplicated.
+        // Cancel it and send new one if it is duplicated.
         if (AndroidNotificationCenter.CheckScheduledNotificationStatus(notificationId) == NotificationStatus.Scheduled)
         {
             AndroidNotificationCenter.CancelNotification(notificationId);
-            //AndroidNotificationCenter.CancelAllNotifications();
-            AndroidNotificationCenter.SendNotification(notification, "TestChannel");
+            AndroidNotificationCenter.SendNotification(notification, "NeedsChannel");
         }
     }
 

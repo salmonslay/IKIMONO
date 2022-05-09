@@ -3,68 +3,73 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IBeginDragHandler
 {
     private ItemSlot _itemSlot;
     private Image _imageOriginal;
     private Image _imageCopy;
 
+    private CanvasGroup _overlayCanvasGroup;
+
     private Canvas _canvas;
-    private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _imageOriginal = transform.Find("Image").GetComponent<Image>();
-        _canvasGroup = GetComponent<CanvasGroup>();
         _itemSlot = GetComponent<ItemSlot>();
         _canvas = transform.GetComponentInParent<Canvas>();
+        _overlayCanvasGroup = gameObject.GetComponentInParent<CanvasGroup>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Skapa kopia itembilden som ska drag runt.
+        // Create a copy of Image, to drag.
         _imageCopy = Instantiate(_imageOriginal, transform);
+
+        // Make sure that it doesn't block raycasts.
         _imageCopy.raycastTarget = false;
+
+        // Set parent  to canvas so that it ignores canvasgroup changes.
         _imageCopy.transform.SetParent(_canvas.transform);
-    }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        // Se till att bilden inte blockar raycasts så att det går att droppa på annat.
-        //_canvasGroup.blocksRaycasts = false;
-
-        // Sätt lätt transparens på bilden som dras.
+        // Set slight transparancy.
         Color _imageCopyColor = _imageCopy.color;
         _imageCopyColor.a = 0.6f;
         _imageCopy.color = _imageCopyColor;
+
+        // Increase size of image a small amount.
+        _imageCopy.transform.localScale = new Vector3(1.1f, 1.1f, 1);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Flytta kopian av bilden ondrag.
+        // Move Image copy on drag.
         _imageCopy.rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        // Blocka raycasts igen så att det går att dra item igen.
-        //_canvasGroup.blocksRaycasts = true;
-    }
     public void OnPointerUp(PointerEventData eventData)
     {
+        // Set parent back to original so the reference to the item can be grabbed.
         _imageCopy.transform.SetParent(_itemSlot.transform);
+
         // Ta bort kopian som dragits runt.
         Destroy(_imageCopy.gameObject);
-    }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        //Player.Instance.Inventory.RemoveItem(GetItem(), 1);
+        // Reset canvasGroup values.
+        _overlayCanvasGroup.alpha = 1;
+        _overlayCanvasGroup.blocksRaycasts = true;
     }
 
     public Item GetItem()
     {
-        return _itemSlot.GetItem();
+        // Find reference to item.
+        return _itemSlot.Item;
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // Make Inventory slightly transparent and remove raycast blocking.
+        _overlayCanvasGroup.alpha = 0.4f;
+        _overlayCanvasGroup.blocksRaycasts = false;
+    }
 }
