@@ -10,48 +10,52 @@ public class UI_Inventory : MonoBehaviour
     private Inventory _inventory;
     [SerializeField] private Transform _itemSlotContainer;
     [SerializeField] private GameObject _itemSlot;
-    private Transform _itemSlotTransform;
 
     public void Start()
     {
         _inventory = Player.Instance.Inventory;
         _inventory.OnItemListChanged += OnItemListChanged;
-        _itemSlotTransform = _itemSlot.transform;
 
-        RefreshInventoryItems();
+        RefreshInventoryItemsIU();
     }
 
-    // Triggas av uppdateringar i inventory.
+    // Subscribes and refreshes UI on event.
     private void OnItemListChanged(object sender, System.EventArgs e)
     {
-        RefreshInventoryItems();
+        RefreshInventoryItemsIU();
     }
 
-    private void RefreshInventoryItems()
+    private void RefreshInventoryItemsIU()
     {
-        // Tar bort alla itemslots innan nya placeras ut.
+        // Return out if UI_Window is inactive.
+        if (_itemSlotContainer == null)
+        {
+            return;
+        }
+
+        // Remove all old itemslots.
         for (int i = _itemSlotContainer.childCount - 1; i >= 0; i--)
         {
             Destroy(_itemSlotContainer.GetChild(i).gameObject);
         }
 
-        // Gå igenom alla items i inventory och uppdatera UI.
-        foreach (Item item in _inventory.GetItemList())
+        // Loop through all items in inventory.
+        foreach (Item item in _inventory.ItemList)
         {
-            // Skapa inventoryslot och placera ut i inventory.
-            RectTransform itemSlotRectTransform = Instantiate(_itemSlotTransform, _itemSlotContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
+            // Instantiate a new inteslot.
+            GameObject itemSlot = Instantiate(_itemSlot, _itemSlotContainer);
+            itemSlot.gameObject.SetActive(true);
 
-            // Sätt sprite till items sprite.
-            Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
+            // Set item sprite.
+            Image image = itemSlot.transform.Find("Image").GetComponent<Image>();
             image.sprite = item.GetSprite();
 
-            // Sätt amountText till antalet items i inventory ifall de finns fler än 1.
-            Text amountText = itemSlotRectTransform.Find("AmountText").GetComponent<Text>();
+            // Set item amount in textslot.
+            Text amountText = itemSlot.transform.Find("AmountText").GetComponent<Text>();
             amountText.text = item.GetAmount() > 1 ? item.GetAmount().ToString() : "";
 
-            // Lägg till referens till item i itemslot scriptet så att det går att anv�nda från UI.
-            itemSlotRectTransform.GetComponent<ItemSlot>().SetUp(item, _inventory);
+            // Add a reference to the item in the slot.
+            itemSlot.GetComponent<ItemSlot>().Item = item;
         }
     }
 
