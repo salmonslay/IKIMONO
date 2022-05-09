@@ -12,33 +12,34 @@ namespace IKIMONO.UI
         [SerializeField] private GameObject _uiShopWindow;
         [SerializeField] private GameObject _uiSettingsWindow;
 
-        private GameObject activeWindow;
+        private GameObject _activeWindow;
+
 
         public void OpenSettings()
         {
             ResetUIWindows();
-            if (activeWindow != _uiSettingsWindow)
+            if (_activeWindow != _uiSettingsWindow)
             {
                 _uiSettingsWindow.SetActive(true);
-                activeWindow = _uiSettingsWindow;
+                _activeWindow = _uiSettingsWindow;
             }
             else
             {
-                activeWindow = null;
+                _activeWindow = null;
             }
         }
 
         public void OpenShop()
         {
             ResetUIWindows();
-            if (activeWindow != _uiShopWindow)
+            if (_activeWindow != _uiShopWindow)
             {
                 _uiShopWindow.SetActive(true);
-                activeWindow = _uiShopWindow;
+                _activeWindow = _uiShopWindow;
             }
             else
             {
-                activeWindow = null;
+                _activeWindow = null;
             }
         }
 
@@ -50,17 +51,17 @@ namespace IKIMONO.UI
         public void NeedHunger()
         {
             ResetUIWindows();
-            if (activeWindow != _uiInventoryWindow)
+            if (_activeWindow != _uiInventoryWindow)
             {
                 _uiInventoryWindow.SetActive(true);
-                activeWindow = _uiInventoryWindow;
+                _activeWindow = _uiInventoryWindow;
             }
             else
             {
-                activeWindow = null;
+                _activeWindow = null;
             }
         }
-        
+
         public void NeedEnergy()
         {
             PetNeedEnergy energy = Player.Instance.Pet.Energy;
@@ -74,7 +75,13 @@ namespace IKIMONO.UI
             _uiInventoryWindow.SetActive(false);
             _uiShopWindow.SetActive(false);
             _uiSettingsWindow.SetActive(false);
-            activeWindow = null;
+        }
+        public void CloseAllUIWindows()
+        {
+            _uiInventoryWindow.SetActive(false);
+            _uiShopWindow.SetActive(false);
+            _uiSettingsWindow.SetActive(false);
+            _activeWindow = null;
         }
 
         public void DeleteSave()
