@@ -9,12 +9,19 @@ namespace IKIMONO.UI
     {
         [SerializeField] private Image _fillImage;
         [SerializeField] private Gradient _gradient;
+        
+        [Tooltip("Whether or not the pet's name should be displayed on the bar.")]
+        [SerializeField] private bool _showName;
+        
         private PetNeed _petNeed;
 
         private void Awake()
         {
             PetNeed.ValueUpdated += UpdateValue;
             Player.Instance.Pet.UpdateValues();
+
+            if (_showName)
+                GetComponentInChildren<Text>().text = Player.Instance.Pet.Name;
         }
 
         public void SetNeed(PetNeed need)
