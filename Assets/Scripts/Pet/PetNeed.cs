@@ -27,6 +27,12 @@ namespace IKIMONO.Pet
         public abstract string NotificationIcon { get; }
         
         /// <summary>
+        /// The conditions that needs to be true to click this need.
+        /// For example, if the need is "Fun", then the pet needs to be Awake and have an Energy value greater than or equal to 20.
+        /// </summary>
+        public abstract bool UsageCondition { get; }
+        
+        /// <summary>
         /// How much the need will decrease per hour. MaxValue/DecayRate = hours to reach MinValue.
         /// </summary>
         public virtual float DecayRate { get; } = 5;

@@ -15,8 +15,11 @@ namespace IKIMONO.UI
         
         [Tooltip("Whether or not the pet's name should be displayed on the bar.")]
         [SerializeField] private bool _showName;
+
+        [SerializeField] private Image _arrow;
         
         private PetNeed _petNeed;
+        private Button _button;
 
         private void Awake()
         {
@@ -25,6 +28,22 @@ namespace IKIMONO.UI
 
             if (_showName)
                 GetComponentInChildren<Text>().text = Player.Instance.Pet.Name;
+            
+            _button = GetComponent<Button>();
+        }
+
+        private void Update()
+        {
+            // If the pet is sleeping, show the arrow.
+            if (typeof(PetNeedEnergy) == _petNeed.GetType())
+            {
+                _arrow.enabled = Player.Instance.Pet.Energy.IsSleeping;
+            }
+            
+            else
+            {
+                _button.interactable = _petNeed.UsageCondition;
+            }
         }
 
         public void SetNeed(PetNeed need)

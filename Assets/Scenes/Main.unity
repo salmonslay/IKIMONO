@@ -3014,6 +3014,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8163809816638962673, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163809816638962673, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
