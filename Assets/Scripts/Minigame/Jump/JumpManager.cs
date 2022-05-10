@@ -20,6 +20,8 @@ namespace IKIMONO.Minigame.Jump
         public int CoinsCollected { get; private set; } = 0;
         
         public int JumpCount { get; set; } = 1; // start at 1, because the ground jump is made differently
+
+        
         
         [SerializeField] private Text _coinText;
         [SerializeField] private GameObject _gameOverPanel;
@@ -39,7 +41,10 @@ namespace IKIMONO.Minigame.Jump
 
             Player = FindObjectOfType<JumpPlayer>();
 
+
+
             AudioManager.Instance.PlaySound("MinigameMusic", "One");
+            
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
         }
 
@@ -76,7 +81,9 @@ namespace IKIMONO.Minigame.Jump
         
         public void Quit()
         {
+            AudioManager.Instance.StopSound("MinigameMusic", "One");
             SceneManager.LoadScene("Main");
+            
         }
     }
 }

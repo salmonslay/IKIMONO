@@ -87,6 +87,31 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void StopSound(string getList, string soundToStop)
+    {
+        stopClip(getList, soundToStop);
+    }
+
+
+    private AudioClip stopClip(string soundList, string soundName)
+    {
+        tryListKey(soundList);
+        foreach (Sound soundAudioClip in soundArray)
+        {
+            if (soundAudioClip.name == soundName)
+            {
+
+                soundAudioClip.source.Stop();
+                return soundAudioClip.audioClip;
+
+            }
+        }
+        Debug.Log("Sound" + soundName + "Not Found!");
+        return null;
+
+
+    }
+
     public void setSourceInfo(List<Sound> listInfo)
     {
         foreach (Sound soundClip in listInfo)

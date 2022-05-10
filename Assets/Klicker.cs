@@ -22,6 +22,11 @@ public class Klicker : MonoBehaviour
 
             Debug.Log("Spacetestknappfungerar");
         }
+        if (Input.GetButtonDown("Submit"))
+        {
+            Debug.Log("Return/Enter key pressed");
+            AudioManager.Instance.StopSound("Music", "Two");
+        }
 
     }
 }
