@@ -7,7 +7,10 @@ namespace IKIMONO.UI
 {
     public class PetNeedBar : MonoBehaviour
     {
+        [Tooltip("The image to fill with the pet's need.")]
         [SerializeField] private Image _fillImage;
+        
+        [Tooltip("The gradient to use for the fill image.")]
         [SerializeField] private Gradient _gradient;
         
         [Tooltip("Whether or not the pet's name should be displayed on the bar.")]
