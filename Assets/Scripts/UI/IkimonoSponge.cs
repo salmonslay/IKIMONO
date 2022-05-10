@@ -7,6 +7,8 @@ namespace IKIMONO.UI
     public class IkimonoSponge : MonoBehaviour
     {
         private Image _sponge;
+        [SerializeField] private GameObject _waterFx;
+        [SerializeField] private GameObject _bubblesFx;
         private bool _isActive = false;
         
         #region Touch properties
@@ -17,6 +19,8 @@ namespace IKIMONO.UI
         
         private void Awake()
         {
+
+            
             _sponge = GetComponent<Image>();
             Set(false);
         }
@@ -75,6 +79,7 @@ namespace IKIMONO.UI
         {
             _isActive = active;
             _sponge.enabled = _isActive;
+            
         }
         
         // TODO: Replace? 
@@ -117,7 +122,9 @@ namespace IKIMONO.UI
 
         public static void Clean()
         {
+            
 
+            
             AudioManager.Instance.RandomizeSound("Bubbles");
             // @PhilipAudio: Play the cleaning sound here, and maybe some bubbles?
             // This is ran multiple times per swipe, so it will require a cooldown.

@@ -10,6 +10,7 @@ namespace IKIMONO.UI
         [SerializeField] private Sprite _idle;
         [SerializeField] private Sprite _sad;
         [SerializeField] private Sprite _sleeping;
+        [SerializeField] private GameObject _sleepFx;
         
         private Player _player;
         private Image _image;
@@ -30,23 +31,23 @@ namespace IKIMONO.UI
             if (_player.Pet.Energy.IsSleeping)
             {
                 _image.sprite = _sleeping;
-                if(Player.Instance.Pet.Energy.IsSleeping)
-                {
-                    AudioManager.Instance.PlaySound("Sleeping", "One");
-                }
-                else
-                {
-                    AudioManager.Instance.StopSound("Sleeping", "One");
-                }
-
+               
+                AudioManager.Instance.PlaySound("Sleeping", "One");
+                _sleepFx.SetActive(true);
+                                   
+                
             }
             else if (_player.Pet.Overall.Percentage < 0.3f)
             {
                 _image.sprite = _sad;
+                AudioManager.Instance.StopSound("Sleeping", "One");
+                _sleepFx.SetActive(false);
             }
             else
             {
                 _image.sprite = _idle;
+                AudioManager.Instance.StopSound("Sleeping", "One");
+                _sleepFx.SetActive(false);
             }
         }
     }
