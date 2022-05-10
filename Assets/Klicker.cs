@@ -16,7 +16,9 @@ public class Klicker : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            AudioManager.Instance.RandomizeSound("Happy");
+
+            AudioManager.Instance.RandomizeSound("Bubbles");
+            //AudioManager.Instance.RandomizeSound("Happy");
             //FindObjectOfType<AudioManager>().randomizeSound("Eating");
             //AudioManager.Instance.playSound("Jump", "One"); 
 

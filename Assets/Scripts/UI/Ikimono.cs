@@ -30,7 +30,15 @@ namespace IKIMONO.UI
             if (_player.Pet.Energy.IsSleeping)
             {
                 _image.sprite = _sleeping;
-                AudioManager.Instance.PlaySound("Sleeping", "One");
+                if(Player.Instance.Pet.Energy.IsSleeping)
+                {
+                    AudioManager.Instance.PlaySound("Sleeping", "One");
+                }
+                else
+                {
+                    AudioManager.Instance.StopSound("Sleeping", "One");
+                }
+
             }
             else if (_player.Pet.Overall.Percentage < 0.3f)
             {

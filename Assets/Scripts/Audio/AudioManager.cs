@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [Header("ManageSound")]          // För att kalla in ljud skriv : AurioManager.Instance.playSound("LjudetsKey", "LjudetsNamn");
                                      // För att ramdomizea bland alla ljuden i listan skriv: AudioManager.Instance.randomizeSound("LjudetsKey");
 
-    public List<Sound> soundArray;
+    public List<Sound> SoundListPlaying;
     [Header("Pet")]
     public SoundDictionary<String, List<Sound>> PetHappy;
     public SoundDictionary<String, List<Sound>> PetEating;
@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
 
         effectsource.outputAudioMixerGroup = effectMixer;
         musicSource.outputAudioMixerGroup = musicMixer;
-        ambianceSource.outputAudioMixerGroup = musicMixer;
+        ambianceSource.outputAudioMixerGroup = musicMixer;  //behöver egen mixer?
 
     }
 
@@ -75,8 +75,8 @@ public class AudioManager : MonoBehaviour
 
 
         tryListKey(list);
-        int clipIndex = Random.Range(0, soundArray.Count);
-        soundArray[clipIndex].source.PlayOneShot(soundArray[clipIndex].audioClip);
+        int clipIndex = Random.Range(0, SoundListPlaying.Count);
+        SoundListPlaying[clipIndex].source.PlayOneShot(SoundListPlaying[clipIndex].audioClip);
 
     }
 
@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
     private AudioClip stopClip(string soundList, string soundName)
     {
         tryListKey(soundList);
-        foreach (Sound soundAudioClip in soundArray)
+        foreach (Sound soundAudioClip in SoundListPlaying)
         {
             if (soundAudioClip.name == soundName)
             {
@@ -147,111 +147,111 @@ public class AudioManager : MonoBehaviour
         if (PetHappy.containsKey(a))
         {
             setSourceInfo(PetHappy.sound);
-            soundArray = PetHappy.returnSound();
+            SoundListPlaying = PetHappy.returnSound();
         }
 
         if (PetEating.containsKey(a))
         {
             setSourceInfo(PetEating.sound);
-            soundArray = PetEating.returnSound();
+            SoundListPlaying = PetEating.returnSound();
 
         }
 
         if (PetSleeping.containsKey(a))
         {
             setSourceInfo(PetSleeping.sound);
-            soundArray = PetSleeping.returnSound();
+            SoundListPlaying = PetSleeping.returnSound();
 
         }
 
         if (PetSad.containsKey(a))
         {
             setSourceInfo(PetSad.sound);
-            soundArray = PetSad.returnSound();
+            SoundListPlaying = PetSad.returnSound();
 
         }
 
         if (Scratches.containsKey(a))
         {
             setSourceInfo(Scratches.sound);
-            soundArray = Scratches.returnSound();
+            SoundListPlaying = Scratches.returnSound();
 
         }
 
         if (Bubbles.containsKey(a))
         {
             setSourceInfo(Bubbles.sound);
-            soundArray = Bubbles.returnSound();
+            SoundListPlaying = Bubbles.returnSound();
 
         }
 
         if (ShopSound.containsKey(a))
         {
             setSourceInfo(ShopSound.sound);
-            soundArray = ShopSound.returnSound();
+            SoundListPlaying = ShopSound.returnSound();
 
         }
 
         if (Swoosh.containsKey(a))
         {
             setSourceInfo(Swoosh.sound);
-            soundArray = Swoosh.returnSound();
+            SoundListPlaying = Swoosh.returnSound();
 
         }
 
         if (ButtonClick.containsKey(a))
         {
             setSourceInfo(ButtonClick.sound);
-            soundArray = ButtonClick.returnSound();
+            SoundListPlaying = ButtonClick.returnSound();
 
         }
 
         if (GameOver.containsKey(a))
         {
             setSourceInfo(GameOver.sound);
-            soundArray = GameOver.returnSound();
+            SoundListPlaying = GameOver.returnSound();
 
         }
 
         if (Jump.containsKey(a))
         {
             setSourceInfo(Jump.sound);
-            soundArray = Jump.returnSound();
+            SoundListPlaying = Jump.returnSound();
 
         }
 
         if (Bounce.containsKey(a))
         {
             setSourceInfo(Bounce.sound);
-            soundArray = Bounce.returnSound();
+            SoundListPlaying = Bounce.returnSound();
 
         }
 
         if (PlatformBreak.containsKey(a))
         {
             setSourceInfo(PlatformBreak.sound);
-            soundArray = PlatformBreak.returnSound();
+            SoundListPlaying = PlatformBreak.returnSound();
 
         }
 
         if (PickupCoin.containsKey(a))
         {
             setSourceInfo(PickupCoin.sound);
-            soundArray = PickupCoin.returnSound();
+            SoundListPlaying = PickupCoin.returnSound();
 
         }
 
         if (MainMusic.containsKey(a))
         {
             setSourceInfo(MainMusic.sound);
-            soundArray = MainMusic.returnSound();
+            SoundListPlaying = MainMusic.returnSound();
 
         }
 
         if (MinigameMusic.containsKey(a))
         {
             setSourceInfo(MinigameMusic.sound);
-            soundArray = MinigameMusic.returnSound();
+            SoundListPlaying = MinigameMusic.returnSound();
 
         }
 
@@ -259,14 +259,14 @@ public class AudioManager : MonoBehaviour
         {
 
             setSourceInfo(DayAmb.sound);
-            soundArray = DayAmb.returnSound();
+            SoundListPlaying = DayAmb.returnSound();
         }
 
         if (NightAmb.containsKey(a))
         {
 
             setSourceInfo(NightAmb.sound);
-            soundArray = NightAmb.returnSound();
+            SoundListPlaying = NightAmb.returnSound();
 
         }
 
@@ -277,7 +277,7 @@ public class AudioManager : MonoBehaviour
     private AudioClip getClip(string soundList, string soundName)
     {
         tryListKey(soundList);
-        foreach (Sound soundAudioClip in soundArray)
+        foreach (Sound soundAudioClip in SoundListPlaying)
         {
             if (soundAudioClip.name == soundName)
             {

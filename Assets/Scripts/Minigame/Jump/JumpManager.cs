@@ -44,6 +44,7 @@ namespace IKIMONO.Minigame.Jump
 
 
             AudioManager.Instance.PlaySound("MinigameMusic", "One");
+           
             
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
         }
