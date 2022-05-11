@@ -51,6 +51,11 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         }
     }
 
+    private void OnDestroy()
+    {
+        _petHygiene.OnCleaningStateChanged -= OnCleaningStateChanged;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragDrop>() != null)
