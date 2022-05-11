@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class TabGroup : MonoBehaviour
 {
-    [SerializeField] private List<TabButton> tabButtons;
+    [SerializeField] private List<UI_TabButton> tabButtons;
     [SerializeField] private List<GameObject> tabWindows;
 
     [SerializeField] private Color tabIdleColor;
     [SerializeField] private Color tabActiveColor;
     [SerializeField] private Color tabSelectedColor;
 
-    private TabButton selectedTab;
+    private UI_TabButton selectedTab;
 
     private void Start()
     {
         OnTabSelected(tabButtons[0]);
     }
 
-    public void OnTabPressedDown(TabButton tab)
+    public void OnTabPressedDown(UI_TabButton tab)
     {
         ResetTabs();
         tab.TabBackground.color = tabActiveColor;
     }
-    public void OnTabSelected(TabButton tab)
+    public void OnTabSelected(UI_TabButton tab)
     {
         selectedTab = tab;
         ResetTabs();
@@ -46,7 +46,7 @@ public class TabGroup : MonoBehaviour
 
     public void ResetTabs()
     {
-        foreach (TabButton tab in tabButtons)
+        foreach (UI_TabButton tab in tabButtons)
         {
             if (selectedTab != null && tab == selectedTab) { continue; }
             tab.TabBackground.color = tabIdleColor;
