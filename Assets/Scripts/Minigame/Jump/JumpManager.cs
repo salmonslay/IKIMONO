@@ -68,7 +68,11 @@ namespace IKIMONO.Minigame.Jump
             _gameOverText.text = $"You travelled <color={color}>{Mathf.RoundToInt(HighestJump)}</color> meters, collected <color={color}>{CoinsCollected}</color> coin{(CoinsCollected == 1 ? "" : "s")} and jumped <color={color}>{JumpCount}</color> times!";
 
             // This is extremely ugly, a refactor would be nice at some point
-            Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32); // divide by 32 to make it a bit less predictable
+            // all numbers are divided by a random amount to make it a bit more random
+            Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32);
+            Pet.Player.Instance.Pet.Energy.Decrease(HighestJump / 100);
+            Pet.Player.Instance.Pet.Hunger.Decrease(HighestJump / 82);
+            Pet.Player.Instance.Pet.Hygiene.Decrease(HighestJump / 42.1337f);
             Pet.Player.Instance.AddCoins(CoinsCollected);
 
             AudioManager.Instance.RandomizeSound("GameOver");
