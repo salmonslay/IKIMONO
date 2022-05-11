@@ -23,6 +23,12 @@ namespace IKIMONO.UI
         private PetNeedEnergy _petNeedEnergy;
         private Button _button;
 
+        private static float lastFunValue;
+        private static float lastHungerValue;
+        private static float lastHygieneValue;
+        private static float lastEnergyValue;
+
+
         private void Awake()
         {
             PetNeed.ValueUpdated += UpdateValue;
@@ -42,12 +48,71 @@ namespace IKIMONO.UI
             {
                 SetArrowState(_petNeedEnergy.IsSleeping);
             }
+            if (Time.time > 10)
+                ShowArrowOnValueChanged();
+
+            RecordNewLastValues();
         }
 
         private void Update()
         {
             _button.interactable = _petNeed.UsageCondition;
         }
+
+        private void OnDestroy()
+        {
+            RecordNewLastValues();
+            PetNeed.ValueUpdated -= UpdateValue;
+        }
+
+        // @TODO Create better solution. This works but feels messy.
+        private void ShowArrowOnValueChanged()
+        {
+            if ((Math.Abs(lastFunValue) - Math.Abs(_petNeed.Value)) > 1)
+            {
+                Debug.Log(_petNeed.GetType() + " No!");
+                return;
+            }
+
+            if (_petNeed.GetType() == typeof(PetNeedFun))
+            {
+                ShowArrow(_petNeed.Value > lastFunValue);
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedHunger))
+            {
+                ShowArrow(_petNeed.Value > lastHungerValue);
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedHygiene))
+            {
+                ShowArrow(_petNeed.Value > lastHygieneValue);
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedEnergy))
+            {
+                ShowArrow(_petNeed.Value > lastEnergyValue);
+            }
+        }
+
+        // @TODO Create better solution. This works but feels messy.
+        private void RecordNewLastValues()
+        {
+            if (_petNeed.GetType() == typeof(PetNeedFun))
+            {
+                lastFunValue = _petNeed.Value;
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedHunger))
+            {
+                lastHungerValue = _petNeed.Value;
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedHygiene))
+            {
+                lastHygieneValue = _petNeed.Value;
+            }
+            else if (_petNeed.GetType() == typeof(PetNeedEnergy))
+            {
+                lastEnergyValue = _petNeed.Value;
+            }
+        }
+
 
         /// <summary>
         /// Turns on or off arrow based on passed parameter; 
@@ -99,11 +164,6 @@ namespace IKIMONO.UI
         public void SetNeed(PetNeed need)
         {
             _petNeed = need;
-        }
-
-        private void OnDestroy()
-        {
-            PetNeed.ValueUpdated -= UpdateValue;
         }
 
         private void UpdateValue()
