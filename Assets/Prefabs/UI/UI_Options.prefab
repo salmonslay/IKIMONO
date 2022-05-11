@@ -1885,9 +1885,9 @@ MonoBehaviour:
   tabWindows:
   - {fileID: 6601442698346174206}
   - {fileID: 4425079869614190923}
-  tabIdleColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
+  tabIdleColor: {r: 0.77254903, g: 0.77254903, b: 0.77254903, a: 1}
   tabActiveColor: {r: 0.3764706, g: 0.3764706, b: 0.3764706, a: 1}
-  tabSelectedColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  tabSelectedColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
 --- !u!114 &6536471835813837047
 MonoBehaviour:
   m_ObjectHideFlags: 0
