@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace IKIMONO.Pet
 {
+
     public class PetNeedHunger : PetNeed
     {
         public override string Name => "Hunger";
@@ -11,7 +13,7 @@ namespace IKIMONO.Pet
         public override bool UsageCondition => !Player.Instance.Pet.Energy.IsSleeping;
         public override float DecayRate => 2; // 50h to reach 0
     }
-    
+
     public class PetNeedSocial : PetNeed
     {
         public override string Name => "Social";
@@ -33,7 +35,7 @@ namespace IKIMONO.Pet
         public override float DecayRate => IsSleeping ? -12 : 5; // 20h to reach 0, 8h to reach 100
         [JsonProperty("sleeping")] public bool IsSleeping { get; set; }
     }
-    
+
     public class PetNeedFun : PetNeed
     {
         public override string Name => "Fun";
@@ -45,28 +47,41 @@ namespace IKIMONO.Pet
                                                Player.Instance.Pet.Energy.Value > 20; // Hunger can not be a condition right now, as games are needed to feed the pet
         public override float DecayRate => 1.2f; // 83h to reach 0
     }
-    
+
     public class PetNeedHygiene : PetNeed
     {
         public override string Name => "Hygiene";
         public override string NotificationTitle => "Your pet is dirty!";
         public override string NotificationDescription => "Your pet is dirty and needs to be cleaned, come and clean it!";
         public override string NotificationIcon => "icon_hygiene";
-        public override bool UsageCondition => !Player.Instance.Pet.Energy.IsSleeping && 
+        public override bool UsageCondition => !Player.Instance.Pet.Energy.IsSleeping &&
                                                Player.Instance.Pet.Energy.Value > 20;
         public override float DecayRate => 0.8f; // 125h to reach 0
-    }
 
+        public event EventHandler OnCleaningStateChanged;
+
+        private bool _isCleaning = false;
+        public bool IsCleaning
+        {
+            get => _isCleaning;
+            set
+            {
+                _isCleaning = !_isCleaning;
+                OnCleaningStateChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
     public class PetNeedOverall : PetNeed
     {
         public override string Name { get; } = "Overall";
-        public override string NotificationTitle { get; } 
+        public override string NotificationTitle { get; }
         public override string NotificationDescription { get; }
         public override string NotificationIcon { get; }
         public override bool UsageCondition => true;
         public override bool HasNotifications => false;
         public override float Percentage => Player.Instance.Pet.GetGeneralMood();
-        
+
         // TODO: Value always returns 100, need to calculate it
     }
+
 }
