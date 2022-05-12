@@ -66,7 +66,7 @@ namespace IKIMONO.Pet
             get => _isCleaning;
             set
             {
-                _isCleaning = !_isCleaning;
+                _isCleaning = value;
                 OnCleaningStateChanged?.Invoke(this, EventArgs.Empty);
             }
         }
