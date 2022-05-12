@@ -70,7 +70,6 @@ namespace IKIMONO.UI
         {
             if ((Math.Abs(lastFunValue) - Math.Abs(_petNeed.Value)) > 1)
             {
-                Debug.Log(_petNeed.GetType() + " No!");
                 return;
             }
 
