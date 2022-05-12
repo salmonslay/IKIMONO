@@ -18,11 +18,11 @@ namespace IKIMONO.Minigame.Jump
         public float HighestJump { get; private set; } = 0;
 
         public int CoinsCollected { get; private set; } = 0;
-        
+
         public int JumpCount { get; set; } = 1; // start at 1, because the ground jump is made differently
 
-        
-        
+
+
         [SerializeField] private Text _coinText;
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private Text _gameOverText;
@@ -44,9 +44,14 @@ namespace IKIMONO.Minigame.Jump
 
 
             AudioManager.Instance.PlaySound("MinigameMusic", "One");
-           
-            
+
+
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
+        }
+
+        private void Start()
+        {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
 
         private void Update()
@@ -63,6 +68,8 @@ namespace IKIMONO.Minigame.Jump
 
         public void GameOver()
         {
+            Screen.sleepTimeout = SleepTimeout.SystemSetting;
+
             _gameOverPanel.SetActive(true);
             const string color = "#C08C2B";
             _gameOverText.text = $"You travelled <color={color}>{Mathf.RoundToInt(HighestJump)}</color> meters, collected <color={color}>{CoinsCollected}</color> coin{(CoinsCollected == 1 ? "" : "s")} and jumped <color={color}>{JumpCount}</color> times!";
@@ -83,12 +90,12 @@ namespace IKIMONO.Minigame.Jump
         {
             SceneManager.LoadScene("MinigameJump");
         }
-        
+
         public void Quit()
         {
             AudioManager.Instance.StopSound("MinigameMusic", "One");
             SceneManager.LoadScene("Main");
-            
+
         }
     }
 }
