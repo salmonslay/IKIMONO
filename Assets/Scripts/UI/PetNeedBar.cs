@@ -23,12 +23,6 @@ namespace IKIMONO.UI
         private PetNeedEnergy _petNeedEnergy;
         private Button _button;
 
-        private static float lastFunValue;
-        private static float lastHungerValue;
-        private static float lastHygieneValue;
-        private static float lastEnergyValue;
-
-
         private void Awake()
         {
             PetNeed.ValueUpdated += UpdateValue;
@@ -48,10 +42,6 @@ namespace IKIMONO.UI
             {
                 SetArrowState(_petNeedEnergy.IsSleeping);
             }
-            if (Time.time > 10)
-                ShowArrowOnValueChanged();
-
-            RecordNewLastValues();
         }
 
         private void Update()
@@ -61,55 +51,33 @@ namespace IKIMONO.UI
 
         private void OnDestroy()
         {
-            RecordNewLastValues();
             PetNeed.ValueUpdated -= UpdateValue;
         }
 
-        // @TODO Create better solution. This works but feels messy.
-        private void ShowArrowOnValueChanged()
+        private float _lastShownValue;
+        private void ShowArrowOnValueChanged(float newValue)
         {
-            if ((Math.Abs(lastFunValue) - Math.Abs(_petNeed.Value)) > 1)
+            // Only update _lastShownValue if game started less than 10 seconds ago.
+            if (Time.time > 10)
             {
-                return;
-            }
+                // Return if not Basic Need.
+                if (_petNeed.GetType() == typeof(PetNeedOverall)) return;
 
-            if (_petNeed.GetType() == typeof(PetNeedFun))
-            {
-                ShowArrow(_petNeed.Value > lastFunValue);
-            }
-            else if (_petNeed.GetType() == typeof(PetNeedHunger))
-            {
-                ShowArrow(_petNeed.Value > lastHungerValue);
-            }
-            else if (_petNeed.GetType() == typeof(PetNeedHygiene))
-            {
-                ShowArrow(_petNeed.Value > lastHygieneValue);
-            }
-            else if (_petNeed.GetType() == typeof(PetNeedEnergy))
-            {
-                ShowArrow(_petNeed.Value > lastEnergyValue);
-            }
-        }
+                // Calculate change since last shown.
+                float valueChangeDelta = newValue - _lastShownValue;
 
-        // @TODO Create better solution. This works but feels messy.
-        private void RecordNewLastValues()
-        {
-            if (_petNeed.GetType() == typeof(PetNeedFun))
-            {
-                lastFunValue = _petNeed.Value;
+                //Debug.Log(_petNeed.GetType() + " Time: " + Time.time + " Last: " + _lastShownValue + " New: " + newValue
+                //    + "Delta: " + valueChangeDelta + " Going up: " + (valueChangeDelta > 0));
+
+                // Return if change is too small.
+                // @TODO Set float to preferred update value after testing.
+                if (Math.Abs(valueChangeDelta) < 0.0001f) return;
+
+                // Show arrow.
+                ShowArrow(valueChangeDelta > 0);
             }
-            else if (_petNeed.GetType() == typeof(PetNeedHunger))
-            {
-                lastHungerValue = _petNeed.Value;
-            }
-            else if (_petNeed.GetType() == typeof(PetNeedHygiene))
-            {
-                lastHygieneValue = _petNeed.Value;
-            }
-            else if (_petNeed.GetType() == typeof(PetNeedEnergy))
-            {
-                lastEnergyValue = _petNeed.Value;
-            }
+            // Update last shown time
+            _lastShownValue = newValue;
         }
 
 
@@ -169,7 +137,10 @@ namespace IKIMONO.UI
         {
             if (_petNeed == null) return;
 
-            _fillImage.fillAmount = _petNeed.Percentage + 0.05f; // make sure the bar is always visible, even if it's at 0%
+            float newValue = _petNeed.Percentage + 0.05f;
+            ShowArrowOnValueChanged(newValue);
+
+            _fillImage.fillAmount = newValue; // make sure the bar is always visible, even if it's at 0%
             _fillImage.color = _gradient.Evaluate(_petNeed.Percentage);
         }
     }
