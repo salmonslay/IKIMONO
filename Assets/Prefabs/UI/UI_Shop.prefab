@@ -351,9 +351,9 @@ MonoBehaviour:
   tabWindows:
   - {fileID: 775066802013549689}
   - {fileID: 7797301867723609036}
-  tabIdleColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
+  tabIdleColor: {r: 0.77254903, g: 0.77254903, b: 0.77254903, a: 1}
   tabActiveColor: {r: 0.3764706, g: 0.3764706, b: 0.3764706, a: 1}
-  tabSelectedColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  tabSelectedColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
 --- !u!114 &5448746689355346027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,7 +813,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448746689439016339}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

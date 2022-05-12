@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,39 +37,43 @@ public class UI_Shop : MonoBehaviour
         if (itemScriptableObject.GetType() == typeof(FoodItemScriptableObject))
         {
             FoodItemScriptableObject foodItemScriptableObject = (FoodItemScriptableObject)itemScriptableObject;
-            if (foodItemScriptableObject.FunValue > 0)
-            {
-                GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-                itemInfoRow.GetComponentInChildren<Image>().sprite = _funSprite;
-                itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.FunValue;
-            }
-            if (foodItemScriptableObject.HungerValue > 0)
-            {
-                GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-                itemInfoRow.GetComponentInChildren<Image>().sprite = _hungerSprite;
-                itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.HungerValue;
+            //if (foodItemScriptableObject.FunValue > 0)
+            //{
+            GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
+            itemInfoRow.GetComponentInChildren<Image>().sprite = _funSprite;
+            itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.FunValue >= 0 ? "+ " : "- ")
+                + Math.Abs(foodItemScriptableObject.FunValue);
+            //}
+            //if (foodItemScriptableObject.HungerValue > 0)
+            //{
+            itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
+            itemInfoRow.GetComponentInChildren<Image>().sprite = _hungerSprite;
+            itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HungerValue >= 0 ? "+ " : "- ")
+                + Math.Abs(foodItemScriptableObject.HungerValue);
 
-            }
-            if (foodItemScriptableObject.HygieneValue > 0)
-            {
-                GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-                itemInfoRow.GetComponentInChildren<Image>().sprite = _hygieneSprite;
-                itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.HygieneValue;
+            //}
+            //if (foodItemScriptableObject.HygieneValue > 0)
+            //{
+            itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
+            itemInfoRow.GetComponentInChildren<Image>().sprite = _hygieneSprite;
+            itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HygieneValue >= 0 ? "+ " : "- ")
+                + Math.Abs(foodItemScriptableObject.HygieneValue);
 
-            }
-            if (foodItemScriptableObject.EnergyValue > 0)
-            {
-                GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-                itemInfoRow.GetComponentInChildren<Image>().sprite = _energySprite;
-                itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.EnergyValue;
+            //}
+            //if (foodItemScriptableObject.EnergyValue > 0)
+            //{
+            itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
+            itemInfoRow.GetComponentInChildren<Image>().sprite = _energySprite;
+            itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.EnergyValue >= 0 ? "+ " : "- ")
+                + Math.Abs(foodItemScriptableObject.EnergyValue);
 
-            }
-            if (foodItemScriptableObject.SocialValue > 0)
-            {
-                GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-                itemInfoRow.GetComponentInChildren<Image>().sprite = _socialSprite;
-                itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.SocialValue;
-            }
+            //}
+            //if (foodItemScriptableObject.SocialValue > 0)
+            //{
+            //itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
+            //itemInfoRow.GetComponentInChildren<Image>().sprite = _socialSprite;
+            //itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.SocialValue;
+            //}
         }
 
         //Setup Button

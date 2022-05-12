@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TabButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class UI_TabButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] TabGroup tabGroup;
 

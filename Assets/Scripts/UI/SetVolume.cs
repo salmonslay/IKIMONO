@@ -1,6 +1,4 @@
 using IKIMONO.Pet;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -28,6 +26,11 @@ public class SetVolume : MonoBehaviour
     private Settings settings;
 
     private void Start()
+    {
+        SetUpSoundControls();
+    }
+
+    private void SetUpSoundControls()
     {
         settings = Player.Instance.Settings;
         effectsSlider.value = settings.EffectsVolume;
