@@ -167,7 +167,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private void Clean(float amount)
     {
         Player.Instance.Pet.Hygiene.Increase(amount);
-        _hygieneButton.ShowArrow(true);
     }
 
     private void MoveSponge(Vector2 moveDelta)
@@ -178,7 +177,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private void PetIkimono(float amount)
     {
         Player.Instance.Pet.Fun.Increase(amount);
-        _funButton.ShowArrow(true);
     }
 
 
