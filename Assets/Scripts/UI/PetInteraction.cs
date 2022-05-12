@@ -1,5 +1,6 @@
 using IKIMONO.Pet;
 using IKIMONO.UI;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,6 +20,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private PetNeedBar _hungerButton;
     private PetNeedBar _hygieneButton;
     private PetNeedBar _energyButton;
+
+    
 
     private void Awake()
     {
@@ -158,14 +161,35 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.05f);
+            
+            
+            
+            if(_canPlayAgain)
+            {
+                StartCoroutine(PlaySound());
+            }
+            
 
             // @PhilipAudio: Play the cleaning sound here.
             // Is run multiple times per second like the old script so a cooldown is still needed.
         }
     }
 
+    private bool _canPlayAgain = true;
+    IEnumerator PlaySound()
+    {
+        _canPlayAgain = false;
+        Debug.Log(_canPlayAgain);
+        AudioManager.Instance.RandomizeSound("Bubbles");
+        yield return new WaitForSeconds(1);
+        _canPlayAgain = true;
+        Debug.Log(_canPlayAgain);
+    }
+
     private void Clean(float amount)
     {
+
+
         Player.Instance.Pet.Hygiene.Increase(amount);
     }
 
