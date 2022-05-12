@@ -70,6 +70,7 @@ namespace IKIMONO.UI
             button.GetComponent<PetNeedBar>().SetArrowState(energy.IsSleeping);
             Player.Instance.Save();
             FindObjectOfType<Ikimono>().SetSprite();
+            Player.Instance.Pet.Hygiene.IsCleaning = false;
         }
 
 
