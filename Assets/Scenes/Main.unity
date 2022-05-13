@@ -558,6 +558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spongePrefab: {fileID: 3882095099011681528, guid: c35d4228956f2be4b8a739b79aca8313, type: 3}
+  _bubbleSounds:
+  - {fileID: 8300000, guid: 5ed6ee928989e45c8a35fd71f963fcde, type: 3}
+  - {fileID: 8300000, guid: 5c83359320d234fdf914648daae2de24, type: 3}
 --- !u!114 &480040749
 MonoBehaviour:
   m_ObjectHideFlags: 0

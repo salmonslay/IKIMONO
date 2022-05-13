@@ -21,7 +21,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private PetNeedBar _hygieneButton;
     private PetNeedBar _energyButton;
 
-    
+    private bool _canPlaySound = true;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -46,11 +47,13 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         if (_petHygiene.IsCleaning)
         {
             _sponge = Instantiate(_spongePrefab, transform.position, Quaternion.identity, transform);
+            _audioSource = _sponge.GetComponent<AudioSource>();
         }
         else
         {
             Destroy(_sponge);
             _sponge = null;
+            _audioSource = null;
         }
     }
 
@@ -147,6 +150,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             _sponge.GetComponent<RectTransform>().anchoredPosition = eventData.pressPosition - _uiOffset;
     }
 
+    [SerializeField] private AudioClip[] _bubbleSounds;
+
     public void OnDrag(PointerEventData eventData)
     {
         if (eventData.pointerCurrentRaycast.gameObject != gameObject)
@@ -161,35 +166,29 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.05f);
-            
-            
-            
-            if(_canPlayAgain)
+
+
+            if (_canPlaySound)
             {
                 StartCoroutine(PlaySound());
             }
-            
 
             // @PhilipAudio: Play the cleaning sound here.
             // Is run multiple times per second like the old script so a cooldown is still needed.
         }
     }
 
-    private bool _canPlayAgain = true;
     IEnumerator PlaySound()
     {
-        _canPlayAgain = false;
-        Debug.Log(_canPlayAgain);
-        AudioManager.Instance.RandomizeSound("Bubbles");
-        yield return new WaitForSeconds(1);
-        _canPlayAgain = true;
-        Debug.Log(_canPlayAgain);
+        _canPlaySound = false;
+        AudioClip clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
+        _audioSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length * 0.5f);
+        _canPlaySound = true;
     }
 
     private void Clean(float amount)
     {
-
-
         Player.Instance.Pet.Hygiene.Increase(amount);
     }
 
