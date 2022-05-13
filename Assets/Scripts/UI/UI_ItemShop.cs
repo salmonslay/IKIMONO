@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Shop : MonoBehaviour
+public class UI_ItemShop : MonoBehaviour
 {
     [SerializeField] private List<ScriptableObjects.ItemScriptableObject> itemList;
 
@@ -37,43 +37,27 @@ public class UI_Shop : MonoBehaviour
         if (itemScriptableObject.GetType() == typeof(FoodItemScriptableObject))
         {
             FoodItemScriptableObject foodItemScriptableObject = (FoodItemScriptableObject)itemScriptableObject;
-            //if (foodItemScriptableObject.FunValue > 0)
-            //{
+            // Set Up Values.
+            // Fun.
             GameObject itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
             itemInfoRow.GetComponentInChildren<Image>().sprite = _funSprite;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.FunValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.FunValue);
-            //}
-            //if (foodItemScriptableObject.HungerValue > 0)
-            //{
+            // Hunger.
             itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
             itemInfoRow.GetComponentInChildren<Image>().sprite = _hungerSprite;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HungerValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.HungerValue);
-
-            //}
-            //if (foodItemScriptableObject.HygieneValue > 0)
-            //{
+            //Hygiene
             itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
             itemInfoRow.GetComponentInChildren<Image>().sprite = _hygieneSprite;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HygieneValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.HygieneValue);
-
-            //}
-            //if (foodItemScriptableObject.EnergyValue > 0)
-            //{
+            //Energy
             itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
             itemInfoRow.GetComponentInChildren<Image>().sprite = _energySprite;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.EnergyValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.EnergyValue);
-
-            //}
-            //if (foodItemScriptableObject.SocialValue > 0)
-            //{
-            //itemInfoRow = Instantiate(_infoRow, itemInfo.transform);
-            //itemInfoRow.GetComponentInChildren<Image>().sprite = _socialSprite;
-            //itemInfoRow.GetComponentInChildren<Text>().text = "+ " + foodItemScriptableObject.SocialValue;
-            //}
         }
 
         //Setup Button
