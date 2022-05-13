@@ -23,9 +23,15 @@ namespace IKIMONO.UI
         private PetNeedEnergy _petNeedEnergy;
         private Button _button;
 
+        private Animator _animator;
+        private bool _canPlayAgain = true;
+        [SerializeField] private Color _upArrowColor = new Color(179, 255, 165);
+        [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
+
         private void Awake()
         {
             PetNeed.ValueUpdated += UpdateValue;
+
             Player.Instance.Pet.UpdateValues();
 
             if (_showName)
@@ -36,17 +42,23 @@ namespace IKIMONO.UI
             _petNeedEnergy = Player.Instance.Pet.Energy;
         }
 
-        private void Start()
-        {
-            if (typeof(PetNeedEnergy) == _petNeed.GetType())
-            {
-                SetArrowState(_petNeedEnergy.IsSleeping);
-            }
-        }
-
+        private bool arrowActiveFromSleep;
         private void Update()
         {
             _button.interactable = _petNeed.UsageCondition;
+
+            // Show positive arrow on Energy Button if sleeping;
+            if (typeof(PetNeedEnergy) == _petNeed.GetType() && _petNeedEnergy.IsSleeping)
+            {
+                SetArrowState(true);
+                ArrowIsPositive(true);
+                arrowActiveFromSleep = true;
+            }
+            else if (arrowActiveFromSleep && !_petNeedEnergy.IsSleeping)
+            {
+                SetArrowState(false);
+                arrowActiveFromSleep = false;
+            }
         }
 
         private void OnDestroy()
@@ -57,26 +69,48 @@ namespace IKIMONO.UI
         private float _lastShownValue;
         private void ShowArrowOnValueChanged(float newValue)
         {
-            // Only update _lastShownValue if game started less than 10 seconds ago.
+            // Return if not Basic Need.
+            if (_petNeed.GetType() == typeof(PetNeedOverall)) return;
+
+            // If the game was started more than 10 seconds ago.
             if (Time.time > 10)
             {
-                // Return if not Basic Need.
-                if (_petNeed.GetType() == typeof(PetNeedOverall)) return;
+                // If coming from minigame.
+                if (Time.timeSinceLevelLoad < 5)
+                {
+                    // Fun goes up, rest goes down.
+                    if (_petNeed.GetType() == typeof(PetNeedFun))
+                    {
+                        ShowArrow(true);
+                    }
+                    else
+                    {
+                        ShowArrow(false);
 
-                // Calculate change since last shown.
-                float valueChangeDelta = newValue - _lastShownValue;
+                    }
+                }
+                else
+                {
 
-                //Debug.Log(_petNeed.GetType() + " Time: " + Time.time + " Last: " + _lastShownValue + " New: " + newValue
-                //    + "Delta: " + valueChangeDelta + " Going up: " + (valueChangeDelta > 0));
+                    // Calculate change since last shown.
+                    float valueChangeDelta = newValue - _lastShownValue;
 
-                // Return if change is too small.
-                // @TODO Set float to preferred update value after testing.
-                if (Math.Abs(valueChangeDelta) < 0.0001f) return;
+                    // Return if change is too small.
+                    // @TODO Set float to preferred update value after testing.
+                    if (Math.Abs(valueChangeDelta) < 0.0001f) return;
 
-                // Show arrow.
-                ShowArrow(valueChangeDelta > 0);
+                    // Show arrow.
+                    ShowArrow(valueChangeDelta > 0);
+                }
             }
-            // Update last shown time
+            // If the game started less than 10 seconds ago, show all arrows down.
+            // Energy arrow state is overriden in update if sleeping.
+            else
+            {
+                ShowArrow(false);
+            }
+
+            // Always update last shown value after showing arrow.
             _lastShownValue = newValue;
         }
 
@@ -90,10 +124,6 @@ namespace IKIMONO.UI
             _arrow.enabled = isTurnedOn;
         }
 
-        private Animator _animator;
-        private bool _canPlayAgain = true;
-        [SerializeField] private Color _upArrowColor = new Color(179, 255, 165);
-        [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
         /// <summary>
         /// Shows positive/negative arrow over button once based on passed bool parameter.
         /// </summary>
@@ -104,17 +134,22 @@ namespace IKIMONO.UI
 
             if (_canPlayAgain)
             {
-                if (isPositive)
-                {
-                    _arrow.gameObject.transform.localScale = new Vector3(1, 1, 1);
-                    _arrow.color = _upArrowColor;
-                }
-                else
-                {
-                    _arrow.gameObject.transform.localScale = new Vector3(1, -1, 1);
-                    _arrow.color = _downArrowColor;
-                }
+                ArrowIsPositive(isPositive);
                 StartCoroutine(ShowArrowEnumerator());
+            }
+        }
+
+        public void ArrowIsPositive(bool isPositive)
+        {
+            if (isPositive)
+            {
+                _arrow.gameObject.transform.localScale = new Vector3(1, 1, 1);
+                _arrow.color = _upArrowColor;
+            }
+            else
+            {
+                _arrow.gameObject.transform.localScale = new Vector3(1, -1, 1);
+                _arrow.color = _downArrowColor;
             }
         }
 
