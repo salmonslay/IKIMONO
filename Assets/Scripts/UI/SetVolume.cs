@@ -25,6 +25,9 @@ public class SetVolume : MonoBehaviour
 
     private Settings settings;
 
+    private bool _musicIsMuted;
+    private bool _effectsIsMuted;
+
     private void Start()
     {
         SetUpSoundControls();
@@ -36,6 +39,22 @@ public class SetVolume : MonoBehaviour
         effectsSlider.value = settings.EffectsVolume;
         musicSlider.value = settings.MusicVolume;
         lastEffectsVolume = settings.EffectsVolume;
+        if (lastEffectsVolume < 0.0015f)
+        {
+            _effectsIsMuted = true;
+        }
+        else
+        {
+            _effectsIsMuted = false;
+        }
+        if (lastMusicVolume < 0.0015f)
+        {
+            _musicIsMuted = true;
+        }
+        else
+        {
+            _musicIsMuted = false;
+        }
         lastMusicVolume = settings.MusicVolume;
         SetMusicLevel(settings.MusicVolume);
         SetEffectsLevel(settings.EffectsVolume);
@@ -48,11 +67,13 @@ public class SetVolume : MonoBehaviour
         if (sliderValue > 0.0015f)
         {
             musicToggleImage.sprite = soundOnSprite;
+            _musicIsMuted = false;
         }
         else
         {
             musicToggleImage.sprite = soundOffSprite;
             musicSlider.value = 0.0001f;
+            _musicIsMuted = true;
         }
     }
 
@@ -63,42 +84,48 @@ public class SetVolume : MonoBehaviour
         if (sliderValue > 0.0015f)
         {
             effectsToggleImage.sprite = soundOnSprite;
+            _effectsIsMuted = false;
         }
         else
         {
             effectsToggleImage.sprite = soundOffSprite;
             effectsSlider.value = 0.0001f;
+            _effectsIsMuted = true;
         }
     }
 
     //@TODO Clean and optimize the mute scripts
     public void MuteEffectsToggle()
     {
-        if (settings.EffectsVolume < 0.0015f)
+        if (_effectsIsMuted)
         {
             effectsToggleImage.sprite = soundOnSprite;
             effectsSlider.value = lastEffectsVolume;
             SetEffectsLevel(lastEffectsVolume);
+            _effectsIsMuted = false;
         }
         else
         {
             lastEffectsVolume = settings.EffectsVolume;
             SetEffectsLevel(0.0001f);
+            _effectsIsMuted = true;
         }
     }
 
     public void MuteMusicToggle()
     {
-        if (settings.MusicVolume < 0.0015f)
+        if (_musicIsMuted)
         {
             musicToggleImage.sprite = soundOnSprite;
-            musicSlider.value = lastEffectsVolume;
+            musicSlider.value = lastMusicVolume;
             SetMusicLevel(lastMusicVolume);
+            _musicIsMuted = false;
         }
         else
         {
             lastMusicVolume = settings.MusicVolume;
             SetMusicLevel(0.0001f);
+            _musicIsMuted = true;
         }
     }
 
