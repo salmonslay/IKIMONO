@@ -170,7 +170,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
             if (_canPlaySound)
             {
-                StartCoroutine(PlaySound());
+                StartCoroutine(PlaySpongeSound());
             }
 
             // @PhilipAudio: Play the cleaning sound here.
@@ -178,7 +178,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         }
     }
 
-    IEnumerator PlaySound()
+    IEnumerator PlaySpongeSound()
     {
         _canPlaySound = false;
         AudioClip clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
