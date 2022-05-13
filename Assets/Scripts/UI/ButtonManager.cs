@@ -62,12 +62,11 @@ namespace IKIMONO.UI
             }
         }
 
-        public void NeedEnergy(GameObject button)
+        public void NeedEnergy()
         {
             //Player.Instance.Pet.SetIkimonoState(State.IsSleeping);
             PetNeedEnergy energy = Player.Instance.Pet.Energy;
             energy.IsSleeping = !energy.IsSleeping;
-            button.GetComponent<PetNeedBar>().SetArrowState(energy.IsSleeping);
             Player.Instance.Save();
             FindObjectOfType<Ikimono>().SetSprite();
             Player.Instance.Pet.Hygiene.IsCleaning = false;
