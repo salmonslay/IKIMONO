@@ -26,8 +26,10 @@ namespace IKIMONO.UI
 
         private Animator _animator;
         private bool _canPlayAgain = true;
-        [SerializeField] private Color _upArrowColor = new Color(179, 255, 165);
-        [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
+        private bool _arrowActiveFromSleep;
+        private float _lastShownValue;
+        private static readonly Color _upArrowColor = new Color(179, 255, 165);
+        private static readonly Color _downArrowColor = new Color(179, 255, 165);
 
         private void Awake()
         {
@@ -42,7 +44,6 @@ namespace IKIMONO.UI
             _petNeedEnergy = Player.Instance.Pet.Energy;
         }
 
-        private bool arrowActiveFromSleep;
         private void Update()
         {
             _button.interactable = _petNeed.UsageCondition;
@@ -52,12 +53,12 @@ namespace IKIMONO.UI
             {
                 SetArrowState(true);
                 ArrowIsPositive(true);
-                arrowActiveFromSleep = true;
+                _arrowActiveFromSleep = true;
             }
-            else if (arrowActiveFromSleep && !_petNeedEnergy.IsSleeping)
+            else if (_arrowActiveFromSleep && !_petNeedEnergy.IsSleeping)
             {
                 SetArrowState(false);
-                arrowActiveFromSleep = false;
+                _arrowActiveFromSleep = false;
             }
             
             if(_showName)
@@ -69,7 +70,6 @@ namespace IKIMONO.UI
             PetNeed.ValueUpdated -= UpdateValue;
         }
 
-        private float _lastShownValue;
         private void ShowArrowOnValueChanged(float newValue)
         {
             // Return if not Basic Need.
@@ -156,7 +156,7 @@ namespace IKIMONO.UI
             }
         }
 
-        IEnumerator ShowArrowEnumerator()
+        private IEnumerator ShowArrowEnumerator()
         {
             _canPlayAgain = false;
             _arrow.enabled = true;
