@@ -28,8 +28,8 @@ namespace IKIMONO.UI
         private bool _canPlayAgain = true;
         private bool _arrowActiveFromSleep;
         private float _lastShownValue;
-        private static readonly Color _upArrowColor = new Color(179, 255, 165);
-        private static readonly Color _downArrowColor = new Color(179, 255, 165);
+        [SerializeField] private Color _upArrowColor = new Color(179, 255, 165);
+        [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
 
         private void Awake()
         {
