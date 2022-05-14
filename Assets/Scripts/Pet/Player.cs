@@ -105,7 +105,7 @@ namespace IKIMONO.Pet
         public static void Reset()
         {            
             PlayerPrefs.DeleteAll();
-            Instance = new Player();
+            Instance = null;
         }
         #endregion
     }
