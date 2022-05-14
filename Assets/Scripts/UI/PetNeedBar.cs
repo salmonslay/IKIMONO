@@ -19,6 +19,7 @@ namespace IKIMONO.UI
 
         [SerializeField] private Image _arrow;
 
+        private Text _text;
         private PetNeed _petNeed;
         private PetNeedEnergy _petNeedEnergy;
         private Button _button;
@@ -34,8 +35,7 @@ namespace IKIMONO.UI
 
             Player.Instance.Pet.UpdateValues();
 
-            if (_showName)
-                GetComponentInChildren<Text>().text = Player.Instance.Pet.Name;
+            _text = GetComponentInChildren<Text>();
 
             _button = GetComponent<Button>();
 
@@ -59,6 +59,9 @@ namespace IKIMONO.UI
                 SetArrowState(false);
                 arrowActiveFromSleep = false;
             }
+            
+            if(_showName)
+                _text.text = Player.Instance.Pet.Name;
         }
 
         private void OnDestroy()
