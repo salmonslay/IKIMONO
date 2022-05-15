@@ -95,12 +95,10 @@ namespace IKIMONO.UI
 
         public void DeleteSave()
         {
-            // TODO: add confirmation dialog
-            Player.Reset();
-            Application.Quit();
+            ResetBox.Open();
         }
 
-        public void QuitGame()
+        public static void QuitGame()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
