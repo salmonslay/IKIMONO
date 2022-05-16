@@ -69,7 +69,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Make Inventory slightly transparent and remove raycast blocking.
-        _overlayCanvasGroup.alpha = 0.4f;
+        _overlayCanvasGroup.alpha = 0f;
         _overlayCanvasGroup.blocksRaycasts = false;
     }
 }
