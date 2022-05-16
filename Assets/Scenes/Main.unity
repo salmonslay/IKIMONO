@@ -1480,6 +1480,10 @@ PrefabInstance:
       propertyPath: _downArrowColor.r
       value: 0.7529412
       objectReference: {fileID: 0}
+    - target: {fileID: 5087443118699013378, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8163809816638962672, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
       propertyPath: m_Material
       value: 
@@ -3516,7 +3520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4343310433821218643, guid: 03fce2bbbc7db0a418692bc4583943ba, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4343310433821218643, guid: 03fce2bbbc7db0a418692bc4583943ba, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3590,5 +3594,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4343310433821218668, guid: 03fce2bbbc7db0a418692bc4583943ba, type: 3}
+      propertyPath: uiInventory
+      value: 
+      objectReference: {fileID: 112274904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03fce2bbbc7db0a418692bc4583943ba, type: 3}

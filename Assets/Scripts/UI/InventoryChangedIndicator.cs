@@ -8,6 +8,7 @@ public class InventoryChangedIndicator : MonoBehaviour
 {
     Text text;
     int changeCount = 0;
+    [SerializeField] private GameObject uiInventory;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class InventoryChangedIndicator : MonoBehaviour
 
     private void OnItemListChanged(object sender, System.EventArgs e)
     {
+        if (uiInventory.activeSelf == true) return;
         gameObject.SetActive(true);
         changeCount++;
         text.text = (changeCount < 100) ? changeCount.ToString() : 99.ToString();
