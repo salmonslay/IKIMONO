@@ -167,14 +167,11 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.05f);
 
-
             if (_canPlaySound)
             {
                 StartCoroutine(PlaySpongeSound());
             }
 
-            // @PhilipAudio: Play the cleaning sound here.
-            // Is run multiple times per second like the old script so a cooldown is still needed.
         }
     }
 
