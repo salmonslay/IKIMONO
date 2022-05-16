@@ -234,6 +234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f965d57c9205f6341acd77c2eed2d237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _foodInfoPrefab: {fileID: 644476052233476018, guid: 004acb4303eadc7458bf26f254d1633b, type: 3}
+  _infoRow: {fileID: 3739827243606676398, guid: 1e0c45e7faa0d234bba591b6937db08c, type: 3}
+  _funSprite: {fileID: 21300000, guid: c5a93fe82e7b4274cb0aa68ede996fb5, type: 3}
+  _hungerSprite: {fileID: 21300000, guid: d3e7a15dd2cb16c4fb1e806fc5d9d554, type: 3}
+  _hygieneSprite: {fileID: 21300000, guid: d138b46ca164cbd438b40ffa28987438, type: 3}
+  _energySprite: {fileID: 21300000, guid: 097467b3bf1d2194ba3463df1b5bbdf0, type: 3}
 --- !u!1 &118257441694502009
 GameObject:
   m_ObjectHideFlags: 0
