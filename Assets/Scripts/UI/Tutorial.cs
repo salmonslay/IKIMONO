@@ -81,15 +81,9 @@ namespace IKIMONO.UI
 
             if (_currStep == 12)
             {
-                Player.Instance.Inventory.AddItem(new Item("Cup of Coffee"),1);
-                Player.Instance.Inventory.AddItem(new Item("Cup of Coffee"),1);
-                Player.Instance.Inventory.AddItem(new Item("Cup of Coffee"),1);
-                Player.Instance.Inventory.AddItem(new Item("Cherry Pie"),1);
-                Player.Instance.Inventory.AddItem(new Item("Cherry Pie"),1);
-                Player.Instance.Inventory.AddItem(new Item("Candy"),1);
-                Player.Instance.Inventory.AddItem(new Item("Candy"),1);
-                Player.Instance.Inventory.AddItem(new Item("Candy"),1);
-                Player.Instance.Inventory.AddItem(new Item("Candy"),1);
+                Player.Instance.Inventory.AddItem(new Item("Cup of Coffee"),3);
+                Player.Instance.Inventory.AddItem(new Item("Cherry Pie"),2);
+                Player.Instance.Inventory.AddItem(new Item("Candy"),4);
                 SetNamePanel.Open();
                 Close();
             }
