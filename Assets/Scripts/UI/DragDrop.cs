@@ -93,22 +93,34 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             // Set Up Values.
             // Fun.
             GameObject itemInfoRow = Instantiate(_infoRow, toolTip.transform);
-            itemInfoRow.GetComponentInChildren<Image>().sprite = _funSprite;
+            Image image = itemInfoRow.GetComponentInChildren<Image>();
+            image.sprite = _funSprite;
+            image.maskable = false;
+            itemInfoRow.GetComponentInChildren<Text>().maskable = false;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.FunValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.FunValue);
             // Hunger.
             itemInfoRow = Instantiate(_infoRow, toolTip.transform);
-            itemInfoRow.GetComponentInChildren<Image>().sprite = _hungerSprite;
+            image = itemInfoRow.GetComponentInChildren<Image>();
+            image.sprite = _hungerSprite;
+            image.maskable = false;
+            itemInfoRow.GetComponentInChildren<Text>().maskable = false;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HungerValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.HungerValue);
             //Hygiene
             itemInfoRow = Instantiate(_infoRow, toolTip.transform);
-            itemInfoRow.GetComponentInChildren<Image>().sprite = _hygieneSprite;
+            image = itemInfoRow.GetComponentInChildren<Image>();
+            image.sprite = _hygieneSprite;
+            image.maskable = false;
+            itemInfoRow.GetComponentInChildren<Text>().maskable = false;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.HygieneValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.HygieneValue);
             //Energy
             itemInfoRow = Instantiate(_infoRow, toolTip.transform);
-            itemInfoRow.GetComponentInChildren<Image>().sprite = _energySprite;
+            image = itemInfoRow.GetComponentInChildren<Image>();
+            image.sprite = _energySprite;
+            image.maskable = false;
+            itemInfoRow.GetComponentInChildren<Text>().maskable = false;
             itemInfoRow.GetComponentInChildren<Text>().text = (foodItemScriptableObject.EnergyValue >= 0 ? "+ " : "- ")
                 + Math.Abs(foodItemScriptableObject.EnergyValue);
         }
