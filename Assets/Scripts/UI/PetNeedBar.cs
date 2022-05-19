@@ -46,7 +46,7 @@ namespace IKIMONO.UI
 
         private void Update()
         {
-            _button.interactable = _petNeed.UsageCondition && !Tutorial.IsTutorial;
+            _button.interactable = _petNeed.UsageCondition;
 
             // Show positive arrow on Energy Button if sleeping;
             if (typeof(PetNeedEnergy) == _petNeed.GetType() && _petNeedEnergy.IsSleeping)

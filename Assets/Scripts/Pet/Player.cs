@@ -38,8 +38,6 @@ namespace IKIMONO.Pet
         [JsonProperty("inventory")] public Inventory Inventory { get; private set; } = new Inventory();
 
         [JsonProperty("settings")] public Settings Settings { get; private set; } = new Settings();
-        
-        [JsonProperty("tutorialProgress")] public TutorialStep TutorialStep { get; set; } = TutorialStep.None;
 
         #endregion
 
@@ -81,7 +79,7 @@ namespace IKIMONO.Pet
             }
 
             Debug.Log("No save file found.");
-            //SetNamePanel.Open();
+            SetNamePanel.Open();
             return new Player();
         }
 

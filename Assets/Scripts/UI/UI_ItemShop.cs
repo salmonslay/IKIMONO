@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class UI_ItemShop : MonoBehaviour
     [SerializeField] private Sprite _hungerSprite;
     [SerializeField] private Sprite _hygieneSprite;
     [SerializeField] private Sprite _energySprite;
+    [SerializeField] private Sprite _socialSprite;
 
     private void Start()
     {
