@@ -8,6 +8,9 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 {
 
     [SerializeField] private GameObject _spongePrefab;
+    [SerializeField] private AudioClip[] _bubbleSounds;
+    [SerializeField] private AudioClip[] _scratchSounds;
+
     private GameObject _sponge;
 
     private Canvas _canvas;
@@ -24,13 +27,18 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private bool _canPlaySound = true;
     private AudioSource _audioSource;
 
+    private Pet _pet;
+
     private void Awake()
     {
         _canvas = transform.GetComponentInParent<Canvas>();
         _canvasRectTransform = _canvas.GetComponent<RectTransform>();
+       
 
         _uiOffset = new Vector2((float)_canvasRectTransform.sizeDelta.x / 2, (float)_canvasRectTransform.sizeDelta.y / 2);
-        _petHygiene = Player.Instance.Pet.Hygiene;
+        _pet = Player.Instance.Pet;
+        _petHygiene = _pet.Hygiene;
+
     }
 
     private void Start()
@@ -40,6 +48,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         _hungerButton = GameObject.Find("Need Hunger").GetComponent<PetNeedBar>();
         _hygieneButton = GameObject.Find("Need Hygiene").GetComponent<PetNeedBar>();
         _energyButton = GameObject.Find("Need Energy").GetComponent<PetNeedBar>();
+        _audioSource = AudioManager.Instance.effectsource;
     }
 
     private void OnCleaningStateChanged(object sender, System.EventArgs e)
@@ -47,7 +56,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         if (_petHygiene.IsCleaning)
         {
             _sponge = Instantiate(_spongePrefab, transform.position, Quaternion.identity, transform);
-            _audioSource = _sponge.GetComponent<AudioSource>();
         }
         else
         {
@@ -86,6 +94,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             if (food.EnergyValue < 1 && energy.Value > energy.MaxValue - 1 && hunger.Value > hunger.MaxValue - 1)
             {
                 // TODO: gör nåt åt det?
+
+                //Om den inte får äta ljud
                 return;
             }
             else
@@ -139,18 +149,34 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
                     _energyButton.ShowArrow(false);
                     energy.Decrease(food.EnergyValue);
                 }
-
+                // ljud när den har ätit något
             }
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_petHygiene.IsCleaning)
+        if (_petHygiene.IsCleaning) { 
             _sponge.GetComponent<RectTransform>().anchoredPosition = eventData.pressPosition - _uiOffset;
+        }
+
+        if (_pet.Energy.IsSleeping)
+        {
+
+        }
+        else if(_pet.Overall.Percentage < 0.3f){
+            AudioManager.Instance.RandomizeSound("Sad");
+            //sad sounds;
+        }
+        else
+        {
+            AudioManager.Instance.RandomizeSound("Happy");
+        }
+        // ljud för klia
+        // ljud för glad
     }
 
-    [SerializeField] private AudioClip[] _bubbleSounds;
+    
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -158,27 +184,45 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             return;
         }
-        if (!_petHygiene.IsCleaning)
+        if(_pet.Energy.IsSleeping){
+            return;
+            }
+        if (!_petHygiene.IsCleaning)  
         {
             PetIkimono(0.05f);
+           
         }
+
+        
         else if (_petHygiene.IsCleaning)
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.05f);
 
-            if (_canPlaySound)
-            {
-                StartCoroutine(PlaySpongeSound());
-            }
+        }
 
+        if (_canPlaySound)
+        {
+            StartCoroutine(PlaySound());
         }
     }
 
-    IEnumerator PlaySpongeSound()
+    IEnumerator PlaySound()
     {
         _canPlaySound = false;
-        AudioClip clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
+
+        AudioClip clip;
+
+        if (_pet.Hygiene.IsCleaning)
+        {
+            clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
+        }
+        else
+        {
+            clip = _scratchSounds[Random.Range(0, _scratchSounds.Length)];
+            
+        }
+        
         _audioSource.PlayOneShot(clip);
         yield return new WaitForSeconds(clip.length * 0.5f);
         _canPlaySound = true;
@@ -198,6 +242,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     {
         Player.Instance.Pet.Fun.Increase(amount);
     }
+
+    
 
 
 }
