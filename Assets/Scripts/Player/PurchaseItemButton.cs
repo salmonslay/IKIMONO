@@ -15,6 +15,8 @@ public class PurchaseItemButton : MonoBehaviour
         {
             player.RemoveCoins(itemCost);
             player.Inventory.AddItem(new Item(ItemObject), 1);
+            AudioManager.Instance.PlaySound("Shop", "One");
+
         }
     }
 }

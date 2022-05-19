@@ -111,7 +111,8 @@ namespace IKIMONO.UI
         {
             AudioManager.Instance.RandomizeSound("Button");
 
-            // Sök på förstoringsglaset button, ändra ALLA knappar
+            
         }
+       
     }
 }
