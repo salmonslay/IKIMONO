@@ -9,7 +9,7 @@ namespace IKIMONO
         public static GameManager Instance { get; private set; }
         private AndroidNotifications _androidNotifications;
         private Settings _settings;
-
+       
 
         private void Start()
         {
@@ -29,6 +29,10 @@ namespace IKIMONO
             }
 
             StartCoroutine(UpdateNeedValues());
+
+            //Lägger in background såhär, är det rätt?
+            //gameObject.AddComponent<Background>();
+
         }
 
         private static IEnumerator UpdateNeedValues()

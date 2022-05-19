@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 456570574}
   - component: {fileID: 456570573}
   - component: {fileID: 456570575}
+  - component: {fileID: 456570576}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -575,6 +576,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 4
   m_AspectRatio: 0.5625
+--- !u!114 &456570576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456570571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a8bc878f30c457e8b3851c3a4d1feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _day: {fileID: 21300000, guid: 6f21454b433ee624db8a0c253f3258d8, type: 3}
+  _night: {fileID: 21300000, guid: b67fe78168f17bb4da939f530e557323, type: 3}
 --- !u!1 &480040746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,10 +2697,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1500413072}
+  - component: {fileID: 1500413075}
   - component: {fileID: 1500413071}
   - component: {fileID: 1500413073}
   - component: {fileID: 1500413074}
+  - component: {fileID: 1500413072}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2706,20 +2722,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireNotificationsAtNeedValue: 30
---- !u!4 &1500413072
-Transform:
+--- !u!222 &1500413072
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500413070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8794233, y: 1.5155935, z: -0.51698345}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_CullTransparentMesh: 1
 --- !u!114 &1500413073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,6 +2767,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8c03fe0f164d84d82a2b7c3b3d87f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1500413075
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500413070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.51698345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.8794233, y: 1.5155935}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1689880286
 GameObject:
   m_ObjectHideFlags: 0
