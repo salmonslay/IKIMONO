@@ -165,15 +165,14 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         }
         else if(_pet.Overall.Percentage < 0.3f){
-            AudioManager.Instance.RandomizeSound("Sad");
-            //sad sounds;
+            AudioManager.Instance.RandomizeSound("Sad");    // Sad Sounds
+            
         }
         else
         {
-            AudioManager.Instance.RandomizeSound("Happy");
+            AudioManager.Instance.RandomizeSound("Happy");  // Happy sounds
         }
-        // ljud för klia
-        // ljud för glad
+        
     }
 
     
@@ -186,14 +185,19 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         }
         if(_pet.Energy.IsSleeping){
             return;
-            }
+        }
+        if (_canPlaySound)
+        {
+            StartCoroutine(PlaySound());
+        }
+
         if (!_petHygiene.IsCleaning)  
         {
             PetIkimono(0.05f);
            
         }
-
         
+
         else if (_petHygiene.IsCleaning)
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
@@ -201,10 +205,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         }
 
-        if (_canPlaySound)
-        {
-            StartCoroutine(PlaySound());
-        }
+       
     }
 
     IEnumerator PlaySound()
@@ -215,14 +216,15 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         if (_pet.Hygiene.IsCleaning)
         {
+            Debug.Log("cleansetsound");
             clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
         }
-        else
+       else 
         {
+            Debug.Log("sratchnsetsound");
             clip = _scratchSounds[Random.Range(0, _scratchSounds.Length)];
-            
+
         }
-        
         _audioSource.PlayOneShot(clip);
         yield return new WaitForSeconds(clip.length * 0.5f);
         _canPlaySound = true;
