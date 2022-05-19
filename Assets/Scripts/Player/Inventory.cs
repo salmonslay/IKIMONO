@@ -32,6 +32,7 @@ public class Inventory
             if (!alreadyInInventory)
             {
                 ItemList.Add(item);
+                ItemList[ItemList.IndexOf(item)].AddAmount(amount - 1);
             }
         }
         // If the item is not stackable -> Just add to _itemList.
