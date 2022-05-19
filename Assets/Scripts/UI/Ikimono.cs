@@ -60,16 +60,12 @@ namespace IKIMONO.UI
             {
                 _image.sprite = _sad;
 
-                AudioManager.Instance.RandomizeSound("Sad");  // när man petar eller helatiden? Jag röstar på helatiden loop. annars, hur fungerar den, är det button down ? 
-
                 _sleepFx.SetActive(false);
             }
             else
             {
                 _image.sprite = _idle;
-                AudioManager.Instance.RandomizeSound("Happy");
-                AudioManager.Instance.RandomizeSound("Scratch");
-                //AudioManager.Instance.StopSound("Sleeping", "One");
+              
 
 
                 _sleepFx.SetActive(false);
