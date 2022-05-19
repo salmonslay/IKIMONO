@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using IKIMONO.Pet;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace IKIMONO.UI
@@ -25,14 +26,22 @@ namespace IKIMONO.UI
         private Button _button;
 
         private Animator _animator;
-        private bool _canPlayAgain = true;
         private bool _arrowActiveFromSleep;
         private float _lastShownValue;
         [SerializeField] private Color _upArrowColor = new Color(179, 255, 165);
         [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
 
+        private bool _comingFromMiniGame = false;
+
+        private float _arrowTimer = 0;
+
         private void Awake()
         {
+            if (Time.time > 5)
+            {
+                _comingFromMiniGame = true;
+            }
+
             PetNeed.ValueUpdated += UpdateValue;
 
             Player.Instance.Pet.UpdateValues();
@@ -42,79 +51,93 @@ namespace IKIMONO.UI
             _button = GetComponent<Button>();
 
             _petNeedEnergy = Player.Instance.Pet.Energy;
+            _animator = _arrow.gameObject.GetComponent<Animator>();
+
         }
 
         private void Update()
         {
             _button.interactable = _petNeed.UsageCondition && !Tutorial.IsTutorial;
 
+
+            if (_showName)
+                _text.text = Player.Instance.Pet.Name;
+
+            if (_arrowTimer >= 0)
+            {
+                _arrow.enabled = true;
+                _arrowTimer -= Time.deltaTime;
+            }
+            else
+            {
+                _arrow.enabled = false;
+            }
+
             // Show positive arrow on Energy Button if sleeping;
             if (typeof(PetNeedEnergy) == _petNeed.GetType() && _petNeedEnergy.IsSleeping)
             {
-                SetArrowState(true);
-                ArrowIsPositive(true);
+                ToggleArrowOn(true);
+                SetArrowPositive(true);
                 _arrowActiveFromSleep = true;
             }
             else if (_arrowActiveFromSleep && !_petNeedEnergy.IsSleeping)
             {
-                SetArrowState(false);
+                ToggleArrowOn(false);
                 _arrowActiveFromSleep = false;
             }
-            
-            if(_showName)
-                _text.text = Player.Instance.Pet.Name;
         }
 
         private void OnDestroy()
         {
             PetNeed.ValueUpdated -= UpdateValue;
         }
-
+        private bool _arrowIsPositive;
         private void ShowArrowOnValueChanged(float newValue)
         {
-            // Return if not Basic Need.
             if (_petNeed.GetType() == typeof(PetNeedOverall)) return;
 
-            // If the game was started more than 10 seconds ago.
-            if (Time.time > 10)
-            {
-                // If coming from minigame.
-                if (Time.timeSinceLevelLoad < 5)
-                {
-                    // Fun goes up, rest goes down.
-                    if (_petNeed.GetType() == typeof(PetNeedFun))
-                    {
-                        ShowArrow(true);
-                    }
-                    else
-                    {
-                        ShowArrow(false);
+            // Calculate change since last shown.
+            float valueChangeDelta = newValue - _lastShownValue;
 
+            if (Math.Abs(valueChangeDelta) < 0.0001f) return;
+
+            // If the game started less than 2 seconds ago, show all arrows down.
+            // Energy arrow state is overriden in update if sleeping.
+            if (Time.time < 2)
+            {
+                // Return if not Basic Need.
+                SetArrowPositive(false);
+            }
+            else
+            {
+                SetArrowPositive(valueChangeDelta > 0);
+
+                if (!_comingFromMiniGame)
+                {
+                    if (_arrowIsPositive != (valueChangeDelta > 0))
+                    {
+                        ResetArrowAnimation();
+                        SetArrowPositive(valueChangeDelta > 0);
                     }
                 }
                 else
                 {
-
-                    // Calculate change since last shown.
-                    float valueChangeDelta = newValue - _lastShownValue;
-
-                    // Return if change is too small.
-                    // @TODO Set float to preferred update value after testing.
-                    if (Math.Abs(valueChangeDelta) < 0.0001f) return;
-
-                    // Show arrow.
-                    ShowArrow(valueChangeDelta > 0);
+                    if (_petNeed.GetType() == typeof(PetNeedFun))
+                    {
+                        SetArrowPositive(true);
+                    }
+                    else
+                    {
+                        SetArrowPositive(false);
+                    }
+                    _comingFromMiniGame = false;
                 }
             }
-            // If the game started less than 10 seconds ago, show all arrows down.
-            // Energy arrow state is overriden in update if sleeping.
-            else
-            {
-                ShowArrow(false);
-            }
-
             // Always update last shown value after showing arrow.
+
+            ShowArrowEnumerator();
             _lastShownValue = newValue;
+            _arrowIsPositive = valueChangeDelta > 0;
         }
 
 
@@ -122,27 +145,12 @@ namespace IKIMONO.UI
         /// Turns on or off arrow based on passed parameter; 
         /// </summary>
         /// <param name="isTurnedOn"></param>
-        public void SetArrowState(bool isTurnedOn)
+        public void ToggleArrowOn(bool isTurnedOn)
         {
             _arrow.enabled = isTurnedOn;
         }
 
-        /// <summary>
-        /// Shows positive/negative arrow over button once based on passed bool parameter.
-        /// </summary>
-        /// <param name="isPositive"></param>
-        public void ShowArrow(bool isPositive)
-        {
-            _animator = _arrow.gameObject.GetComponent<Animator>();
-
-            if (_canPlayAgain)
-            {
-                ArrowIsPositive(isPositive);
-                StartCoroutine(ShowArrowEnumerator());
-            }
-        }
-
-        public void ArrowIsPositive(bool isPositive)
+        public void SetArrowPositive(bool isPositive)
         {
             if (isPositive)
             {
@@ -156,26 +164,28 @@ namespace IKIMONO.UI
             }
         }
 
-        private IEnumerator ShowArrowEnumerator()
+        private void ShowArrowEnumerator()
         {
-            _canPlayAgain = false;
-            _arrow.enabled = true;
+            _animator = _arrow.gameObject.GetComponent<Animator>();
+            _arrowTimer = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        }
+
+        private void ResetArrowAnimation()
+        {
+            _animator.StopPlayback();
             _animator.Play("petNeed_arrow", 0, 0);
-            yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
-            _arrow.enabled = false;
-            _canPlayAgain = true;
         }
 
         public void SetNeed(PetNeed need)
         {
             _petNeed = need;
         }
-
         private void UpdateValue()
         {
             if (_petNeed == null) return;
 
             float newValue = _petNeed.Percentage + 0.05f;
+
             ShowArrowOnValueChanged(newValue);
 
             _fillImage.fillAmount = newValue; // make sure the bar is always visible, even if it's at 0%
