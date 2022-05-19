@@ -25,6 +25,13 @@ namespace IKIMONO.UI
         {
             SetSprite();
             PetNeed.ValueUpdated += SetSprite;
+
+           
+              //  AudioManager.Instance.PlaySound("Music", "Two");
+              //  AudioManager.Instance.PlaySound("DayAmb", "One");  // när det är dag
+
+            
+            
         }
 
         private void OnDestroy()
@@ -43,6 +50,7 @@ namespace IKIMONO.UI
                 _image.sprite = _sleeping;
 
                 AudioManager.Instance.PlaySound("Sleeping", "One");
+               // AudioManager.Instance.PlaySound("Music", "One");
                 _sleepFx.SetActive(true);
 
 
@@ -51,12 +59,14 @@ namespace IKIMONO.UI
             {
                 _image.sprite = _sad;
                 AudioManager.Instance.StopSound("Sleeping", "One");
+                AudioManager.Instance.StopSound("Music", "One");
                 _sleepFx.SetActive(false);
             }
             else
             {
                 _image.sprite = _idle;
                 AudioManager.Instance.StopSound("Sleeping", "One");
+                AudioManager.Instance.StopSound("Music", "One");
                 _sleepFx.SetActive(false);
             }
         }

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [Header("AudioMixers")]
     [SerializeField] AudioMixerGroup effectMixer;
     [SerializeField] AudioMixerGroup musicMixer;
+    [SerializeField] AudioMixerGroup ambianceMixer;
 
     [Header("ManageSound")]          // För att kalla in ljud skriv : AurioManager.Instance.playSound("LjudetsKey", "LjudetsNamn");
                                      // För att ramdomizea bland alla ljuden i listan skriv: AudioManager.Instance.randomizeSound("LjudetsKey");
@@ -66,7 +67,7 @@ public class AudioManager : MonoBehaviour
 
         effectsource.outputAudioMixerGroup = effectMixer;
         musicSource.outputAudioMixerGroup = musicMixer;
-        ambianceSource.outputAudioMixerGroup = musicMixer;  //behöver egen mixer?
+        ambianceSource.outputAudioMixerGroup = ambianceMixer; 
 
     }
 
