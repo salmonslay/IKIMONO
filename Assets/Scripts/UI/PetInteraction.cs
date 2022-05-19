@@ -28,6 +28,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private AudioSource _audioSource;
 
     private Pet _pet;
+    private double delay = 4.0f;
 
     private void Awake()
     {
@@ -149,7 +150,10 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
                     _energyButton.ShowArrow(false);
                     energy.Decrease(food.EnergyValue);
                 }
-                // ljud när den har ätit något
+
+                
+                StartCoroutine(WaitForSecondsTimer());
+                
             }
         }
     }
@@ -229,7 +233,12 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         yield return new WaitForSeconds(clip.length * 0.5f);
         _canPlaySound = true;
     }
-
+    IEnumerator WaitForSecondsTimer()
+    {
+        AudioManager.Instance.PlaySound("Eating", "One");
+        yield return new WaitForSeconds(4);
+        AudioManager.Instance.PlaySound("Eating", "Eleven");
+    }
     private void Clean(float amount)
     {
         Player.Instance.Pet.Hygiene.Increase(amount);
