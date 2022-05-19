@@ -61,7 +61,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             Destroy(_sponge);
             _sponge = null;
-            _audioSource = null;
+            
         }
     }
 
