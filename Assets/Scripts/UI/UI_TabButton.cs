@@ -16,6 +16,7 @@ public class UI_TabButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        AudioManager.Instance.RandomizeSound("Button"); // Philip
         tabGroup.OnTabPressedDown(this);
     }
 
