@@ -8,10 +8,13 @@ namespace IKIMONO
     {
         public static GameManager Instance { get; private set; }
         private AndroidNotifications _androidNotifications;
+        private Settings _settings;
+
 
         private void Start()
         {
             Player.Instance.Pet.UpdateValues();
+            _settings = Player.Instance.Settings;
             _androidNotifications = AndroidNotifications.Instance;
             _androidNotifications.CancelAllNotifications();
 
@@ -65,6 +68,8 @@ namespace IKIMONO
         [SerializeField] private float fireNotificationsAtNeedValue = 30;
         private void ScheduleNeedNotifications()
         {
+            if (!_settings.NotificationsToggle) return;
+
             _androidNotifications.CancelAllNotifications();
             foreach (PetNeed need in Player.Instance.Pet.Needs)
             {
