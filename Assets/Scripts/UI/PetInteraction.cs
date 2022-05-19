@@ -34,7 +34,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     {
         _canvas = transform.GetComponentInParent<Canvas>();
         _canvasRectTransform = _canvas.GetComponent<RectTransform>();
-       
+
 
         _uiOffset = new Vector2((float)_canvasRectTransform.sizeDelta.x / 2, (float)_canvasRectTransform.sizeDelta.y / 2);
         _pet = Player.Instance.Pet;
@@ -62,7 +62,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             Destroy(_sponge);
             _sponge = null;
-            
+
         }
     }
 
@@ -109,58 +109,51 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
                 // FunButton.
                 if (food.FunValue > 0)
                 {
-                    _funButton.ShowArrow(true);
                     fun.Increase(food.FunValue);
                 }
                 else if (food.FunValue < 0)
                 {
-                    _funButton.ShowArrow(false);
                     fun.Decrease(food.FunValue);
                 }
                 // HungerButton.
                 if (food.HungerValue > 0)
                 {
-                    _hungerButton.ShowArrow(true);
                     hunger.Increase(food.HungerValue);
                 }
                 else if (food.HungerValue < 0)
                 {
-                    _hungerButton.ShowArrow(false);
                     hunger.Decrease(food.HungerValue);
                 }
                 // HygieneButton.
                 if (food.HygieneValue > 0)
                 {
-                    _hygieneButton.ShowArrow(true);
                     hygiene.Increase(food.HygieneValue);
                 }
                 else if (food.HygieneValue < 0)
                 {
-                    _hygieneButton.ShowArrow(false);
                     hygiene.Decrease(food.HygieneValue);
                 }
                 // EnergyButton.
                 if (food.EnergyValue > 0)
                 {
-                    _energyButton.ShowArrow(true);
                     energy.Increase(food.EnergyValue);
                 }
                 else if (food.EnergyValue < 0)
                 {
-                    _energyButton.ShowArrow(false);
                     energy.Decrease(food.EnergyValue);
                 }
 
-                
+
                 StartCoroutine(WaitForSecondsTimer());
-                
+
             }
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_petHygiene.IsCleaning) { 
+        if (_petHygiene.IsCleaning)
+        {
             _sponge.GetComponent<RectTransform>().anchoredPosition = eventData.pressPosition - _uiOffset;
         }
 
@@ -168,18 +161,19 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
 
         }
-        else if(_pet.Overall.Percentage < 0.3f){
+        else if (_pet.Overall.Percentage < 0.3f)
+        {
             AudioManager.Instance.RandomizeSound("Sad");    // Sad Sounds
-            
+
         }
         else
         {
             AudioManager.Instance.RandomizeSound("Happy");  // Happy sounds
         }
-        
+
     }
 
-    
+
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -187,7 +181,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             return;
         }
-        if(_pet.Energy.IsSleeping){
+        if (_pet.Energy.IsSleeping)
+        {
             return;
         }
         if (_canPlaySound)
@@ -195,12 +190,12 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             StartCoroutine(PlaySound());
         }
 
-        if (!_petHygiene.IsCleaning)  
+        if (!_petHygiene.IsCleaning)
         {
             PetIkimono(0.05f);
-           
+
         }
-        
+
 
         else if (_petHygiene.IsCleaning)
         {
@@ -209,7 +204,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         }
 
-       
+
     }
 
     IEnumerator PlaySound()
@@ -223,7 +218,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
             Debug.Log("cleansetsound");
             clip = _bubbleSounds[Random.Range(0, _bubbleSounds.Length)];
         }
-       else 
+        else
         {
             Debug.Log("sratchnsetsound");
             clip = _scratchSounds[Random.Range(0, _scratchSounds.Length)];
@@ -254,7 +249,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         Player.Instance.Pet.Fun.Increase(amount);
     }
 
-    
+
 
 
 }
