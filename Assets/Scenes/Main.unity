@@ -2260,6 +2260,10 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: ambianceMixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 9605eb76ff44f684fbb47aa9198ec69d, type: 2}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PickupCoin.sound.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3840,6 +3844,10 @@ PrefabInstance:
     - target: {fileID: 8354525557807066780, guid: c08b78c746c80e4439b923e7ad6c0b0e, type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354525558037338584, guid: c08b78c746c80e4439b923e7ad6c0b0e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.709961
       objectReference: {fileID: 0}
     - target: {fileID: 8354525558044725658, guid: c08b78c746c80e4439b923e7ad6c0b0e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

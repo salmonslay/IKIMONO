@@ -25,6 +25,13 @@ namespace IKIMONO.UI
         {
             SetSprite();
             PetNeed.ValueUpdated += SetSprite;
+
+
+            AudioManager.Instance.PlaySound("Music", "Two");
+            AudioManager.Instance.PlaySound("DayAmb", "One");  // när det är dag
+
+
+
         }
 
         private void OnDestroy()
@@ -43,6 +50,8 @@ namespace IKIMONO.UI
                 _image.sprite = _sleeping;
 
                 AudioManager.Instance.PlaySound("Sleeping", "One");
+                AudioManager.Instance.StopSound("Music", "Two");
+                // AudioManager.Instance.PlaySound("Music", "One");  // FEL PÅ LJUDHELVETET, spela lullabyen här
                 _sleepFx.SetActive(true);
 
 
@@ -50,13 +59,19 @@ namespace IKIMONO.UI
             else if (_player.Pet.Overall.Percentage < 0.3f)
             {
                 _image.sprite = _sad;
-                AudioManager.Instance.StopSound("Sleeping", "One");
+
+                AudioManager.Instance.RandomizeSound("Sad");  // när man petar eller helatiden? Jag röstar på helatiden loop. annars, hur fungerar den, är det button down ? 
+
                 _sleepFx.SetActive(false);
             }
             else
             {
                 _image.sprite = _idle;
-                AudioManager.Instance.StopSound("Sleeping", "One");
+                AudioManager.Instance.RandomizeSound("Happy");
+                AudioManager.Instance.RandomizeSound("Scratch");
+                //AudioManager.Instance.StopSound("Sleeping", "One");
+
+
                 _sleepFx.SetActive(false);
             }
         }
