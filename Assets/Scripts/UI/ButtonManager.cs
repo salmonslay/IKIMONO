@@ -106,5 +106,12 @@ namespace IKIMONO.UI
          Application.Quit();
 #endif
         }
+
+        public void ClickSounds()
+        {
+            AudioManager.Instance.RandomizeSound("Button");
+
+            // Sök på förstoringsglaset button, ändra ALLA knappar
+        }
     }
 }
