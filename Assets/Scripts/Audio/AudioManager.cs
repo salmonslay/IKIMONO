@@ -39,7 +39,10 @@ public class AudioManager : MonoBehaviour
     [Header("Ambiance")]
     public SoundDictionary<String, List<Sound>> NightAmb;
     public SoundDictionary<String, List<Sound>> DayAmb;
+    public SoundDictionary<String, List<Sound>> GameAmb;
 
+
+    [Header("AudioSources")]
     public AudioSource effectsource;
     public AudioSource musicSource;
     public AudioSource ambianceSource;
@@ -271,7 +274,16 @@ public class AudioManager : MonoBehaviour
 
         }
 
-        //else { Debug.Log("getList method failure"); }
+        if (GameAmb.containsKey(a))
+        {
+
+            setSourceInfo(GameAmb.sound);
+            SoundListPlaying = GameAmb.returnSound();
+
+        }
+
+        else { //Debug.Log("getList method failure"); 
+        }
 
     }
 
