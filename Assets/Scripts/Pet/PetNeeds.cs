@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using UnityEngine;
 
 namespace IKIMONO.Pet
 {
@@ -46,6 +47,25 @@ namespace IKIMONO.Pet
         public override bool UsageCondition => !Player.Instance.Pet.Energy.IsSleeping &&
                                                Player.Instance.Pet.Energy.Value > 20; // Hunger can not be a condition right now, as games are needed to feed the pet
         public override float DecayRate => 1.2f; // 83h to reach 0
+
+        public float PetAmountMax => 15;
+        [JsonProperty("pettedAmount")] private float _pettedAmount = 0;
+        public float PettedAmount
+        {
+            get => _pettedAmount;
+            set
+            {
+                if (value > 0)
+                {
+                    _pettedAmount = Mathf.Min(_pettedAmount + value, 15);
+                }
+                else
+                {
+                    _pettedAmount = Mathf.Max(_pettedAmount + value, 0);
+                }
+            }
+        }
+
     }
 
     public class PetNeedHygiene : PetNeed
