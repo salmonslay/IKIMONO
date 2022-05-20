@@ -26,6 +26,7 @@ namespace IKIMONO.Minigame.Jump
         [SerializeField] private Text _coinText;
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private Text _gameOverText;
+        Background backgroundReference;
 
         private void Awake()
         {
@@ -44,6 +45,8 @@ namespace IKIMONO.Minigame.Jump
 
 
             AudioManager.Instance.PlaySound("MinigameMusic", "One");
+            
+            
 
 
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
@@ -52,6 +55,8 @@ namespace IKIMONO.Minigame.Jump
         private void Start()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            backgroundReference.isMinigameOn = true;  // Varje gång jag startar minigamet vill jag sätta detta till true en gång! 
+            backgroundReference.isAllowed = true;
         }
 
         private void Update()
