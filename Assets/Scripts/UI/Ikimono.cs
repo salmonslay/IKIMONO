@@ -27,9 +27,6 @@ namespace IKIMONO.UI
             PetNeed.ValueUpdated += SetSprite;
 
 
-            AudioManager.Instance.PlaySound("Music", "Two");
-            AudioManager.Instance.PlaySound("DayAmb", "One");  // när det är dag
-
 
 
         }
@@ -50,8 +47,6 @@ namespace IKIMONO.UI
                 _image.sprite = _sleeping;
 
                 AudioManager.Instance.PlaySound("Sleeping", "One");
-                AudioManager.Instance.StopSound("Music", "Two");
-                // AudioManager.Instance.PlaySound("Music", "One");  // FEL PÅ LJUDHELVETET, spela lullabyen här
                 _sleepFx.SetActive(true);
 
 
