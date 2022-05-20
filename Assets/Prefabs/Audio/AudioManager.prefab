@@ -45,15 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectMixer: {fileID: 24300002, guid: 6caaa3afc698c43479683b9778c0677c, type: 2}
   musicMixer: {fileID: 24300002, guid: 0de840b4d43797f4287b290a2b237235, type: 2}
-  soundArray:
-  - name: 
-    audioClip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    mute: 0
-    random: 0
-    source: {fileID: 0}
+  ambianceMixer: {fileID: 24300002, guid: 9605eb76ff44f684fbb47aa9198ec69d, type: 2}
+  SoundListPlaying: []
   PetHappy:
     sound:
     - name: One
@@ -84,7 +77,7 @@ MonoBehaviour:
   PetEating:
     sound:
     - name: One
-      audioClip: {fileID: 8300000, guid: 3333962642c924f99aff41bb4b0dcecd, type: 3}
+      audioClip: {fileID: 8300000, guid: ec0c887be8b324487a9cbae1302d053c, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -92,79 +85,7 @@ MonoBehaviour:
       random: 0
       source: {fileID: 0}
     - name: Two
-      audioClip: {fileID: 8300000, guid: 007610f2b21784a8e91bcb8cca625791, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Three
-      audioClip: {fileID: 8300000, guid: 125d840e9975146409ffc17888f8d428, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Four
-      audioClip: {fileID: 8300000, guid: b47c17cda84ad47e69d927c6154f254e, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Five
-      audioClip: {fileID: 8300000, guid: 762a56c085fe94295ae81e124103ca80, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Six
-      audioClip: {fileID: 8300000, guid: 157ca103b50604e188233f94b80bb952, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Sju
-      audioClip: {fileID: 8300000, guid: 20ee0502f0526404b9f0d78df26f8c87, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Eight
-      audioClip: {fileID: 8300000, guid: ec7feef78fe424af08b5dc3ab176c24c, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Nine
-      audioClip: {fileID: 8300000, guid: 97a5fb13cafd3449eb7031da31daa2e0, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Ten
-      audioClip: {fileID: 8300000, guid: 75e671ce89299400784ca13e9ab9f23b, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Eleven
-      audioClip: {fileID: 8300000, guid: 2ef5c9e49afad40519230921679d1a6a, type: 3}
+      audioClip: {fileID: 8300000, guid: a5f506bdb604f45a18fb82c6d02bc301, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -175,26 +96,10 @@ MonoBehaviour:
   PetSleeping:
     sound:
     - name: One
-      audioClip: {fileID: 8300000, guid: e2e34fbb84e874b9caf03ddbe127e6f6, type: 3}
-      volume: 1
+      audioClip: {fileID: 8300000, guid: 4900b152c2c504c7b938e833eab71205, type: 3}
+      volume: 0.6
       pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Two
-      audioClip: {fileID: 8300000, guid: b93b7b4dc41a1497dbd713764deef3f8, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Three
-      audioClip: {fileID: 8300000, guid: 61511eb77c44f4d6cb571906549bda57, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
+      loop: 1
       mute: 0
       random: 0
       source: {fileID: 0}
@@ -317,7 +222,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 4d60bda46874744df812480a009e88f3, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 1
       loop: 0
       mute: 0
@@ -325,7 +230,7 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: e037759065051419f95aa34bda653c7f, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 1
       loop: 0
       mute: 0
@@ -333,7 +238,7 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: bacd74fc552474fc984a6e171cb92165, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 1
       loop: 0
       mute: 0
@@ -344,7 +249,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 874fdd435dbdc48d9a036f001ae8adb1, type: 3}
-      volume: 1
+      volume: 0.45
       pitch: 1
       loop: 0
       mute: 0
@@ -377,15 +282,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: a10e807c2cc3143c89d7bb44d27c3311, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Two
-      audioClip: {fileID: 8300000, guid: b6d64dd02bcb342a4be30de76d229c6e, type: 3}
-      volume: 1
+      volume: 0.45
       pitch: 1
       loop: 0
       mute: 0
@@ -415,7 +312,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 6ce0291814c524f53ac1774f3be05ae1, type: 3}
-      volume: 1
+      volume: 0.45
       pitch: 1
       loop: 1
       mute: 0
@@ -426,7 +323,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 942b65ef6612cd84480818083e71918b, type: 3}
-      volume: 1
+      volume: 0.52
       pitch: 1
       loop: 1
       mute: 0
@@ -437,13 +334,24 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: f03ea97355d139d4c916beed86974c7d, type: 3}
-      volume: 0.21
+      volume: 0.47
       pitch: 1
       loop: 1
       mute: 0
       random: 0
       source: {fileID: 0}
     key: DayAmb
+  GameAmb:
+    sound:
+    - name: One
+      audioClip: {fileID: 8300000, guid: 83759d9074ce5417880c06f13a0d15a9, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      mute: 0
+      random: 0
+      source: {fileID: 0}
+    key: GameAmb
   effectsource: {fileID: 0}
   musicSource: {fileID: 0}
   ambianceSource: {fileID: 0}
