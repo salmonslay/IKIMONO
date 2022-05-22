@@ -45,7 +45,7 @@ namespace IKIMONO.UI
 
         public void NeedFun()
         {
-            SceneManager.LoadScene("MinigameJump");
+            SceneManager.LoadScene("MinigameTutorial");
         }
 
         public void NeedHunger()

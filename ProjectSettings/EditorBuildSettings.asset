@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/GamePlay.unity
+    path: 
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/JohanTestScene.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MinigameJump.unity
     guid: 20c4de873050bce4e889b81aa89ae666
+  - enabled: 1
+    path: Assets/Scenes/MinigameTutorial.unity
+    guid: 5ef6ddc4f01266a44a3f0dc87ac056c0
   m_configObjects: {}
