@@ -1,34 +1,25 @@
 using UnityEngine;
 using IKIMONO.Pet;
-using UnityEngine.UI;
 
 namespace IKIMONO.UI
 {
     public class Ikimono : MonoBehaviour
     {
-        [Header("Ikimono Sprites")]
-        [SerializeField] private Sprite _idle;
-        [SerializeField] private Sprite _sad;
-        [SerializeField] private Sprite _sleeping;
         [SerializeField] private GameObject _sleepFx;
 
         private Player _player;
-        private Image _image;
+        private Animator _animator;
+        
         private void Awake()
         {
             _player = Player.Instance;
-            _image = GetComponent<Image>();
-
+            _animator = GetComponent<Animator>();
         }
 
         private void Start()
         {
             SetSprite();
             PetNeed.ValueUpdated += SetSprite;
-
-
-
-
         }
 
         private void OnDestroy()
@@ -36,34 +27,24 @@ namespace IKIMONO.UI
             PetNeed.ValueUpdated -= SetSprite;
         }
 
-        // @PhilipAudio: Put the snore sounds in this class. They should be looped with randomized intervals,
-        // and you can use Player.Instance.Pet.Energy.IsSleeping to verify whether or not the pet is sleeping.
-        // This is not event based, so you can use it in Update.
-
         public void SetSprite()
         {
+            _sleepFx.SetActive(false);
+            
             if (_player.Pet.Energy.IsSleeping)
             {
-                _image.sprite = _sleeping;
+                _animator.Play("Sleep", 0, 1);
 
                 AudioManager.Instance.PlaySound("Sleeping", "One");
                 _sleepFx.SetActive(true);
-
-
             }
             else if (_player.Pet.Overall.Percentage < 0.3f)
             {
-                _image.sprite = _sad;
-
-                _sleepFx.SetActive(false);
+                _animator.Play("Sad", 0, 1);
             }
             else
             {
-                _image.sprite = _idle;
-              
-
-
-                _sleepFx.SetActive(false);
+                _animator.Play("Idle", 0, 1);
             }
         }
     }

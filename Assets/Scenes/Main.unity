@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 480040749}
   - component: {fileID: 480040748}
   - component: {fileID: 480040751}
+  - component: {fileID: 480040752}
   m_Layer: 5
   m_Name: Ikimono
   m_TagString: IkimonoPet
@@ -706,6 +707,25 @@ MonoBehaviour:
   _sad: {fileID: 21300000, guid: 35f19f97872d18c41a18773f00337ddf, type: 3}
   _sleeping: {fileID: 21300000, guid: 8a1e7611d496dd0438b77cb93863c413, type: 3}
   _sleepFx: {fileID: 421044970}
+--- !u!95 &480040752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480040746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9bc7c9bd85a83e4685d84118ce8936d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &498341180
 PrefabInstance:
   m_ObjectHideFlags: 0
