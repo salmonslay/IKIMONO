@@ -40,10 +40,10 @@ public class SettingsControls : MonoBehaviour
 
     private void Start()
     {
-        SetUpSoundControls();
+        SetUpControls();
     }
 
-    private void SetUpSoundControls()
+    private void SetUpControls()
     {
         _settings = Player.Instance.Settings;
 
@@ -83,6 +83,7 @@ public class SettingsControls : MonoBehaviour
         SetMusicLevel(_settings.MusicVolume);
         SetEffectsLevel(_settings.EffectsVolume);
         SetAmbienceLevel(_settings.EffectsVolume);
+        SetNotificationControls();
     }
 
     public void SetMusicLevel(float sliderValue)
@@ -192,6 +193,11 @@ public class SettingsControls : MonoBehaviour
     {
         _settings.NotificationsToggle = !_settings.NotificationsToggle;
 
+        SetNotificationControls();
+    }
+
+    private void SetNotificationControls()
+    {
         if (_settings.NotificationsToggle)
         {
             _toggleImageXText.text = "X";
@@ -202,7 +208,6 @@ public class SettingsControls : MonoBehaviour
             _toggleImageXText.text = "";
             _toggleText.text = "Notifications OFF";
         }
-
     }
 
 }
