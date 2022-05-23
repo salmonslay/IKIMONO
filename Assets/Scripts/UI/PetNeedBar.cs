@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using IKIMONO.Pet;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace IKIMONO.UI
@@ -32,7 +30,7 @@ namespace IKIMONO.UI
         [SerializeField] private Color _downArrowColor = new Color(179, 255, 165);
 
         private bool _comingFromMiniGame = false;
-
+        private bool _arrowIsPositive;
         private float _arrowTimer = 0;
 
         private void Awake()
@@ -52,12 +50,31 @@ namespace IKIMONO.UI
 
             _petNeedEnergy = Player.Instance.Pet.Energy;
             _animator = _arrow.gameObject.GetComponent<Animator>();
-
         }
 
         private void Update()
         {
             _button.interactable = _petNeed.UsageCondition && !Tutorial.IsTutorial;
+
+            if (!Tutorial.IsTutorial && !_button.interactable)
+            {
+                if (Player.Instance.Pet.Energy.IsSleeping)
+                {
+                    _text.text = "Sleeping!";
+                }
+                else if (Player.Instance.Pet.Energy.Value < 20)
+                {
+                    _text.text = "Too tired!";
+                } 
+                else if (Player.Instance.Pet.Hunger.Value < 20)
+                {
+                    _text.text = "Too hungry!";
+                }
+            }
+            else
+            {
+                _text.text = "";
+            }
 
 
             if (_showName)
@@ -91,7 +108,7 @@ namespace IKIMONO.UI
         {
             PetNeed.ValueUpdated -= UpdateValue;
         }
-        private bool _arrowIsPositive;
+        
         private void ShowArrowOnValueChanged(float newValue)
         {
             if (_petNeed.GetType() == typeof(PetNeedOverall)) return;
@@ -140,7 +157,6 @@ namespace IKIMONO.UI
             _arrowIsPositive = valueChangeDelta > 0;
         }
 
-
         /// <summary>
         /// Turns on or off arrow based on passed parameter; 
         /// </summary>
@@ -180,6 +196,7 @@ namespace IKIMONO.UI
         {
             _petNeed = need;
         }
+        
         private void UpdateValue()
         {
             if (_petNeed == null) return;

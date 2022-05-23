@@ -44,6 +44,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _showName: 0
   _arrow: {fileID: 1662587194187965099}
+  _upArrowColor: {r: 179, g: 255, b: 165, a: 1}
+  _downArrowColor: {r: 179, g: 255, b: 165, a: 1}
 --- !u!1 &5662966067173923859
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +168,42 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c5a93fe82e7b4274cb0aa68ede996fb5, type: 3}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 61.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303799516541411649, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 61.154785
+      objectReference: {fileID: 0}
     - target: {fileID: 4719476755187275004, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -263,9 +301,21 @@ PrefabInstance:
       value: UI PetNeed
       objectReference: {fileID: 0}
     - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 20844d36a12aed540a86093aa31e9f4c, type: 3}
+    - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6778768701057425501, guid: 2b6e69c994d54ab439f503c6c7b656c0, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1

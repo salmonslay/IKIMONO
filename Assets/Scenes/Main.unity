@@ -590,6 +590,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _day: {fileID: 21300000, guid: 6f21454b433ee624db8a0c253f3258d8, type: 3}
   _night: {fileID: 21300000, guid: b67fe78168f17bb4da939f530e557323, type: 3}
+  isMinigameOn: 0
+  isAllowed: 1
 --- !u!1 &480040746
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,12 +999,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 984294400}
     m_Modifications:
     - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -60
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -60
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2156145580302919523, guid: d70cc45ef4d27ca47b9a154f50c811e8, type: 3}
       propertyPath: m_AnchoredPosition.x
