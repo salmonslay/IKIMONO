@@ -45,7 +45,16 @@ namespace IKIMONO.UI
 
         public void NeedFun()
         {
-            SceneManager.LoadScene("MinigameTutorial");
+            if(!Player.Instance.MinigameJumpTutorialDone)
+            {
+                Player.Instance.MinigameJumpTutorialDone = true;
+                SceneManager.LoadScene("MinigameTutorial");
+            }
+            else
+            {
+                SceneManager.LoadScene("MinigameJump");
+            }
+            
 
             AudioManager.Instance.StopSound("DayAmb", "One");
             AudioManager.Instance.StopSound("NightAmb", "One");

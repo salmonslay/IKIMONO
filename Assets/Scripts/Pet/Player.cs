@@ -41,6 +41,8 @@ namespace IKIMONO.Pet
         
         [JsonProperty("tutorialProgress")] public TutorialStep TutorialStep { get; set; } = TutorialStep.None;
 
+        [JsonProperty("minigameJumpTutorialDone")] public bool MinigameJumpTutorialDone { get; set; } = false;
+
         #endregion
 
         // Init the instance.
