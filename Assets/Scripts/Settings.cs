@@ -7,7 +7,7 @@ public class Settings
     [JsonProperty("musicVolume")] private float _musicVolume = 1;
     [JsonProperty("effectsVolume")] private float _effectsVolume = 1;
     [JsonProperty("ambienceVolume")] private float _ambienceVolume = 1;
-    [JsonProperty("notificationsOn")] private bool _notificationsToggle = true;
+    [JsonProperty("notificationsOn")] private bool _notificationsToggle = false;
 
     public float MusicVolume
     {

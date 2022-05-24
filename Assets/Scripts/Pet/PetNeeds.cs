@@ -48,8 +48,9 @@ namespace IKIMONO.Pet
                                                Player.Instance.Pet.Energy.Value > 20; // Hunger can not be a condition right now, as games are needed to feed the pet
         public override float DecayRate => 1.2f; // 83h to reach 0
 
-        public float PetAmountMax => 15;
+        public const float PetAmountMax = 15;
         [JsonProperty("pettedAmount")] private float _pettedAmount = 0;
+        [JsonProperty("pettedUpdatedAt")] public DateTime PettedUpdateTime { get; private set; } = DateTime.Now;
         public float PettedAmount
         {
             get => _pettedAmount;
@@ -57,15 +58,16 @@ namespace IKIMONO.Pet
             {
                 if (value > 0)
                 {
-                    _pettedAmount = Mathf.Min(_pettedAmount + value, 15);
+                    _pettedAmount = Mathf.Min(_pettedAmount + value, PetAmountMax);
                 }
                 else
                 {
                     _pettedAmount = Mathf.Max(_pettedAmount + value, 0);
                 }
+                PettedUpdateTime = DateTime.Now;
+                Debug.Log(_pettedAmount);
             }
         }
-
     }
 
     public class PetNeedHygiene : PetNeed
