@@ -46,6 +46,11 @@ namespace IKIMONO.UI
         public void NeedFun()
         {
             SceneManager.LoadScene("MinigameTutorial");
+
+            AudioManager.Instance.StopSound("DayAmb", "One");
+            AudioManager.Instance.StopSound("NightAmb", "One");
+            AudioManager.Instance.PlaySound("MinigameMusic", "One");
+            AudioManager.Instance.PlaySound("GameAmb", "One");
         }
 
         public void NeedHunger()
