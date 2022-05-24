@@ -36,6 +36,7 @@ namespace IKIMONO.UI
                 _animator.Play("Sleep", 0, 1);
 
                 AudioManager.Instance.PlaySound("Sleeping", "One");
+               
                 _sleepFx.SetActive(true);
             }
             else if (_player.Pet.Overall.Percentage < 0.3f)
@@ -44,6 +45,7 @@ namespace IKIMONO.UI
             }
             else
             {
+                
                 _animator.Play("Idle", 0, 1);
             }
         }
