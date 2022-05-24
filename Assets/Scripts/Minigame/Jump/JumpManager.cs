@@ -26,7 +26,7 @@ namespace IKIMONO.Minigame.Jump
         [SerializeField] private Text _coinText;
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private Text _gameOverText;
-        Background backgroundReference;
+        Background backgroundReference;   // VARFÖR KAN JAG INTE ANVÄNDA DENNA REFERENS?!?!?
 
         private void Awake()
         {
@@ -44,9 +44,12 @@ namespace IKIMONO.Minigame.Jump
 
 
 
+            AudioManager.Instance.StopSound("DayAmb", "One");
+            AudioManager.Instance.StopSound("NightAmb", "One");
             AudioManager.Instance.PlaySound("MinigameMusic", "One");
-            
-            
+            AudioManager.Instance.PlaySound("GameAmb", "One");
+
+
 
 
             // @PhilipAudio: Audio here I suppose? Do *not* restart it if the player restarts the game.
@@ -55,14 +58,19 @@ namespace IKIMONO.Minigame.Jump
         private void Start()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            backgroundReference.isMinigameOn = true;  // Varje gång jag startar minigamet vill jag sätta detta till true en gång! 
-            backgroundReference.isAllowed = true;
+
+
+            //backgroundReference.isMinigameOn = true;  // Varje gång jag startar minigamet vill jag sätta detta till true en gång! 
+            //backgroundReference.isAllowed = true;
         }
 
         private void Update()
         {
             // Update highest jump
             HighestJump = Mathf.Max(HighestJump, Player.transform.position.y);
+
+
+           
         }
 
         public void AddCoin()
