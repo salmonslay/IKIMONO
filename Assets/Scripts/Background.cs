@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using IKIMONO.Pet;
 
 public class Background : MonoBehaviour
 {
     [SerializeField] private Sprite _day;
     [SerializeField] private Sprite _night;
     private SoundDictionary<string, List<Sound>> test;
-    public bool isMinigameOn;
-    private bool isDaytime = true;
-    public bool isAllowed = true;  // Sätts till true förest men behöver ändras till true fler gånger på andra ställen utan att påverka Update 
-    private string soundList;
+    
+    private bool isDaytime;
+    private bool isAllowed = true;
+    private bool isMusicAllowed = true;
+    private string stringNameOfCurrentAmbSound;
+    
+    private Pet _pet;
     
     
     
@@ -45,7 +49,7 @@ public class Background : MonoBehaviour
             //Debug.Log("nu är jag i dag ifsatsen");
             GetComponent<Image>().sprite = _day;
             isDaytime = true;
-            
+
 
         }
 
@@ -61,67 +65,72 @@ public class Background : MonoBehaviour
         }
 
 
-
-        //Debug.Log(System.DateTime.Now);
-        //double testtime = 16.55;
-        //Debug.Log("isAllowed" + isAllowed);
-
-        
-
-        //if (now.Hour == 6)
-        //{
-        //    isAllowed = true;
-        //}else if (now.Minute == testtime)
-        //{
-        //    isAllowed = true;
-        //}else if (isMinigameOn)
-        //{
-        //    isAllowed = true;
-        //}
+        Debug.Log("Time of day: " + isDaytime);
+        Debug.Log("IsAllowed: " + isAllowed);
 
 
         if (isAllowed)
         {
             setPlayAmbianceSounds();
-           
+
         }
-        else
+
+        if (isMusicAllowed)
         {
-            //Do while istället?
+           
+                Debug.Log("isMusicAllowed SPELA");
+                AudioManager.Instance.PlaySound("Music", "One");
+
+            
+                //AudioManager.Instance.PlaySound("SleepMusic", "One");
+            isMusicAllowed = false;
+            
+           
+                
+            
+         
+            
+            //playMusic();
         }
+
+       
+    }
+
+    private void playMusic()
+    {
+        if (_pet.Energy.IsSleeping)  // Fungerar inte
+        {
+            Debug.Log("SOVLJUD BÖR SPELAS");
+            AudioManager.Instance.PlaySound("MinigameMusic", "One");
+        }else if (!_pet.Energy.IsSleeping)
+        {
+            Debug.Log("SOVER INTE SÅ LJUDET BORDE BYTAS TILL VANLIGT LJUD");
+        }
+       
+        isMusicAllowed = false;
     }
 
     private void setPlayAmbianceSounds()
     {
-        Scene currentScene = SceneManager.GetActiveScene(); // för att kolla vilken scen
+      
+        if (isDaytime == true)
+        {
+            
+            stringNameOfCurrentAmbSound = "DayAmb";
+            Debug.Log(stringNameOfCurrentAmbSound);
+            AudioManager.Instance.PlaySound(stringNameOfCurrentAmbSound, "One");
+        }
        
-
-        if (isDaytime)
+        if (isDaytime == false)
         {
-            
-            soundList = "DayAmb";
-        }
-        else if (isMinigameOn)
-        {
-            
-            soundList = "GameAmb";
-            Debug.Log("THIS SHOULD BE MINIGAMEAMBIANCESOUNDS");
-            Debug.Log(currentScene);
-            
-        }
-        else
-        {
-            soundList = "NightAmb";
+            stringNameOfCurrentAmbSound = "NightAmb";
+            AudioManager.Instance.PlaySound(stringNameOfCurrentAmbSound, "One");
         }
         
-        
-        AudioManager.Instance.PlaySound(soundList, "One");
+       
         isAllowed = false;
         
         
-
-
-
     }
     
     
