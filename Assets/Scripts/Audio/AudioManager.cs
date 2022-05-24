@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
 
         effectsource.outputAudioMixerGroup = effectMixer;
         musicSource.outputAudioMixerGroup = musicMixer;
-        ambianceSource.outputAudioMixerGroup = effectMixer;  // Change to ambianceMixer if issue solved Johan  
+        ambianceSource.outputAudioMixerGroup = ambianceMixer;
 
     }
 
