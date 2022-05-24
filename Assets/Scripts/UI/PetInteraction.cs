@@ -205,7 +205,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         else
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
-            Clean(0.05f);
+            Clean(0.3f);
         }
         
         Ikimono.Animator.SetTrigger(Scratch);
