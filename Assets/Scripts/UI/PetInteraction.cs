@@ -30,6 +30,8 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private AudioSource _audioSource;
 
     private Pet _pet;
+    private static readonly int Eat = Animator.StringToHash("Eat");
+    private static readonly int Scratch = Animator.StringToHash("Scratch");
 
 
     private void Awake()
@@ -151,8 +153,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
                 }
 
                 AudioManager.Instance.RandomizeSound("Eating");
-
-
+                Ikimono.Animator.SetTrigger(Eat);
             }
         }
     }
@@ -178,7 +179,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         {
             AudioManager.Instance.RandomizeSound("Happy");  // Happy sounds
         }
-
     }
 
 
@@ -201,18 +201,14 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         if (!_petHygiene.IsCleaning)
         {
             PetIkimono(0.05f);
-
         }
-
-
-        else if (_petHygiene.IsCleaning)
+        else
         {
             MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.05f);
-
         }
-
-
+        
+        Ikimono.Animator.SetTrigger(Scratch);
     }
 
     IEnumerator PlaySound()

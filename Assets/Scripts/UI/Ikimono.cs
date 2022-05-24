@@ -8,12 +8,14 @@ namespace IKIMONO.UI
         [SerializeField] private GameObject _sleepFx;
 
         private Player _player;
-        private Animator _animator;
+        private static readonly int IsHappy = Animator.StringToHash("IsHappy");
+        private static readonly int IsSleeping = Animator.StringToHash("IsSleeping");
+        public static Animator Animator { get; private set; }
         
         private void Awake()
         {
             _player = Player.Instance;
-            _animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
         }
 
         private void Start()
@@ -33,21 +35,25 @@ namespace IKIMONO.UI
             
             if (_player.Pet.Energy.IsSleeping)
             {
-                _animator.Play("Sleep", 0, 1);
-
                 AudioManager.Instance.PlaySound("Sleeping", "One");
                
                 _sleepFx.SetActive(true);
             }
+
             else if (_player.Pet.Overall.Percentage < 0.3f)
             {
-                _animator.Play("Sad", 0, 1);
+              
             }
             else
             {
                 
-                _animator.Play("Idle", 0, 1);
+               
             }
+
+            
+            Animator.SetBool(IsHappy, _player.Pet.Overall.Percentage > 0.3f);
+            Animator.SetBool(IsSleeping, _player.Pet.Energy.IsSleeping);
+
         }
     }
 }
