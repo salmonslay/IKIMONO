@@ -65,7 +65,7 @@ namespace IKIMONO.Pet
                     _pettedAmount = Mathf.Max(_pettedAmount + value, 0);
                 }
                 PettedUpdateTime = DateTime.Now;
-                Debug.Log(_pettedAmount);
+                //Debug.Log(_pettedAmount);
             }
         }
     }
