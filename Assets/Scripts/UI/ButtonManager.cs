@@ -109,7 +109,7 @@ namespace IKIMONO.UI
 
         public void ClickSounds()
         {
-            AudioManager.Instance.RandomizeSound("Button");
+            AudioManager.Instance.PlaySound("Button", "One");
 
             
         }
