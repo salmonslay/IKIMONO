@@ -55,7 +55,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 1e5546b3301734a77877033c1f237a2b, type: 3}
@@ -63,7 +63,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: f2ae520f343e548158708304b6a2d28c, type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Happy
   PetEating:
@@ -82,7 +82,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: a5f506bdb604f45a18fb82c6d02bc301, type: 3}
@@ -90,7 +90,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Eating
   PetSleeping:
@@ -101,7 +101,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Sleeping
   PetSad:
@@ -112,7 +112,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 6478fcbb33fa14f14b8318a034224922, type: 3}
@@ -120,7 +120,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: 061e58ae7fadb4ad8811061a4e6a06d1, type: 3}
@@ -128,7 +128,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Sad
   Scratches:
@@ -139,7 +139,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 83e98f7bbce234fb8ac8ba774118e70c, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: 09b7be3435efd48a2b14fadee06a7b0a, type: 3}
@@ -155,7 +155,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Scratch
   Bubbles:
@@ -166,7 +166,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 5c83359320d234fdf914648daae2de24, type: 3}
@@ -174,7 +174,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Bubbles
   ShopSound:
@@ -185,7 +185,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 1
+      randomPitch: 0
       source: {fileID: 0}
     key: Shop
   Swoosh:
@@ -196,7 +196,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 1
+      randomPitch: 0
       source: {fileID: 0}
     key: Swoosh
   ButtonClick:
@@ -207,7 +207,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 305f3d1c5d7e7451e964139325efbfa3, type: 3}
@@ -215,7 +215,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Button
   GameOver:
@@ -226,7 +226,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: e037759065051419f95aa34bda653c7f, type: 3}
@@ -234,7 +234,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: bacd74fc552474fc984a6e171cb92165, type: 3}
@@ -242,7 +242,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: GameOver
   Jump:
@@ -253,7 +253,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 1
+      randomPitch: 0
       source: {fileID: 0}
     key: Jump
   Bounce:
@@ -264,7 +264,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 1
+      randomPitch: 0
       source: {fileID: 0}
     key: Bounce
   PlatformBreak:
@@ -275,7 +275,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 1
+      randomPitch: 0
       source: {fileID: 0}
     key: PlatformBreak
   PickupCoin:
@@ -286,28 +286,31 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Coin
   MainMusic:
     sound:
     - name: One
-      audioClip: {fileID: 8300000, guid: 43d0c32574c4545139ee7000b3ed4104, type: 3}
-      volume: 0.474
-      pitch: 1
-      loop: 1
-      mute: 0
-      random: 0
-      source: {fileID: 0}
-    - name: Two
       audioClip: {fileID: 8300000, guid: ddbc47f0766c444afa565811cc4a4eca, type: 3}
       volume: 1
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: Music
+  SleepMusic:
+    sound:
+    - name: One
+      audioClip: {fileID: 8300000, guid: 43d0c32574c4545139ee7000b3ed4104, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      mute: 0
+      randomPitch: 0
+      source: {fileID: 0}
+    key: SleepMusic
   MinigameMusic:
     sound:
     - name: One
@@ -316,7 +319,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: MinigameMusic
   NightAmb:
@@ -327,7 +330,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: NightAmb
   DayAmb:
@@ -338,18 +341,18 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: DayAmb
   GameAmb:
     sound:
     - name: One
-      audioClip: {fileID: 8300000, guid: 83759d9074ce5417880c06f13a0d15a9, type: 3}
-      volume: 1
+      audioClip: {fileID: 8300000, guid: 4c3c006d46dd5e94cb664fc1efa802df, type: 3}
+      volume: 0.34
       pitch: 1
       loop: 1
       mute: 0
-      random: 0
+      randomPitch: 0
       source: {fileID: 0}
     key: GameAmb
   effectsource: {fileID: 0}
