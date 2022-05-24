@@ -65,7 +65,7 @@ public class Background : MonoBehaviour
         }
 
 
-        Debug.Log("Time of day: " + isDaytime);
+        Debug.Log("Time of day: " + isDaytime);   // Städa sen
         Debug.Log("IsAllowed: " + isAllowed);
 
 

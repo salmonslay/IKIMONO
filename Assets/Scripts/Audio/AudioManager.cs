@@ -290,7 +290,7 @@ public class AudioManager : MonoBehaviour
 
         }
 
-        else { Debug.Log(a + " getList method failure"); 
+        else { //Debug.Log(a + " getList method failure"); 
         }
 
     }
