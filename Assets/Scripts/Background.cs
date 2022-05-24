@@ -4,18 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using IKIMONO.Pet;
+using UnityEngine.Experimental.Rendering.LWRP;
 
 public class Background : MonoBehaviour
 {
     [SerializeField] private Sprite _day;
     [SerializeField] private Sprite _night;
+
+    [SerializeField] UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
     private SoundDictionary<string, List<Sound>> test;
     
     private bool isDaytime;
     private bool isAllowed = true;
     private bool isMusicAllowed = true;
     private string stringNameOfCurrentAmbSound;
-    
+
+    private float minIntensity = 1f;
+    private float maxIntensity = 5f;
+
     private Pet _pet;
     
     
@@ -24,9 +30,7 @@ public class Background : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //AudioManager.Instance.PlaySound("Music", "Two");
-        // när det är dag
-
+        
 
     }
 
@@ -48,6 +52,7 @@ public class Background : MonoBehaviour
             //Daymode
             //Debug.Log("nu är jag i dag ifsatsen");
             GetComponent<Image>().sprite = _day;
+            globalLight.intensity = Mathf.PingPong(now.Hour * minIntensity, maxIntensity); // Ökar mellan tiden på dygnet , värdena behövs ställas
             isDaytime = true;
 
 
@@ -58,6 +63,7 @@ public class Background : MonoBehaviour
             //Nightmode
             //Debug.Log("nu är jag i natt ifsatsen");
             GetComponent<Image>().sprite = _night;
+            globalLight.intensity = Mathf.PingPong(now.Hour * maxIntensity, minIntensity);
             isDaytime = false;
             
 
