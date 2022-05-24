@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> PickupCoin;
     [Header("Music")]
     public SoundDictionary<String, List<Sound>> MainMusic;
+    public SoundDictionary<String, List<Sound>> SleepMusic;
     public SoundDictionary<String, List<Sound>> MinigameMusic;
     [Header("Ambiance")]
     public SoundDictionary<String, List<Sound>> NightAmb;
@@ -120,12 +121,12 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound soundClip in listInfo)
         {
-            if (listInfo == MinigameMusic.sound || listInfo == MainMusic.sound)
+            if (listInfo == MinigameMusic.sound || listInfo == MainMusic.sound || listInfo == SleepMusic.sound)
             {
                 soundClip.source = musicSource;
 
             }
-            else if (listInfo == DayAmb.sound || listInfo == NightAmb.sound)
+            else if (listInfo == DayAmb.sound || listInfo == NightAmb.sound || listInfo == GameAmb.sound)
             {
                 soundClip.source = ambianceSource;
             }
@@ -252,6 +253,13 @@ public class AudioManager : MonoBehaviour
 
         }
 
+        if (SleepMusic.containsKey(a))
+        {
+            setSourceInfo(SleepMusic.sound);
+            SoundListPlaying = SleepMusic.returnSound();
+
+        }
+
         if (MinigameMusic.containsKey(a))
         {
             setSourceInfo(MinigameMusic.sound);
@@ -282,7 +290,7 @@ public class AudioManager : MonoBehaviour
 
         }
 
-        else { //Debug.Log("getList method failure"); 
+        else { Debug.Log(a + " getList method failure"); 
         }
 
     }
@@ -295,7 +303,7 @@ public class AudioManager : MonoBehaviour
             if (soundAudioClip.name == soundName)
             {
 
-                if (soundAudioClip.random == true)
+                if (soundAudioClip.randomPitch == true)
                 {
                     soundAudioClip.source.pitch = Random.Range(0.8f, 1.4f);
                     soundAudioClip.source.PlayOneShot(soundAudioClip.audioClip);
@@ -336,7 +344,7 @@ public class Sound
     public float pitch;
     public bool loop;
     public bool mute;
-    public bool random;
+    public bool randomPitch;
 
 
 
@@ -354,11 +362,11 @@ public class SoundDictionary<String, List>
     public List<Sound> sound;
     public String key;
 
-    public SoundDictionary(String nyckel, List<Sound> ljud)
+    public SoundDictionary(String key, List<Sound> sound)
     {
 
-        this.sound = ljud;
-        this.key = nyckel;
+        this.sound = sound;
+        this.key = key;
     }
 
     public bool containsKey(String a)
