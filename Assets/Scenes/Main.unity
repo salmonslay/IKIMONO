@@ -2479,6 +2479,10 @@ PrefabInstance:
       value: Four
       objectReference: {fileID: 0}
     - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
+      propertyPath: GameAmb.sound.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 84439f4a7d77a415288703ccbc3d80bc, type: 3}
+    - target: {fileID: 5219874542178276996, guid: fcefbd37c339a4e4c9f5cd80461b2002, type: 3}
       propertyPath: PetSleeping.sound.Array.data[3].pitch
       value: 1
       objectReference: {fileID: 0}
