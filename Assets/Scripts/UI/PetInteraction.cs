@@ -219,12 +219,12 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
         if (_pet.Hygiene.IsCleaning)
         {
-            Debug.Log("cleansetsound");
+            //Debug.Log("cleansetsound");
             clip = _bubbleSounds[UnityEngine.Random.Range(0, _bubbleSounds.Length)];
         }
         else
         {
-            Debug.Log("sratchnsetsound");
+            //Debug.Log("sratchnsetsound");
             clip = _scratchSounds[UnityEngine.Random.Range(0, _scratchSounds.Length)];
 
         }
