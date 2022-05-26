@@ -220,7 +220,7 @@ MonoBehaviour:
     key: Button
   ButtonDisable:
     sound:
-    - name: 
+    - name: One
       audioClip: {fileID: 8300000, guid: ff358b10236254f8999d989aae5e67a5, type: 3}
       volume: 1
       pitch: 0.81
@@ -359,7 +359,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 84439f4a7d77a415288703ccbc3d80bc, type: 3}
-      volume: 0.78
+      volume: 0.35
       pitch: 1
       loop: 1
       mute: 0
