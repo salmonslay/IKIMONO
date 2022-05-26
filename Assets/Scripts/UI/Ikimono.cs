@@ -42,7 +42,7 @@ namespace IKIMONO.UI
                 AudioManager.Instance.PlaySound("DayAmb", "One");
             }else 
             {
-                Debug.Log("NIGHT");
+                //Debug.Log("NIGHT");
                 AudioManager.Instance.StopSound("DayAmb", "One");
                 AudioManager.Instance.PlaySound("NightAmb", "One");
 
