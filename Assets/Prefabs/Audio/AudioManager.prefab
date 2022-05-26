@@ -97,7 +97,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 4900b152c2c504c7b938e833eab71205, type: 3}
-      volume: 0.6
+      volume: 0.5
       pitch: 1
       loop: 1
       mute: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: c18a0ff8c15e545539980e48d6ff9ae4, type: 3}
-      volume: 1
+      volume: 0.9
       pitch: 1
       loop: 0
       mute: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Two
       audioClip: {fileID: 8300000, guid: 305f3d1c5d7e7451e964139325efbfa3, type: 3}
-      volume: 1
+      volume: 0.9
       pitch: 1
       loop: 0
       mute: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Three
       audioClip: {fileID: 8300000, guid: bacd74fc552474fc984a6e171cb92165, type: 3}
-      volume: 0.5
+      volume: 0.2
       pitch: 1
       loop: 0
       mute: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 874fdd435dbdc48d9a036f001ae8adb1, type: 3}
-      volume: 0.45
+      volume: 0.25
       pitch: 1
       loop: 0
       mute: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: a10e807c2cc3143c89d7bb44d27c3311, type: 3}
-      volume: 0.45
+      volume: 0.2
       pitch: 1
       loop: 0
       mute: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: ddbc47f0766c444afa565811cc4a4eca, type: 3}
-      volume: 1
+      volume: 0.6
       pitch: 1
       loop: 1
       mute: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 43d0c32574c4545139ee7000b3ed4104, type: 3}
-      volume: 1
+      volume: 0.6
       pitch: 1
       loop: 0
       mute: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 6ce0291814c524f53ac1774f3be05ae1, type: 3}
-      volume: 0.45
+      volume: 0.35
       pitch: 1
       loop: 1
       mute: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 942b65ef6612cd84480818083e71918b, type: 3}
-      volume: 0.52
+      volume: 0.1
       pitch: 1
       loop: 1
       mute: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: f03ea97355d139d4c916beed86974c7d, type: 3}
-      volume: 0.47
+      volume: 0.08
       pitch: 1
       loop: 1
       mute: 0
@@ -347,8 +347,8 @@ MonoBehaviour:
   GameAmb:
     sound:
     - name: One
-      audioClip: {fileID: 8300000, guid: 4c3c006d46dd5e94cb664fc1efa802df, type: 3}
-      volume: 0.34
+      audioClip: {fileID: 8300000, guid: 84439f4a7d77a415288703ccbc3d80bc, type: 3}
+      volume: 0.78
       pitch: 1
       loop: 1
       mute: 0
