@@ -1,6 +1,7 @@
 using UnityEngine;
 using IKIMONO.Pet;
 
+
 namespace IKIMONO.UI
 {
     public class Ikimono : MonoBehaviour
@@ -12,12 +13,15 @@ namespace IKIMONO.UI
         private static readonly int IsHappy = Animator.StringToHash("IsHappy");
         private static readonly int IsSleeping = Animator.StringToHash("IsSleeping");
         public static Animator Animator { get; private set; }
-        
+
+  
         private void Awake()
         {
             _player = Player.Instance;
             Animator = GetComponent<Animator>();
+            
         }
+
 
         private void Start()
         {
@@ -32,12 +36,14 @@ namespace IKIMONO.UI
                 AudioManager.Instance.PlaySound("Music", "One");
             }
 
-            if(Background.IsDay)
+            if (Background.IsDay)
             {
+                AudioManager.Instance.StopSound("NightAmb", "One");
                 AudioManager.Instance.PlaySound("DayAmb", "One");
-            }
-            else if (Background.IsDay == false)
+            }else 
             {
+                Debug.Log("NIGHT");
+                AudioManager.Instance.StopSound("DayAmb", "One");
                 AudioManager.Instance.PlaySound("NightAmb", "One");
 
             }
