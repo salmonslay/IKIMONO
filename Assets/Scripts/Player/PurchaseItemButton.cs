@@ -18,5 +18,9 @@ public class PurchaseItemButton : MonoBehaviour
             AudioManager.Instance.PlaySound("Shop", "One");
 
         }
+        else
+        {
+            AudioManager.Instance.PlaySound("ButtonDisable", "One");
+        }
     }
 }
