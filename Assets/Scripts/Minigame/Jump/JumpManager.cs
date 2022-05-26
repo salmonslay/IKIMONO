@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,11 @@ namespace IKIMONO.Minigame.Jump
         public JumpPlayer Player { get; private set; }
 
         public GameState GameState { get; private set; } = GameState.None;
+        
+        /// <summary>
+        /// Coins that will be claimed when the player exits the game
+        /// </summary>
+        public static int CoinsUnredeemed { get; set; } = -1;
 
         /// <summary>
         /// The highest point the player has reached in the current game, in meters (global Y axis)
@@ -41,15 +47,11 @@ namespace IKIMONO.Minigame.Jump
             }
 
             Player = FindObjectOfType<JumpPlayer>();
-
-
         }
 
         private void Start()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
-
         }
 
         private void Update()
@@ -79,7 +81,9 @@ namespace IKIMONO.Minigame.Jump
             Pet.Player.Instance.Pet.Energy.Decrease(HighestJump / 100);
             Pet.Player.Instance.Pet.Hunger.Decrease(HighestJump / 82);
             Pet.Player.Instance.Pet.Hygiene.Decrease(HighestJump / 42.1337f);
-            Pet.Player.Instance.AddCoins(CoinsCollected);
+            
+            CoinsUnredeemed = Math.Max(0, CoinsUnredeemed);
+            CoinsUnredeemed += CoinsCollected;
 
             AudioManager.Instance.RandomizeSound("GameOver");
             // @PhilipAudio: Play the game over sound here, and tune down the music a bit.

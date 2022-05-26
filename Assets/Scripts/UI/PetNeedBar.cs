@@ -1,12 +1,16 @@
 using System;
+using System.Collections;
+using IKIMONO.Minigame.Jump;
 using IKIMONO.Pet;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace IKIMONO.UI
 {
     public class PetNeedBar : MonoBehaviour
     {
+        #region NeedBar data
         [Tooltip("The image to fill with the pet's need.")]
         [SerializeField] private Image _fillImage;
 
@@ -25,7 +29,9 @@ namespace IKIMONO.UI
         private PetNeed _petNeed;
         private PetNeedEnergy _petNeedEnergy;
         private Button _button;
+        #endregion
 
+        #region Arrow data
         private Animator _animator;
         private bool _arrowActiveFromSleep;
         private float _lastShownValue;
@@ -35,6 +41,13 @@ namespace IKIMONO.UI
         private bool _comingFromMiniGame = false;
         private bool _arrowIsPositive;
         private float _arrowTimer = 0;
+        #endregion
+
+        #region Coin data
+        private GameObject _coin;
+        private Vector3 _coinTarget;
+        private Transform _canvas;
+        #endregion
 
         private void Awake()
         {
@@ -53,6 +66,16 @@ namespace IKIMONO.UI
 
             _petNeedEnergy = Player.Instance.Pet.Energy;
             _animator = _arrow.gameObject.GetComponent<Animator>();
+            
+            _coin = Resources.Load<GameObject>("Prefabs/UI/Coin");
+            _coinTarget = GameObject.FindWithTag("CoinTarget").transform.position;
+            _canvas = GameObject.Find("Canvas").transform;
+
+            if (JumpManager.CoinsUnredeemed != -1 && _petNeed != null && _petNeed.GetType() == typeof(PetNeedFun))
+            {
+                StartCoroutine(SummonCoinCoroutine(JumpManager.CoinsUnredeemed));
+                JumpManager.CoinsUnredeemed = -1;
+            }
         }
 
         private void Update()
@@ -211,6 +234,22 @@ namespace IKIMONO.UI
             _fillImage.fillAmount = newValue; // make sure the bar is always visible, even if it's at 0%
             _fillImage.color = _gradient.Evaluate(_petNeed.Percentage);
             GetComponent<Image>().color = _backgroundGradient.Evaluate(_petNeed.Percentage);
+        }
+        
+        private IEnumerator SummonCoinCoroutine(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+                SpawnCoin();
+            }
+        }
+        
+        private void SpawnCoin()
+        {
+            // spawn a coin at this pet need's position and make it glide to the player
+            GameObject coin = Instantiate(_coin, transform.position, Quaternion.identity, _canvas);
+            coin.GetComponent<UICoin>().SetTarget(_coinTarget);
         }
     }
 }

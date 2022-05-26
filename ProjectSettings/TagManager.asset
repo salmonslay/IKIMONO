@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DebugNeedBar
   - IkimonoPet
+  - CoinTarget
   layers:
   - Default
   - TransparentFX
