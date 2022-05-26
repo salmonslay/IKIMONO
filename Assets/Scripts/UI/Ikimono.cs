@@ -21,6 +21,8 @@ namespace IKIMONO.UI
 
         private void Start()
         {
+            AudioManager.Instance.StopSound("GameAmb", "One");
+
             if(_player.Pet.Energy.IsSleeping == true)
             {
                 AudioManager.Instance.PlaySound("SleepMusic", "One");
@@ -32,7 +34,7 @@ namespace IKIMONO.UI
 
             if(Background.IsDay)
             {
-                //AudioManager.Instance.PlaySound("DayAmb", "One");
+                AudioManager.Instance.PlaySound("DayAmb", "One");
             }
             else if (Background.IsDay == false)
             {
