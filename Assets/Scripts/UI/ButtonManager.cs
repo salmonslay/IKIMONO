@@ -13,6 +13,7 @@ namespace IKIMONO.UI
         [SerializeField] private GameObject _uiSettingsWindow;
 
         private GameObject _activeWindow;
+        
 
 
         public void OpenSettings()
@@ -78,12 +79,25 @@ namespace IKIMONO.UI
 
         public void NeedEnergy()
         {
+
+           
             //Player.Instance.Pet.SetIkimonoState(State.IsSleeping);
             PetNeedEnergy energy = Player.Instance.Pet.Energy;
             energy.IsSleeping = !energy.IsSleeping;
             Player.Instance.Save();
             FindObjectOfType<Ikimono>().SetSprite();
             Player.Instance.Pet.Hygiene.IsCleaning = false;
+
+            if(energy.IsSleeping == true)
+            {
+                
+                AudioManager.Instance.PlaySound("SleepMusic", "One");
+            }
+            else
+            {
+                AudioManager.Instance.PlaySound("Music", "One");
+            }
+            
         }
 
 
