@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
     public SoundDictionary<String, List<Sound>> Swoosh;
     [Header("UI")]
     public SoundDictionary<String, List<Sound>> ButtonClick;
+    public SoundDictionary<String, List<Sound>> ButtonDisable;
     [Header("MiniGame")]
     public SoundDictionary<String, List<Sound>> GameOver;
     public SoundDictionary<String, List<Sound>> Jump;
@@ -210,6 +211,14 @@ public class AudioManager : MonoBehaviour
             SoundListPlaying = ButtonClick.returnSound();
 
         }
+
+        if (ButtonDisable.containsKey(a))
+        {
+            setSourceInfo(ButtonDisable.sound);
+            SoundListPlaying = ButtonDisable.returnSound();
+
+        }
+
 
         if (GameOver.containsKey(a))
         {

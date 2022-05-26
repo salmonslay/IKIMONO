@@ -218,6 +218,17 @@ MonoBehaviour:
       randomPitch: 0
       source: {fileID: 0}
     key: Button
+  ButtonDisable:
+    sound:
+    - name: 
+      audioClip: {fileID: 8300000, guid: ff358b10236254f8999d989aae5e67a5, type: 3}
+      volume: 1
+      pitch: 0.81
+      loop: 0
+      mute: 0
+      randomPitch: 0
+      source: {fileID: 0}
+    key: ButtonDisable
   GameOver:
     sound:
     - name: One
