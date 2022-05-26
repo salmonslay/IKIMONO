@@ -12,6 +12,9 @@ namespace IKIMONO.UI
 
         [Tooltip("The gradient to use for the fill image.")]
         [SerializeField] private Gradient _gradient;
+        
+        [Tooltip("The gradient to use for the fill background.")]
+        [SerializeField] private Gradient _backgroundGradient;
 
         [Tooltip("Whether or not the pet's name should be displayed on the bar.")]
         [SerializeField] private bool _showName;
@@ -207,6 +210,7 @@ namespace IKIMONO.UI
 
             _fillImage.fillAmount = newValue; // make sure the bar is always visible, even if it's at 0%
             _fillImage.color = _gradient.Evaluate(_petNeed.Percentage);
+            GetComponent<Image>().color = _backgroundGradient.Evaluate(_petNeed.Percentage);
         }
     }
 }
