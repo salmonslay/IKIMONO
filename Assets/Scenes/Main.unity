@@ -3907,10 +3907,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205016948517351438, guid: d784d5d9146f4094baf45603f93f3b82, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4205016948517351442, guid: d784d5d9146f4094baf45603f93f3b82, type: 3}
       propertyPath: globalLight
       value: 
@@ -3921,10 +3917,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4205016948775317835, guid: d784d5d9146f4094baf45603f93f3b82, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205016948775317835, guid: d784d5d9146f4094baf45603f93f3b82, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205016949345181509, guid: d784d5d9146f4094baf45603f93f3b82, type: 3}
