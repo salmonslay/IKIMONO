@@ -63,7 +63,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     {
         if (_petHygiene.IsCleaning)
         {
-            _sponge = Instantiate(_spongePrefab, transform.position, Quaternion.identity, transform);
+            _sponge = Instantiate(_spongePrefab, transform.position, Quaternion.identity, _canvas.gameObject.transform);
         }
         else
         {
@@ -162,7 +162,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     {
         if (_petHygiene.IsCleaning)
         {
-            _sponge.GetComponent<RectTransform>().anchoredPosition = eventData.pressPosition - _uiOffset;
+            _sponge.GetComponent<RectTransform>().anchoredPosition = (eventData.pressPosition - _uiOffset) / _canvas.scaleFactor;
         }
 
         if (_pet.Energy.IsSleeping)
@@ -185,6 +185,10 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (_petHygiene.IsCleaning)
+        {
+            MoveSponge(eventData.delta / _canvas.scaleFactor);
+        }
         if (eventData.pointerCurrentRaycast.gameObject != gameObject)
         {
             return;
@@ -204,10 +208,9 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
         }
         else
         {
-            MoveSponge(eventData.delta / _canvas.scaleFactor);
             Clean(0.3f);
         }
-        
+
         Ikimono.Animator.SetTrigger(Scratch);
     }
 
