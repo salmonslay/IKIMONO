@@ -12,7 +12,7 @@ namespace IKIMONO.Minigame.Jump
         public JumpPlayer Player { get; private set; }
 
         public GameState GameState { get; private set; } = GameState.None;
-        
+
         /// <summary>
         /// Coins that will be claimed when the player exits the game
         /// </summary>
@@ -32,7 +32,7 @@ namespace IKIMONO.Minigame.Jump
         [SerializeField] private Text _coinText;
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private Text _gameOverText;
-        
+
 
         private void Awake()
         {
@@ -75,15 +75,10 @@ namespace IKIMONO.Minigame.Jump
             const string color = "#C08C2B";
             _gameOverText.text = $"You travelled <color={color}>{Mathf.RoundToInt(HighestJump)}</color> meters, collected <color={color}>{CoinsCollected}</color> coin{(CoinsCollected == 1 ? "" : "s")} and jumped <color={color}>{JumpCount}</color> times!";
 
-            // This is extremely ugly, a refactor would be nice at some point
-            // all numbers are divided by a random amount to make it a bit more random
-            Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32);
-            Pet.Player.Instance.Pet.Energy.Decrease(HighestJump / 100);
-            Pet.Player.Instance.Pet.Hunger.Decrease(HighestJump / 82);
-            Pet.Player.Instance.Pet.Hygiene.Decrease(HighestJump / 42.1337f);
-            
             CoinsUnredeemed = Math.Max(0, CoinsUnredeemed);
             CoinsUnredeemed += CoinsCollected;
+            CoinsCollected = 0;
+
 
             AudioManager.Instance.RandomizeSound("GameOver");
             // @PhilipAudio: Play the game over sound here, and tune down the music a bit.
@@ -96,7 +91,17 @@ namespace IKIMONO.Minigame.Jump
 
         public void Quit()
         {
-            
+            // This is extremely ugly, a refactor would be nice at some point
+            // all numbers are divided by a random amount to make it a bit more random
+            Pet.Player.Instance.Pet.Fun.Increase(HighestJump / 32);
+            Pet.Player.Instance.Pet.Energy.Decrease(HighestJump / 100);
+            Pet.Player.Instance.Pet.Hunger.Decrease(HighestJump / 82);
+            Pet.Player.Instance.Pet.Hygiene.Decrease(HighestJump / 42.1337f);
+
+            CoinsUnredeemed = Math.Max(0, CoinsUnredeemed);
+            CoinsUnredeemed += CoinsCollected;
+
+            Time.timeScale = 1;
             SceneManager.LoadScene("Main");
 
         }
