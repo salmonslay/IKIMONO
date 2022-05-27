@@ -21,11 +21,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private PetNeedHygiene _petHygiene;
     private PetNeedFun _petFun;
 
-    private PetNeedBar _funButton;
-    private PetNeedBar _hungerButton;
-    private PetNeedBar _hygieneButton;
-    private PetNeedBar _energyButton;
-
     private bool _canPlaySound = true;
     private AudioSource _audioSource;
 
@@ -50,12 +45,6 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     private void Start()
     {
         _petHygiene.OnCleaningStateChanged += OnCleaningStateChanged;
-        _funButton = GameObject.Find("Need Fun").GetComponent<PetNeedBar>();
-        _hungerButton = GameObject.Find("Need Hunger").GetComponent<PetNeedBar>();
-        _hygieneButton = GameObject.Find("Need Hygiene").GetComponent<PetNeedBar>();
-        _energyButton = GameObject.Find("Need Energy").GetComponent<PetNeedBar>();
-        _audioSource = AudioManager.Instance.effectsource;
-
         PetNeed.ValueUpdated += UpdatePettedValue;
     }
 
