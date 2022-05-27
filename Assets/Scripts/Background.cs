@@ -1,12 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using IKIMONO.Pet;
-using UnityEngine.Experimental.Rendering.LWRP;
-using UnityEngine.UIElements;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Background : MonoBehaviour
 {
@@ -14,7 +9,7 @@ public class Background : MonoBehaviour
     [SerializeField] private Sprite _night;
     [SerializeField] private GameObject _clouds;
 
-    [SerializeField] UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
+    [SerializeField] private Light2D globalLight;
     
     
     private const int SunUpHour = 6;
@@ -26,52 +21,38 @@ public class Background : MonoBehaviour
     /// Checks if it currently is day or not, with overrides in mind.
     /// </summary>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static bool IsDay { get
+    public static bool IsDay { get 
     {
-        return _overrideMode switch
+        return _overrideMode  switch
         {
             OverrideMode.None => DateTime.Now.Hour >= SunUpHour && DateTime.Now.Hour <= SunDownHour,
             OverrideMode.Day => true,
             OverrideMode.Night => false,
-            _ => throw new ArgumentOutOfRangeException()
+            _ => throw new ArgumentOutOfRangeException(),
         };
     }}
-    
-      
 
-    private float minIntensity = 2.5f;
-    private float maxIntensity = 4.5f;
-    public bool dayTime;
+    private const float MinIntensity = 2.5f;
+    private const float MaxIntensity = 4.5f;
 
-
-    
-    
-   
-    
-    void Update()
+    private void Update()
     {
         //What time is it now and what mode am I in
         //Get current hour
-        System.DateTime now = System.DateTime.Now;
+        DateTime now = DateTime.Now;
 
         //Debug.Log($"timmen är nu: {now.Hour}");
 
         if (IsDay)
         {
-            //Daymode
-            //Debug.Log("nu är jag i dag ifsatsen");
             GetComponent<Image>().sprite = _day;
-            globalLight.intensity = maxIntensity;
-            dayTime = true;
+            globalLight.intensity = MaxIntensity;
 
         }
         else
         {
-            //Nightmode
-            //Debug.Log("nu är jag i natt ifsatsen");
             GetComponent<Image>().sprite = _night;
-            globalLight.intensity = minIntensity;
-            dayTime = false;
+            globalLight.intensity = MinIntensity;
         }
 
         if(Input.GetKeyDown(KeyCode.D))
