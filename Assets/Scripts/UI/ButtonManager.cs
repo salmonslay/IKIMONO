@@ -1,6 +1,7 @@
 using System;
 using IKIMONO.Pet;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace IKIMONO.UI
@@ -13,7 +14,7 @@ namespace IKIMONO.UI
         [SerializeField] private GameObject _uiSettingsWindow;
 
         private GameObject _activeWindow;
-        
+
 
 
         public void OpenSettings()
@@ -46,7 +47,7 @@ namespace IKIMONO.UI
 
         public void NeedFun()
         {
-            if(!Player.Instance.MinigameJumpTutorialDone)
+            if (!Player.Instance.MinigameJumpTutorialDone)
             {
                 Player.Instance.MinigameJumpTutorialDone = true;
                 SceneManager.LoadScene("MinigameTutorial");
@@ -55,7 +56,7 @@ namespace IKIMONO.UI
             {
                 SceneManager.LoadScene("MinigameJump");
             }
-            
+
 
             AudioManager.Instance.StopSound("DayAmb", "One");
             AudioManager.Instance.StopSound("NightAmb", "One");
@@ -70,6 +71,7 @@ namespace IKIMONO.UI
             {
                 _uiInventoryWindow.SetActive(true);
                 _activeWindow = _uiInventoryWindow;
+                _uiInventoryWindow.GetComponentInParent<VerticalLayoutGroup>().padding.bottom = 1300;
             }
             else
             {
@@ -80,7 +82,7 @@ namespace IKIMONO.UI
         public void NeedEnergy()
         {
 
-           
+
             //Player.Instance.Pet.SetIkimonoState(State.IsSleeping);
             PetNeedEnergy energy = Player.Instance.Pet.Energy;
             energy.IsSleeping = !energy.IsSleeping;
@@ -88,16 +90,16 @@ namespace IKIMONO.UI
             FindObjectOfType<Ikimono>().SetSprite();
             Player.Instance.Pet.Hygiene.IsCleaning = false;
 
-            if(energy.IsSleeping == true)
+            if (energy.IsSleeping == true)
             {
-                
+
                 AudioManager.Instance.PlaySound("SleepMusic", "One");
             }
             else
             {
                 AudioManager.Instance.PlaySound("Music", "One");
             }
-            
+
         }
 
 
@@ -112,6 +114,7 @@ namespace IKIMONO.UI
             _uiInventoryWindow.SetActive(false);
             _uiShopWindow.SetActive(false);
             _uiSettingsWindow.SetActive(false);
+            _uiInventoryWindow.GetComponentInParent<VerticalLayoutGroup>().padding.bottom = 850;
         }
         public void CloseAllUIWindows()
         {
@@ -139,8 +142,8 @@ namespace IKIMONO.UI
         {
             AudioManager.Instance.PlaySound("Button", "One");
 
-            
+
         }
-       
+
     }
 }
