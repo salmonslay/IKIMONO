@@ -192,11 +192,11 @@ MonoBehaviour:
     sound:
     - name: One
       audioClip: {fileID: 8300000, guid: 83759d9074ce5417880c06f13a0d15a9, type: 3}
-      volume: 1
+      volume: 0.61
       pitch: 1
       loop: 0
       mute: 0
-      randomPitch: 0
+      randomPitch: 1
       source: {fileID: 0}
     key: Swoosh
   ButtonClick:
