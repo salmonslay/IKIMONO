@@ -32,7 +32,7 @@ public class Background : MonoBehaviour
         };
     }}
 
-    private const float MinIntensity = 2.5f;
+    private const float MinIntensity = 2.0f;
     private const float MaxIntensity = 4.5f;
 
     private void Update()
