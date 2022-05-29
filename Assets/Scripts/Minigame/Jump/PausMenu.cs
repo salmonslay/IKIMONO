@@ -13,8 +13,6 @@ public class PausMenu : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        Screen.sleepTimeout = SleepTimeout.SystemSetting;
-
         _pausGamePanel.SetActive(true);
         const string color = "#C08C2B";
         _pausGameText.text = $"You have travelled <color={color}>{Mathf.RoundToInt(_jumpManager.HighestJump)}</color> meters so far, collected <color={color}>{_jumpManager.CoinsCollected}</color> coin{(_jumpManager.CoinsCollected == 1 ? "" : "s")} and jumped <color={color}>{_jumpManager.JumpCount}</color> times!";
