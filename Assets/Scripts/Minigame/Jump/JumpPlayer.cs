@@ -29,7 +29,7 @@ namespace IKIMONO.Minigame.Jump
             transform.Translate(Time.deltaTime * 5 * move);
             
             // The first jump is always manual
-            if (Input.GetMouseButtonDown(0) && !_hasJumped || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0) && !_hasJumped || Input.GetKeyDown(KeyCode.Space) && Application.isEditor)
             {
                 Jump();
             }

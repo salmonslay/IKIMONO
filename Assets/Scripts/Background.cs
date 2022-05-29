@@ -55,13 +55,16 @@ public class Background : MonoBehaviour
             globalLight.intensity = MinIntensity;
         }
 
-        if(Input.GetKeyDown(KeyCode.D))
-            _overrideMode = OverrideMode.Day;
-        else if (Input.GetKeyDown(KeyCode.N))
-            _overrideMode = OverrideMode.Night;
-        else if (Input.GetKeyDown(KeyCode.R))
-            _overrideMode = OverrideMode.None;
-        
+        if (Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+                _overrideMode = OverrideMode.Day;
+            else if (Input.GetKeyDown(KeyCode.N))
+                _overrideMode = OverrideMode.Night;
+            else if (Input.GetKeyDown(KeyCode.R))
+                _overrideMode = OverrideMode.None;
+        }
+
         _dayObjects.SetActive(IsDay);
     }
         
