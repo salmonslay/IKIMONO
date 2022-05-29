@@ -7,7 +7,7 @@ public class Background : MonoBehaviour
 {
     [SerializeField] private Sprite _day;
     [SerializeField] private Sprite _night;
-    [SerializeField] private GameObject _clouds;
+    [SerializeField] private GameObject _dayObjects;
 
     [SerializeField] private Light2D globalLight;
     
@@ -62,7 +62,7 @@ public class Background : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.R))
             _overrideMode = OverrideMode.None;
         
-        _clouds.SetActive(IsDay);
+        _dayObjects.SetActive(IsDay);
     }
         
     /// <summary>
