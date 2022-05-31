@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using IKIMONO.Pet;
+#if UNITY_ANDROID
 using Unity.Notifications.Android;
 using UnityEngine;
 
@@ -79,3 +77,4 @@ public class AndroidNotifications : MonoBehaviour
     }
 
 }
+#endif

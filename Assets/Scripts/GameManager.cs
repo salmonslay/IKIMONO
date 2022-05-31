@@ -7,7 +7,10 @@ namespace IKIMONO
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
+#if UNITY_ANDROID
         private AndroidNotifications _androidNotifications;
+#endif
+
         private Settings _settings;
        
 
@@ -15,9 +18,10 @@ namespace IKIMONO
         {
             Player.Instance.Pet.UpdateValues();
             _settings = Player.Instance.Settings;
+#if UNITY_ANDROID
             _androidNotifications = AndroidNotifications.Instance;
             _androidNotifications.CancelAllNotifications();
-
+#endif
             if (Instance == null)
             {
                 Instance = this;
@@ -72,6 +76,7 @@ namespace IKIMONO
         [SerializeField] private float fireNotificationsAtNeedValue = 30;
         private void ScheduleNeedNotifications()
         {
+#if UNITY_ANDROID
             if (!_settings.NotificationsToggle) return;
 
             _androidNotifications.CancelAllNotifications();
@@ -90,6 +95,7 @@ namespace IKIMONO
                         need.NotificationIcon, fireDelay));
                 }
             }
+#endif
         }
 
         /// <summary>
