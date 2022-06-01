@@ -33,7 +33,7 @@ public class PetInteraction : MonoBehaviour, IDropHandler, IPointerDownHandler, 
     {
         _canvas = transform.GetComponentInParent<Canvas>();
         _canvasRectTransform = _canvas.GetComponent<RectTransform>();
-
+        _audioSource = GetComponent<AudioSource>();
 
         _uiOffset = new Vector2((float)_canvasRectTransform.sizeDelta.x / 2, (float)_canvasRectTransform.sizeDelta.y / 2);
         _pet = Player.Instance.Pet;
